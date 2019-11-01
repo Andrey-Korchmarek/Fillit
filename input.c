@@ -10,20 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-while ((ret = read(fd, buff, 5))
-		{
-			buff[ret] = '\0';
-			//Сохраняем прочитанное
-			ret = read(fd, buff, 5);
-			buff[ret] = '\0';
-			//Сохраняем прочитанное
-			ret = read(fd, buff, 5)
-			buff[ret] = '\0';
-			//Сохраняем прочитанное
-			ret = read(fd, buff, 5)
-			buff[ret] = '\0';
-			//Сохраняем прочитанное
-			ret = read(fd, buff, 1)
-			buff[ret] = '\0';
-			//Сохраняем прочитанное
-		}
+#include "fillit.h"
+
+unsigned short int	read_validetion(fd)
+{
+	while ((ret = read(fd, buff, 21))
+	{
+		buff[ret] = '\0';
+		rft_strcount(buff, '.');
+		ft_strcount
+	}
+	return (0);
+}
