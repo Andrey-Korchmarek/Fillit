@@ -1,24 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/06 11:43:58 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/06 12:34:31 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include <stdlib.h>
 
-int main(void)
+int	*ft_range(int min, int max)
 {
-	int fd;
+	int *run;
+	int i;
+	int mm;
 
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	if (max <= min)
+		return (NULL);
+	run = (int*)malloc(sizeof(*run) * (max - min));
+	if (!run)
+		return (NULL);
+	i = 0;
+	mm = max - min;
+	while (i < mm)
+	{
+		run[i] = min;
+		min++;
+		i++;
+	}
+	return (run);
 }

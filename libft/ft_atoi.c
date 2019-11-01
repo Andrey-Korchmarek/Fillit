@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/06/10 16:30:28 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/17 17:19:13 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+int	ft_atoi(const char *str)
 {
-	int fd;
-
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	return ((int)ft_atoll(str));
 }

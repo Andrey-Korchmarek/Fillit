@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/06/11 13:12:20 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/20 13:52:11 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+char	*ft_strncpy(char *dest, const char *src, unsigned int n)
 {
-	int fd;
+	size_t i;
+	size_t len;
 
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	len = ft_strlen(src);
+	i = 0;
+	while (i < n && i < len)
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+	{
+		dest[i] = '\0';
+		i++;
+	}
+	return (dest);
 }

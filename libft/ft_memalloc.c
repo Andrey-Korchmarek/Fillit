@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/17 10:42:16 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/17 17:09:14 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+void	*ft_memalloc(size_t size)
 {
-	int fd;
+	void	*tmp;
 
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	tmp = malloc(size);
+	if (!tmp)
+		return (NULL);
+	ft_bzero(tmp, size);
+	return (tmp);
 }

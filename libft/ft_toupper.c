@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/13 11:12:41 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/16 12:58:50 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+int	ft_toupper(int c)
 {
-	int fd;
-
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	if (ft_islower(c))
+		return (c - 32);
+	return (c);
 }

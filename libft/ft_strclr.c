@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strclr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/17 10:58:32 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/17 15:38:58 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+void	ft_strclr(char *s)
 {
-	int fd;
-
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	if (s)
+		while (*s)
+			*s++ = '\0';
 }

@@ -13,13 +13,7 @@
 #include "fillit.h"
 #include "libft_mashley/libft.h"
 
-int validation(char *str)
-{
-
-	return (0);
-}
-
-int	read_validation(int fd)
+int	read_and_validation(int fd)
 {
 	char	buff[22];
 	int		ret;
@@ -31,12 +25,7 @@ int	read_validation(int fd)
 	{
 		buff[ret] = '\0';
 		printf("%s\n", buff);
-		if (ft_strcount(buff, '.') != 12)
-			return (-1);
-		if (ft_strcount(buff, '#') != 4)
-			return (-1);
-		if (ft_strcount(buff, '\n') != (ret / 20 + ret % 20))
-			return(-1);
+
 		if (validation(buff))
 		{
 			sklad[i] = ft_strsplit(buff, '\n');

@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memrcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/20 11:45:48 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/20 11:47:42 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+void	*ft_memrcpy(void *dst, const void *src, size_t len)
 {
-	int fd;
+	unsigned char		*buffer;
+	const unsigned char	*source;
+	size_t				i;
 
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	buffer = dst;
+	source = src;
+	i = (len - 1);
+	while (i > 0)
+	{
+		buffer[i] = source[i];
+		i--;
+	}
+	buffer[0] = source[0];
+	return (dst);
 }

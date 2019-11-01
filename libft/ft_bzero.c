@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/12 18:49:33 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/18 16:51:07 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+void	ft_bzero(void *b, size_t n)
 {
-	int fd;
-
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	ft_memset(b, '\0', n);
 }

@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/17 11:55:50 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/19 19:27:11 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int fd;
+	char	*str;
+	size_t	i;
 
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	if (!s || start + len > ft_strplen(s))
+		return (NULL);
+	str = ft_strnew(len);
+	i = 0;
+	if (str)
+	{
+		while (i < len)
+		{
+			str[i] = s[start + i];
+			i++;
+		}
+		str[i] = '\0';
+	}
+	return (str);
 }

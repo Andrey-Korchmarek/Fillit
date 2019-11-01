@@ -1,24 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_shrinking_gap.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/12 18:58:45 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/16 12:30:27 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "../libft/libft.h"
 
-int main(void)
+size_t	ft_shrinking_gap(size_t gap)
 {
-	int fd;
+	size_t	integer;
+	float	real;
 
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	real = gap / SHRINKER;
+	integer = (size_t)real;
+	if (real - integer >= 0.5)
+		return (integer + 1);
+	else
+		return (integer);
 }

@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/25 12:54:46 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/25 13:14:53 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	int fd;
+	t_list		*new_list;
+	t_list		*tmp_list;
 
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	if (!lst)
+		return (NULL);
+	tmp_list = f(lst);
+	new_list = tmp_list;
+	while (lst->next)
+	{
+		lst = lst->next;
+		tmp_list->next = f(lst);
+		if (!tmp_list->next)
+		{
+			free(tmp_list->next);
+			return (NULL);
+		}
+		tmp_list = tmp_list->next;
+	}
+	return (new_list);
 }

@@ -1,24 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/11 13:57:44 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/11 13:57:44 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include <string.h>
 
-int main(void)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int fd;
+	unsigned char	*tmp;
 
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	if (len == 0)
+		return (b);
+	tmp = (unsigned char *)b;
+	while (len--)
+	{
+		*tmp = (unsigned char)c;
+		if (len)
+			tmp++;
+	}
+	return (b);
 }

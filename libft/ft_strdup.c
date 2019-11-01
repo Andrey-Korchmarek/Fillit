@@ -1,24 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:33:52 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 12:33:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/06 11:13:51 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/06 11:40:22 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include <stdio.h>
-#include <fcntl.h>
+#include "libft.h"
 
-int main(void)
+char	*ft_strdup(const char *src)
 {
-	int fd;
+	char	*dup;
+	size_t	i;
 
-	fd = open("1_figure", O_RDONLY);
-	read_and_validation(fd);
-	return (0);
+	if (ft_strplen(src) + 1 == 0)
+		return (NULL);
+	dup = (char *)malloc(sizeof(char) * (ft_strplen(src) + 1));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		dup[i] = src[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
 }

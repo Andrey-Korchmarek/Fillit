@@ -55,10 +55,10 @@ dkms.conf
 .DS_Store
 .idea/
 cmake-build-debug/
-libft/CMakeLists.txt
+CMakeLists.txt
 jraleman.c
 AntonKaravaev.c
-# main.c
+main.c
 test.txt
 36000.txt
 a.out
