@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 19:02:44 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 19:02:50 by mashley          ###   ########.fr       */
+/*   Updated: 2019/11/02 18:31:13 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int main(int argc, char **argv)
 		ft_putstr("error");
 	fd = open(argv[1], O_RDONLY);
 	read_and_validation(fd);
-	calculation();
-	output();
+/* 	calculation();
+	output(); */
 	close(fd);
 	return (0);
 }
