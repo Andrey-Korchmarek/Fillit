@@ -6,12 +6,11 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 15:00:55 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/02 19:23:21 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:27:27 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "libft/libft.h"
 
 int	read_and_validation(const int fd)
 {
@@ -25,10 +24,10 @@ int	read_and_validation(const int fd)
 	{
 		buff[ret] = '\0';
 		printf("%s\n", buff);
-		simple_validation(buff);
-		if (simple_validation(buff))
+		simple_validation(buff, ret);
+		if (hard_validation(buff))
 		{
-			storage[i] = ft_strsplit(buff, '\n');
+			storage[i] = *ft_strsplit(buff, '\n');
 			i++;
 			printf("%s\n", storage[i]);
 		}
