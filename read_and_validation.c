@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 15:00:55 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/02 19:18:29 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:23:21 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	read_and_validation(const int fd)
 		buff[ret] = '\0';
 		printf("%s\n", buff);
 		simple_validation(buff);
-		if (validation(buff))
+		if (simple_validation(buff))
 		{
 			storage[i] = ft_strsplit(buff, '\n');
 			i++;
