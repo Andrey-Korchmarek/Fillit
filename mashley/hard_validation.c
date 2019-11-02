@@ -1,6 +1,6 @@
 #include "mashley.h"
 
-int hard_validation(char *tetr)
+int hard_validation(char *tetris)
 {
 	size_t	i;
 	size_t 	sum;
