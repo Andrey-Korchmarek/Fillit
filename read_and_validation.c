@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "libft_mashley/libft.h"
 
 int	read_and_validation(const int fd)
 {
@@ -26,7 +25,7 @@ int	read_and_validation(const int fd)
 		buff[ret] = '\0';
 		printf("%s\n", buff);
 		simple_validation(buff);
-		if (validation(buff))
+		if (hard_validation(buff))
 		{
 			storage[i] = ft_strsplit(buff, '\n');
 			i++;
