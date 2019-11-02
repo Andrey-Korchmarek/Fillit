@@ -20,8 +20,8 @@ int main(int argc, char **argv)
 		ft_putstr("error");
 	fd = open(argv[1], O_RDONLY);
 	read_and_validation(fd);
-	calculation();
-	output();
+	//calculation();
+	//output();
 	close(fd);
 	return (0);
 }

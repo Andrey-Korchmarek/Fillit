@@ -15,8 +15,8 @@
 
 # define INTMIN ( -2147483648 )
 # define SIZE_TMAX ( 18446744073709551615ULL )
-#include "mashley/mashley.h"
-#include "aelphias/aelphias.h"
+#include "../mashley/mashley.h"
+#include "../aelphias/aelphias.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
