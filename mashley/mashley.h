@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 19:01:45 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/02 19:19:50 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:33:17 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,10 @@ int					ft_abs(int n);
 int					ft_intlen(int nbr);
 size_t				ft_shrinking_gap(size_t gap);
 int					*ft_range(int min, int max);
-int					simple_validation(char *tetr);
+int					simple_validation(char *tetr, int ret);
 size_t				ft_strrchri(const char *str, int c, size_t count);
 int					hard_validation(char *tetr);
+int					check_neig(char *str, int n);
+
 
 #endif //UNTITLED_MASHLEY_H

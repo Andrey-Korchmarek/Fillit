@@ -1,6 +1,6 @@
 #include "mashley.h"
 
-int check_neig(char *str, int n)
+int check_neig(char *str, int i)
 {
 	size_t 	len;
 	int 	sum;
@@ -9,25 +9,35 @@ int check_neig(char *str, int n)
 	len = ft_strplen(str);
 	if (i -1 < 0)
 	{
-		str[i + 1] == '#' ? sum++;
-		str[i + 5] == '#' ? sum++;
+		 if (str[i + 1] == '#')
+		  	sum++;
+		if (str[i + 5] == '#')
+		 	sum++;
 	}
-	elif (i - 5 < 0)
+	else if (i - 5 < 0)
 	{
-		str[i - 1] == '#' ? sum++;
-		str[i + 1] == '#' ? sum++;
-		str[i + 5] == '#' ? sum++;
+		if (str[i - 1] == '#' )
+			 sum++;
+		if (str[i + 1] == '#')
+			 sum++;
+		 if (str[i + 5] == '#')
+			 sum++;
 	}
-	elif (i + 5 >= len)
+	else if (i + 5 >= len)
 	{
-		str[i - 5] == '#' ? sum++;
-		str[i - 1] == '#' ? sum++;
-		str[i + 1] == '#' ? sum++;
+		if (str[i - 5] == '#')
+			 sum++;
+		if (str[i - 1] == '#')
+			 sum++;
+		if (str[i + 1] == '#')
+			 sum++;
 	}
-	elif (i + 1 >= len)
+	else if (i + 1 >= len)
 	{
-		str[i - 5] == '#' ? sum++;
-		str[i - 1] == '#' ? sum++;
+		if (str[i - 5] == '#')
+			 sum++;
+		if (str[i - 1] == '#')
+		 sum++;
 	}
-	return (sum)
+	return (sum);
 }

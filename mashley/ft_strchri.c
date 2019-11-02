@@ -9,7 +9,7 @@ size_t	ft_strrchri(const char *str, int c, size_t count)
 	num = 0;
 	while (str[i])
 	{
-		if (*str[i] == c)
+		if (str[i] == c)
 		{
 			num++;
 			if (num == count)
