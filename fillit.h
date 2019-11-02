@@ -17,13 +17,16 @@
 #include "mashley/mashley.h"
 #include "aelphias/aelphias.h"
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-typedef struct		s_list
+typedef struct		s_fill
 {
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list;
+	char			**content;
+	size_t			turn;
+	struct s_fill	*next;
+}					t_fill;
 
 int	read_and_validation(int fd);
 

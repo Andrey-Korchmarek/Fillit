@@ -25,14 +25,14 @@ int	read_and_validation(int fd)
 	{
 		buff[ret] = '\0';
 		printf("%s\n", buff);
-
+		simple_validation(buff);
 		if (validation(buff))
 		{
 			sklad[i] = ft_strsplit(buff, '\n');
 			i++;
 		}
 		else
-			return (-1);
+			return (0);
 	}
-	return (0);
+	return (1);
 }

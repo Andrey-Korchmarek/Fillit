@@ -20,5 +20,6 @@ int main(void)
 
 	fd = open("1_figure", O_RDONLY);
 	read_and_validation(fd);
+	close(fd);
 	return (0);
 }

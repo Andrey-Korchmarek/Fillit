@@ -15,10 +15,10 @@
 int simple_validation(char *tetr)
 {
 	if (ft_strcount(tetr, '.') != 12)
-		return (-1);
+		return (0);
 	if (ft_strcount(tetr, '#') != 4)
-		return (-1);
+		return (0);
 	if (ft_strcount(tetr, '\n') != (ret / 20 + ret % 20))
-		return(-1);
-	return (0);
+		return(0);
+	return (1);
 }
