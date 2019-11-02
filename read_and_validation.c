@@ -6,12 +6,12 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 15:00:55 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/02 18:19:01 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/02 19:18:29 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "libft_mashley/libft.h"
+#include "libft/libft.h"
 
 int	read_and_validation(const int fd)
 {
