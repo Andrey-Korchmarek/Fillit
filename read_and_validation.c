@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input.c                                            :+:      :+:    :+:   */
+/*   read_and_validation.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 15:00:55 by mashley           #+#    #+#             */
-/*   Updated: 2019/10/29 15:15:51 by mashley          ###   ########.fr       */
+/*   Updated: 2019/11/02 18:19:01 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft_mashley/libft.h"
 
-int	read_and_validation(int fd)
+int	read_and_validation(const int fd)
 {
 	char	buff[22];
 	int		ret;
-	char 	**sklad;
+	char 	**storage; /* I've changed sklad to storage */
 	int		i;
 
 	i = 0;
@@ -28,8 +28,9 @@ int	read_and_validation(int fd)
 		simple_validation(buff);
 		if (validation(buff))
 		{
-			sklad[i] = ft_strsplit(buff, '\n');
+			storage[i] = ft_strsplit(buff, '\n');
 			i++;
+			printf("%s\n", storage[i]);
 		}
 		else
 			return (0);
