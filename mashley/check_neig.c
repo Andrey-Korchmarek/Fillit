@@ -2,7 +2,7 @@
 
 int check_neig(char *str, int i)
 {
-	size_t 	len;
+	int 	len;
 	int 	sum;
 
 	sum = 0;

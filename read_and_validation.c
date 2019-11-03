@@ -20,6 +20,7 @@ int	read_and_validation(const int fd)
 	int		i;
 
 	i = 0;
+	storage = NULL;
 	while ((ret = read(fd, buff, 21)))
 	{
 		buff[ret] = '\0';
@@ -27,7 +28,7 @@ int	read_and_validation(const int fd)
 		simple_validation(buff, ret);
 		if (hard_validation(buff))
 		{
-			storage[i] = *ft_strsplit(buff, '\n');
+			storage[i] = buff;
 			i++;
 			printf("%s\n", storage[i]);
 		}
