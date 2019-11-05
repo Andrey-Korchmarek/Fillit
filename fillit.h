@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 19:03:17 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/01 19:03:24 by mashley          ###   ########.fr       */
+/*   Updated: 2019/11/05 16:01:31 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,10 @@ typedef struct		s_fill
 }					t_fill;
 
 int	read_and_validation(int fd);
+int array[2][6];
+
+array = {
+	{0,1,1,0,1,1}, {1,0,2,0,3,0}
+}
 
 #endif //UNTITLED_FILLIT_H
