@@ -3,8 +3,9 @@
 char *check(char *line)
 {
 	int i;
-	char str[16];
+	char *str;
 
+	str = (char*)malloc(sizeof(char) * 16);
 	i = 0;
 	while (*line)
 	{

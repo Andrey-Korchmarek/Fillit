@@ -97,7 +97,7 @@ int *validation(char *tetr)
 	int		*valtet;
 
 
-	if (!(simple_validation(tetr)))
+	if (!(simple_validation(tetr, 21)))
 		return (NULL);
 	tmp = ft_strsplit(tetr, '\n');
 	printf("%s\n", tmp[0]);

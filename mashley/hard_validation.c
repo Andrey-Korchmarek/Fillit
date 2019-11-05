@@ -7,9 +7,10 @@ int hard_validation(char *tetr)
 
 	sum = 0;
 	i = 1;
+	tetr = NULL;
 	while (i < 5)
 	{
-		sum += check_neig(tetr, ft_strrchri(tetr, '#', i));
+		//sum += check_neig(tetr, ft_strrchri(tetr, '#', i));
 		i++;
 	}
 	return (sum);
