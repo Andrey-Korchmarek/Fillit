@@ -12,5 +12,5 @@ include_directories(.)
 include_directories(libft)
 include_directories(mashley)
 include_directories(aelphias)
-add_executable(Fillit ${LIBRARY} fillit.c read_and_validation.c)
+add_executable(Fillit ${LIBRARY} fillit.c read_and_validation.c aelphias/ideals.c)
 
