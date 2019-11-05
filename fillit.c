@@ -12,6 +12,13 @@
 
 #include "fillit.h"
 
+int numbers[3] = {15, 29, 51}; // Палкаб Lrleft квадрат
+
+int coordinat[3][6] =  {{1, 0, 2, 0, 3, 0}
+						{1, 0, 2, 0, 0, 1}
+						{1, 0, 0, 1, 1, 1}};
+
+
 int main(int argc, char **argv)
 {
 	int fd;

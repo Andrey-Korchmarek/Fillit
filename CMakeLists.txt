@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 99)
 
 add_compile_options(-Wall -Wextra -Werror)
 
-FILE(GLOB LIBRARY ./libft/*.c ./mashley/*.c ./aelphias/*.c)
+FILE(GLOB LIBRARY ./libft/*.c ./mashley/*.c)
 
 include_directories(.)
 include_directories(libft)
