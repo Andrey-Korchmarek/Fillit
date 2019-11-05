@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 19:03:17 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/05 16:01:31 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/05 16:03:20 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ typedef struct		s_fill
 }					t_fill;
 
 int	read_and_validation(int fd);
-int array[2][6];
+int samples[2][6];
 
-array = {
+samples = {
 	{0,1,1,0,1,1}, {1,0,2,0,3,0}
 }
 
