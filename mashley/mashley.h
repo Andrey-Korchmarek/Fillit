@@ -37,5 +37,6 @@ int					check_neig2(char **tetr);
 int 				*validation(char *tetr);
 int 				*coordinates(char **tetr);
 int check_neig(char *tetr);
+int	valid_delusion(char *tetr);
 
 #endif
