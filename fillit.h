@@ -22,13 +22,5 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-typedef struct		s_etris
-{
-	int				*content;
-	char			queue;
-	struct s_etris	*next;
-}					t_etris;
-
-int	read_and_validation(int fd);
 
 #endif

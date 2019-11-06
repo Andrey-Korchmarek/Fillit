@@ -30,7 +30,7 @@ t_etris	*read_and_validation(const int fd)
 			exit(0);
 		else
 		{
-			ft_tetadd(&list, ft_lstnew(storage, cur++));
+			ft_tetadd(&list, ft_tetnew(storage, cur++));
 		}
 	}
 	return (list);

@@ -49,4 +49,6 @@ int	valid_delusion(char *tetr);
 void	ft_tetadd(t_etris **alst, t_etris *new);
 t_etris	*ft_tetnew(int *content, char queue);
 
+t_etris	*read_and_validation(int fd);
+
 #endif
