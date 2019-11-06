@@ -30,10 +30,5 @@ typedef struct		s_fill
 }					t_fill;
 
 int	read_and_validation(int fd);
-int samples[2][6];
-
-samples = {
-	{0,1,1,0,1,1}, {1,0,2,0,3,0}
-}
 
 #endif //UNTITLED_FILLIT_H
