@@ -16,10 +16,18 @@
 # define SHRINKER ( 1.247 )
 
 #include "../libft/libft.h"
+#include "../fillit.h"
 # include <string.h>
 # include <stdlib.h>
 # include <unistd.h>
 #include <stdio.h>
+
+typedef struct		s_etris
+{
+	int				*content;
+	char			queue;
+	struct s_etris	*next;
+}					t_etris;
 
 char				*ft_strjoinfree(char const *s1, char const *s2,
 									int frees1, int frees2);
@@ -38,6 +46,7 @@ int 				*validation(char *tetr);
 int 				*coordinates(char **tetr);
 int check_neig(char *tetr);
 int	valid_delusion(char *tetr);
-char *read2(int fd);
+void	ft_tetadd(t_etris **alst, t_etris *new);
+t_etris	*ft_tetnew(int *content, char queue);
 
 #endif

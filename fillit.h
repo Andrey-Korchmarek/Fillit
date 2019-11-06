@@ -22,13 +22,13 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-typedef struct		s_fill
+typedef struct		s_etris
 {
-	char			**content;
-	size_t			turn;
-	struct s_fill	*next;
-}					t_fill;
+	int				*content;
+	char			queue;
+	struct s_etris	*next;
+}					t_etris;
 
 int	read_and_validation(int fd);
 
-#endif //UNTITLED_FILLIT_H
+#endif

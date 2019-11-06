@@ -19,7 +19,7 @@ int simple_validation(char *tetr, int ret)
 		return (0);
 	if (ft_strcount(tetr, '#') != 4)
 		return (0);
-	if (ft_strcount(tetr, '\n') != (ret / 20 + ret % 20))
+	if (ft_strcount(tetr, '\n') != (ret / 5 + ret % 20))
 		return(0);
 	return (1);
 }
