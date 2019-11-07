@@ -12,28 +12,27 @@
 
 #include "fillit.h"
 
-int	read_and_validation(const int fd)
+t_etris	*read_and_validation(const int fd)
 {
 	char	buff[22];
 	int		ret;
 	int 	*storage; /* I've changed sklad to storage */
-	int		i;
+	char 	cur;
+	t_etris	*list;
 
-
+	cur = 'A';
+	list = NULL;
 	storage = (int*)malloc(sizeof(int) * 6);
 	while ((ret = read(fd, buff, 21)))
 	{
 		buff[ret] = '\0';
-		printf("%s\n", buff);
-		storage = validation(buff);
-		i = 0;
-		while (i < 6)
-		{
-			printf("%i ", storage[i]);
-			i++;
-		}
-		printf("\n");
 
+		if (!(storage = validation(buff)))
+			exit(0);
+		else
+		{
+			ft_tetadd(&list, ft_tetnew(storage, cur++));
+		}
 	}
-	return (1);
+	return (list);
 }
