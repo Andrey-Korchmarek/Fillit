@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 15:00:55 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/02 19:27:27 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/07 15:57:46 by io               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,23 +19,21 @@ int	read_and_validation(const int fd)
 	int 	*storage; /* I've changed sklad to storage */
 	int		i;
 
-	i = 0;
+
 	storage = (int*)malloc(sizeof(int) * 6);
 	while ((ret = read(fd, buff, 21)))
 	{
 		buff[ret] = '\0';
 		printf("%s\n", buff);
-		if ((storage = validation(buff)))
+		storage = validation(buff);
+		i = 0;
+		while (i < 6)
 		{
-			i = 0;
-			while (i < 6)
-			{
-				printf("%d %d\n", storage[i], storage[i + 1]);
-				i += 2;
-			}
+			printf("%i ", storage[i]);
+			i++;
 		}
-		else
-			return (0);
+		printf("\n");
+
 	}
 	return (1);
 }

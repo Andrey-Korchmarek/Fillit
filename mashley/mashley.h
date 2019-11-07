@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 19:01:45 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/02 19:33:17 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/07 15:57:46 by io               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ int					check_neig2(char **tetr);
 int 				*validation(char *tetr);
 int 				*coordinates(char **tetr);
 int check_neig(char *tetr);
+int	valid_delusion(char *tetr);
+char *read2(int fd);
 
 #endif
