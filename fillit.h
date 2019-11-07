@@ -22,13 +22,5 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-typedef struct		s_fill
-{
-	char			**content;
-	size_t			turn;
-	struct s_fill	*next;
-}					t_fill;
 
-int	read_and_validation(int fd);
-
-#endif //UNTITLED_FILLIT_H
+#endif
