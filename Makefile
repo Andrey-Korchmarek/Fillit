@@ -12,8 +12,10 @@
 
 NAME = fillit
 
-SRCS = fillit.c
-OBJ =  fillit.o
+SRCS = fillit.c calculation.c
+
+OBJ =  fillit.o calculation.o
+
 INCLUDES = ./
 
 all: $(NAME)
