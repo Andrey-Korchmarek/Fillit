@@ -22,6 +22,8 @@
 #include <unistd.h>
 #include <fcntl.h>
 
+/*
 int	read_and_validation(int fd);
+*/
 
 #endif //UNTITLED_FILLIT_H
