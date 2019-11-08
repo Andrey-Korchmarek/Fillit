@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/29 15:00:55 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/02 19:27:27 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/07 15:57:46 by io               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_etris	*read_and_validation(const int fd)
 	while ((ret = read(fd, buff, 21)))
 	{
 		buff[ret] = '\0';
+
 		if (!(storage = validation(buff)))
 			exit(0);
 		else
