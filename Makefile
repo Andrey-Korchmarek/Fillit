@@ -6,8 +6,8 @@
 #    By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/29 11:36:31 by aelphias          #+#    #+#              #
-#    Updated: 2019/11/02 17:58:05 by aelphias         ###   ########.fr        #
+#    Updated: 2019/11/01 11:58:09 by aelphias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fillit
+NAME = filit
