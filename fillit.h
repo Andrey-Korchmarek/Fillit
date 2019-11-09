@@ -29,6 +29,15 @@ typedef struct		s_fill
 	struct s_fill	*next;
 }					t_fill;
 
+typedef struct		s_dance
+{
+	char 			cell;
+	struct s_dance	*left;
+	struct s_dance	*right;
+	struct s_dance	*up;
+	struct s_dance	*down;
+}					t_dance;
+
 int	read_and_validation(int fd);
 int samples[2][6];
 
