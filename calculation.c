@@ -11,16 +11,18 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 void	calculation(void)
 {
-	int coord[] = {0, 1, 1, 0, 1, 1};
+	int coord[6];
 	char queue;
 	char field[4][5];
 	int i;
 	int x;
 	int y;
 
+	coord = {0, 1, 1, 0, 1, 1};
 	x = 2;
 	y = 2;
 	queue = 'A';
