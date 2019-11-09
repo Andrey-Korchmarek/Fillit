@@ -22,12 +22,6 @@
 #include <unistd.h>
 #include <fcntl.h>
 
-typedef struct		s_fill
-{
-	char			**content;
-	size_t			turn;
-	struct s_fill	*next;
-}					t_fill;
 
 typedef struct		s_dance
 {
@@ -45,4 +39,5 @@ samples = {
 	{0,1,1,0,1,1}, {1,0,2,0,3,0}
 }
 
-#endif //UNTITLED_FILLIT_H
+
+#endif
