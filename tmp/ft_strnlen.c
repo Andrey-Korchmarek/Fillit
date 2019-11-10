@@ -1,30 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/18 11:08:20 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/18 11:08:42 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+#include "Fillit/libft.h"
+
+size_t		ft_strnlen(const char *string, size_t max)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
-	{
-		ft_putstr("Give me one file");
-		return (0);
-	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	size_t	len;
+
+	len = 0;
+	while (string[len] != '\0' && len < max)
+		len++;
+	return (len);
 }

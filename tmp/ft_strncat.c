@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/12 19:01:52 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/12 19:01:52 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+#include "Fillit/libft.h"
+
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
+	size_t i;
+	size_t j;
+
+	i = 0;
+	while (dest[i] != '\0')
+		i++;
+	j = 0;
+	while (src[j] != '\0' && j < n)
 	{
-		ft_putstr("Give me one file");
-		return (0);
+		dest[i] = src[j];
+		i++;
+		j++;
 	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	dest[i] = '\0';
+	return (dest);
 }

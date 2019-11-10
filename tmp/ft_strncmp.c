@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/12 19:02:07 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/12 19:02:07 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+#include "Fillit/libft.h"
+
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
-	{
-		ft_putstr("Give me one file");
+	size_t	i;
+
+	if (n == 0)
 		return (0);
-	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	i = 0;
+	while (i < n - 1 && str1[i] == str2[i] && str1[i] && str2[i])
+		i++;
+	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }

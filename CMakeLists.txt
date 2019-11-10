@@ -6,11 +6,9 @@ set(CMAKE_C_STANDARD 99)
 
 add_compile_options(-Wall -Wextra -Werror)
 
-FILE(GLOB LIBRARY ./Fillit/*.c ./mashley/*.c)
+FILE(GLOB LIBRARY ./srcs/*.c )
 
 include_directories(.)
-include_directories(libft)
-include_directories(mashley)
-include_directories(aelphias)
-add_executable(Fillit ${LIBRARY} fillit.c read_and_validation.c calculation.c)
+include_directories(includes)
+add_executable(Fillit ${LIBRARY} main.c )
 

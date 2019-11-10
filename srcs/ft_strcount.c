@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/11/01 12:16:45 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/02 19:45:46 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+
+int ft_strcount(char *str, char c)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
+	int count;
+
+	count = 0;
+	while (*str)
 	{
-		ft_putstr("Give me one file");
-		return (0);
+		if (*str == c)
+			count++;
+		str++;
 	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	return (count);
 }

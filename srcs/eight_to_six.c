@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   eight_to_six.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/11/10 18:00:25 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/10 18:00:28 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+
+int	*eight_to_six(int *valtet)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
+	int *tmp;
+	int i;
+
+	tmp = (int*)malloc(sizeof(int) * 6);
+	i = 2;
+	while (i < 8)
 	{
-		ft_putstr("Give me one file");
-		return (0);
+		tmp[i - 2] = valtet[i];
+		i++;
 	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	free(valtet);
+	return (tmp);
 }

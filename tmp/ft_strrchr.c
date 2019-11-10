@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/10 11:44:32 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/16 19:50:51 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+#include "Fillit/libft.h"
+
+char	*ft_strrchr(const char *str, int c)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
+	char	*last;
+
+	last = NULL;
+	while (*str)
 	{
-		ft_putstr("Give me one file");
-		return (0);
+		if (*str == c)
+			last = (char*)str;
+		str++;
 	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	if (last)
+		return (last);
+	if (c == '\0')
+		return ((char*)str);
+	return (NULL);
 }

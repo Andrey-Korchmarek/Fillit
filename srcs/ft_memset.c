@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/11 13:57:44 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/11 13:57:44 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
+	unsigned char	*tmp;
+
+	if (len == 0)
+		return (b);
+	tmp = (unsigned char *)b;
+	while (len--)
 	{
-		ft_putstr("Give me one file");
-		return (0);
+		*tmp = (unsigned char)c;
+		if (len)
+			tmp++;
 	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	return (b);
 }

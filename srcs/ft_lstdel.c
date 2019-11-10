@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/21 20:07:13 by mashley           #+#    #+#             */
+/*   Updated: 2019/10/21 10:28:56 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
+	t_list *tmp;
+	t_list *lst;
+
+	if (!alst || !del || !*alst)
+		return ;
+	lst = *alst;
+	while (lst != NULL)
 	{
-		ft_putstr("Give me one file");
-		return (0);
+		tmp = lst->next;
+		ft_lstdelone(&lst, del);
+		lst = tmp;
 	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	*alst = NULL;
 }

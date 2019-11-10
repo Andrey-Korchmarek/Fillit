@@ -1,30 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   read_and_validation.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/10/29 15:00:55 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/07 15:57:46 by io               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+
+t_etris	*read_and_validation(const int fd)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
+	char	buff[22];
+	int		ret;
+	int 	*storage; /* I've changed sklad to storage */
+	char 	cur;
+	t_etris	*list;
+
+	cur = 'A';
+	list = NULL;
+	storage = (int*)malloc(sizeof(int) * 6);
+	while ((ret = read(fd, buff, 21)))
 	{
-		ft_putstr("Give me one file");
-		return (0);
+		buff[ret] = '\0';
+
+		if (!(storage = validation(buff)))
+			exit(0);
+		else
+		{
+			ft_tetadd(&list, ft_tetnew(storage, cur++));
+		}
 	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	return (list);
 }

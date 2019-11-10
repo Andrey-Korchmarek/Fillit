@@ -1,30 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/06 11:13:51 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/06 11:40:22 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+
+char	*ft_strdup(const char *src)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
+	char	*dup;
+	size_t	i;
+
+	if (ft_strplen(src) + 1 == 0)
+		return (NULL);
+	dup = (char *)malloc(sizeof(char) * (ft_strplen(src) + 1));
+	if (!dup)
+		return (NULL);
+	i = 0;
+	while (src[i])
 	{
-		ft_putstr("Give me one file");
-		return (0);
+		dup[i] = src[i];
+		i++;
 	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	dup[i] = '\0';
+	return (dup);
 }

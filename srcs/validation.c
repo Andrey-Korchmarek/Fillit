@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   validation.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/11/08 11:53:13 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/08 11:53:21 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
-	 
-int main(int argc, char argv)
+
+int	validation(char *tetr)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
-	{
-		ft_putstr("Give me one file");
+	char **tmp;
+
+	if (!(check_sign(tetr)))
 		return (0);
-	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	tmp = ft_strsplit(tetr, '\n');
+	if (check_neig1(tmp) + check_neig2(tmp) < 6)
+		return (0);
+	return (1);
 }
