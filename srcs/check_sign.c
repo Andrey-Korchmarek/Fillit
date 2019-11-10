@@ -21,7 +21,7 @@ int	check_sign(char *tetr)
 		return (0);
 	if (ft_strcount(tetr, '#') != 4)
 		return (0);
-	if (ft_strcount(tetr, '\n') != (len / 5 + ret % 5))
+	if (ft_strcount(tetr, '\n') != (len / 5 + len % 5))
 		return (0);
 	return (1);
 }

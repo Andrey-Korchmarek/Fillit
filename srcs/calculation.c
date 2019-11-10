@@ -48,8 +48,9 @@ i = 0;
 		i++;
 	}
 }
-int main(void)
-{
-	calculation();
-	return (0);
-}
+
+//int main(void)
+//{
+//	calculation();
+//	return (0);
+//}

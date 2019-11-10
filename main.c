@@ -12,7 +12,7 @@
 
 #include "includes/fillit.h"
 	 
-int main(int argc, char argv)
+int main(int argc, char **argv)
 {
 	int fd;
 	char *result;
