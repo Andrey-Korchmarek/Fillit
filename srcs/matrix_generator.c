@@ -12,3 +12,10 @@
 
 #include "includes/fillit.h"
 
+t_dance	*matrix_generator(int size)
+{
+	t_dance *root;
+
+	root = NULL;
+	return (root);
+}
