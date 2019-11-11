@@ -18,12 +18,11 @@ void ft_add_matrix(matrix *root, char value, int x, int y)
 	}
 	else
 	{
-		prev = root->current->next->prev;
-		tmp->next = root->current->next;
-		tmp->prev = root->current;
-		prev->prev = tmp;
-		root->current->next = tmp;
-		root->current = tmp;
+		tmp->right = root->current;
+		tmp->left = root->current->left;
+		root->current->left->right = tmp;
+		root->current->left = tmp;
+		tmp->up = tmp->down = tmp;
 	}
 	root->size++;
 }
