@@ -35,7 +35,9 @@ typedef struct		s_etris
 
 typedef struct		s_dance
 {
-	char 			cell;
+	char 			letter;
+	int 			x;
+	int 			y;
 	struct s_dance	*left;
 	struct s_dance	*right;
 	struct s_dance	*up;
@@ -74,5 +76,6 @@ void	ft_tetadd(t_etris **alst, t_etris *new);
 t_etris	*ft_tetnew(int *content, char queue);
 void	safe(t_etris **list, char *tetr, char count);
 int	    validation(char *tetr);
+t_dance	*ft_dannew(char queue, int x, int y);
 
 #endif

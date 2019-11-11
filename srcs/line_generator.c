@@ -1,30 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   line_generator.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/01 13:36:16 by aelphias         ###   ########.fr       */
+/*   Created: 2019/11/11 10:45:51 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/11 10:45:55 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-int main(int argc, char **argv)
+t_dance	*line_generator(char count, int *coordinates)
 {
-	int fd;
-	char *result;
-	
-	if (argc != 2)
+	t_dance *head;
+	t_dance	*tmp;
+	int 	i;
+
+	head =ft_dannew(count, -1, 0);
+	i = 0;
+	while (i < 8)
 	{
-		ft_putstr("Give me one file");
-		return (0);
+		tmp = ft_dannew(count, coordinates[i], coordinates[i + 1]);
+		i += 2;
 	}
-	fd = 0;
-	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
-	return (0);
-	
+	return (head);
 }
