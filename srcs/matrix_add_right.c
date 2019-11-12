@@ -12,17 +12,11 @@
 
 #include "includes/fillit.h"
 
-void matrix_add_right(matrix *root, char value, int x, int y)
+void matrix_add_right(matrix *root, t_dance *tmp;)
 {
 	t_dance *prev;
-	t_dance *tmp;
 
 	prev = NULL;
-	if (!(tmp = (t_dance*)malloc(sizeof(t_dance))))
-		return ;
-	tmp->letter = value;
-	tmp->x = x;
-	tmp->y = y;
 	if (root->current == NULL)
 	{
 		root->current = tmp;
