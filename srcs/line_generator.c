@@ -12,12 +12,15 @@
 
 #include "includes/fillit.h"
 
+//Ещё не закончил
 t_dance	*line_generator(char count, int *coordinates)
 {
-	t_dance *head;
+	matrix *head;
 	t_dance	*tmp;
 	int 	i;
 
+	head = matrix_create();
+	matrix_add_right(head, count, -1, 0);
 	head =ft_dannew(count, -1, 0);
 	i = 0;
 	while (i < 8)
@@ -26,4 +29,24 @@ t_dance	*line_generator(char count, int *coordinates)
 		i += 2;
 	}
 	return (head);
+}
+#include "includes/fillit.h"
+
+matrix	*matrix_generator(int size)
+{
+	matrix	*root;
+	int 	i;
+	int 	j;
+
+	root = matrix_create();
+	matrix_add_right(root, '!', -1, -1);
+	i = 0;
+	while (i <= size)
+	{
+		j = 0;
+		while (j <= size)
+			matrix_add_right(*root, '@', i, j++);
+		i++;
+	}
+	return (root);
 }

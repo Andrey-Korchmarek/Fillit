@@ -12,7 +12,7 @@
 
 #include "includes/fillit.h"
 
-matrix*	ft_create_matrix()
+matrix*	matrix_create()
 {
 	matrix *tmp;
 

@@ -12,10 +12,21 @@
 
 #include "includes/fillit.h"
 
-t_dance	*matrix_generator(int size)
+matrix	*matrix_generator(int size)
 {
-	t_dance *root;
+	matrix	*root;
+	int 	i;
+	int 	j;
 
-	root = NULL;
+	root = matrix_create();
+	matrix_add_right(root, '!', -1, -1);
+	i = 0;
+	while (i <= size)
+	{
+		j = 0;
+		while (j <= size)
+			matrix_add_right(*root, '@', i, j++);
+		i++;
+	}
 	return (root);
 }

@@ -10,5 +10,5 @@ FILE(GLOB LIBRARY ./srcs/*.c )
 
 include_directories(.)
 include_directories(includes)
-add_executable(Fillit ${LIBRARY} main.c srcs/matrix_generator.c srcs/ft_dannew.c srcs/line_generator.c srcs/ft_create_matrix.c srcs/ft_add_matrix.c)
+add_executable(Fillit ${LIBRARY} main.c srcs/matrix_generator.c srcs/ft_dannew.c srcs/line_generator.c srcs/matrix_create.c srcs/matrix_add_right.c srcs/matrix_delete.c)
 
