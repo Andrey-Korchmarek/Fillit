@@ -90,5 +90,8 @@ void	matrix_delete_element(matrix *element);
 matrix	*matrix_generator(int size);
 void	safe(t_etris **list, char *tetr, char count);
 int	validation(char *tetr);
+char	*calculation_beta(int *storage, int len);
+int *get_coordinates(int form);
+int min_map(int count);
 
 #endif

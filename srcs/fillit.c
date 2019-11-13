@@ -23,7 +23,7 @@ char	*fillit(int fd)
 	if (!(storage = (int*)malloc(sizeof(int) * 26)))
 		return (NULL);
 	count = 0;
-	while ((ret = read(fd, buff, 21)) && (count <= 'Z'))
+	while ((ret = read(fd, buff, 21)) && (count <= 26))
 	{
 		buff[ret] = '\0';
 		if (validation(buff))
@@ -37,6 +37,6 @@ char	*fillit(int fd)
 			return (NULL);
 		}
 	}
-	result = NULL;
+	result = calculation_beta(storage, count);
 	return (result);
 }
