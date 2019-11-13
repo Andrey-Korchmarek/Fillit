@@ -44,5 +44,7 @@ int main(int argc, char **argv)
 	}
 	fd = open(argv[1], O_RDONLY);
 	result = fillit(fd);
+	close(fd);
+	ft_putstr(result);
 	return (0);
 }

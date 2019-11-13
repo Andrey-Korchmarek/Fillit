@@ -22,7 +22,7 @@ char *fillit(int fd)
 
 	list = NULL;
 	count = 'A';
-	while ((ret = read(fd, buff, 21)))
+	while ((ret = read(fd, buff, 21)) && (count <= 'Z'))
 	{
 		buff[ret] = '\0';
 		if (validation(buff))

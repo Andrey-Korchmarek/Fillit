@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_delete.c                                    :+:      :+:    :+:   */
+/*   first.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 10:52:05 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/13 10:52:24 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/10 17:59:09 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/10 17:59:13 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-// Ещё не доделал
-void matrix_delete(matrix **list)
+int	*fitst(char **tetr)
 {
-	t_dance* prev = NULL;
+	int i;
+	int j;
+	int *first;
 
-	while ((*list)->current->next)
+	first = (int*)malloc(sizeof(int) * 2);
+	i = 0;
+	while (i < 4)
 	{
-		prev = (*list)->current;
-		(*list)->current = (*list)->current->next;
-		free(prev);
+		j = 0;
+		while (j < 4)
+		{
+			if (tetr[i][j] == '#')
+			{
+				first[0] = i;
+				first[1] = j;
+				return(first);
+			}
+			j++;
+		}
+		i++;
 	}
-	free((*list)->current);
-	free(*list);
-	*list = NULL;
+	return (first);
 }

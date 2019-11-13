@@ -44,10 +44,10 @@ typedef struct		s_dance
 	struct s_dance	*down;
 }					t_dance;
 
-typedef struct _Ring {
-	size_t size;
-	t_dance *current;
-} matrix;
+typedef struct	Ring {
+	size_t		size;
+	t_dance		*current;
+} 				matrix;
 
 void    calculation(void);
 int	    check_neig1(char **tetr);
