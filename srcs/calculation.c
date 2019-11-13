@@ -14,7 +14,7 @@
 
 void	calculation(void)
 {
-	int coord[] = {0, 1, 1, 0, 1, 1};
+	/*int coord[] = {0, 1, 1, 0, 1, 1};
 	char queue;
 	char field[4][5];
 	int i;
@@ -46,7 +46,7 @@ i = 0;
 	{
 		printf("%s\n", field[i]);
 		i++;
-	}
+	}*/
 }
 
 //int main(void)

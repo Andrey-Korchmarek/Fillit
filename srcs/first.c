@@ -12,7 +12,7 @@
 
 #include "includes/fillit.h"
 
-int	*fitst(char **tetr)
+int	*first(char **tetr)
 {
 	int i;
 	int j;

@@ -18,14 +18,15 @@ int	check_tetr(char *tetr)
 	int		*vt;
 	int 	i;
 	int 	*a;
+	extern int g_tetramines[19][10];
 
 	if (!(tmp = ft_strsplit(tetr, '\n')))
-		return ;
+		return (-1);
 	vt = first(tmp);
 	i = 0;
 	while (i < 20)
 	{
-		a = tetramines[i];
+		a = g_tetramines[i];
 		if (tmp[vt[0] + a[0]][vt[1] + a[1]] == '#')
 			if (tmp[vt[0] + a[2]][vt[1] + a[3]] == '#')
 				if (tmp[vt[0] + a[4]][vt[1] + a[5]] == '#')

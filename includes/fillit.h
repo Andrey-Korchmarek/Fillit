@@ -49,26 +49,6 @@ typedef struct	Ring {
 	t_dance		*current;
 } 				matrix;
 
-extern int tetramines[19][10] =	{{0, 1, 0, 2, 0, 3, 0, 0, 0, 3}
-								{0, 1, 0, 2, 1, 0, 0, 0, 1, 2}
-								{0, 1, 0, 2, 1, 1, 0, 0, 1, 2}
-								{0, 1, 0, 2, 1, 2, 0, 0, 1, 2}
-								{0, 1, 1, -1, 1, 0, 0, 1, 1, 1}
-								{0, 1, 1, 0, 1, 1, 0, 0, 1, 1}
-								{0, 1, 1, 1, 1, 2, 0, 0, 1, 2}
-								{1, -2, 1, -1, 1, 0, 0, 2, 1, 0}
-								{1, -1, 1, 0, 1, 1, 0, 1, 1, 1}
-								{1, 0, 1, 1, 1, 2, 0, 0, 1, 2}
-								{0, 1, 1, 0, 2, 0, 0, 0, 2, 1}
-								{0, 1, 1, 1, 2, 1, 0, 0, 2, 1}
-								{1, -1, 1, 0, 2, -1, 0, 1, 2, 0}
-								{1, 0, 1, 1, 2, 1, 0, 0, 2, 1}
-								{1, -1, 1, 0, 2, 0, 0, 1, 2, 0}
-								{1, 0, 1, 1, 2, 0, 0, 0, 2, 1}
-								{1, 0, 2, -1, 2, 0, 0, 1, 2, 0}
-								{1, 0, 2, 0, 2, 1, 0, 0, 2, 1}
-								{1, 0, 2, 0, 3, 0, 0, 0, 3, 0}};
-
 void	calculation(void);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);
@@ -77,7 +57,7 @@ int	check_tetr(char *tetr);
 int	*coordinates(char **tetr);
 int	*eight_to_six(int *valtet);
 char	*fillit(int fd);
-int	*fitst(char **tetr);
+int	*first(char **tetr);
 void	ft_bzero(void *b, size_t n);
 t_dance	*ft_dannew(char queue, int x, int y);
 void	ft_lstadd(t_list **alst, t_list *new);
@@ -103,8 +83,8 @@ char			**ft_strsplit(char const *s, char c);
 void	ft_tetadd(t_etris **alst, t_etris *new);
 t_etris	*ft_tetnew(int *content, char queue);
 matrix	*line_generator(char count, int *coordinates);
-void matrix_add_down(matrix *hat, t_dance *tmp;);
-void matrix_add_right(matrix *root, t_dance *tmp;);
+void matrix_add_down(matrix *hat, t_dance *tmp);
+void matrix_add_right(matrix *root, t_dance *tmp);
 matrix*	matrix_create();
 void	matrix_delete_element(matrix *element);
 matrix	*matrix_generator(int size);

@@ -17,18 +17,17 @@ char	*fillit(int fd)
 	char	*result;
 	int		ret;
 	char	buff[22];
-	int 	*list;
+	t_etris	*list;
 	char	count;
 
-	if (!(list = (int*)malloc(26)))
-		return (NULL);
+	list = NULL;
 	count = 'A';
 	while ((ret = read(fd, buff, 21)) && (count <= 'Z'))
 	{
 		buff[ret] = '\0';
 		if (validation(buff))
 		{
-			safe(&list, buff);
+			safe(&list, buff, count);
 			count++;
 		}
 		else

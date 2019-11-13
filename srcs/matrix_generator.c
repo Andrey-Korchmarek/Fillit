@@ -19,13 +19,13 @@ matrix	*matrix_generator(int size)
 	int 	j;
 
 	root = matrix_create();
-	matrix_add_right(root, '!', -1, -1);
+	matrix_add_right(root, ft_dannew('!', -1, -1));
 	i = 0;
 	while (i <= size)
 	{
 		j = 0;
 		while (j <= size)
-			matrix_add_right(*root, '@', i, j++);
+			matrix_add_right(root, ft_dannew('@', i, j++));
 		i++;
 	}
 	return (root);

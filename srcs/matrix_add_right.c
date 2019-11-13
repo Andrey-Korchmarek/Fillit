@@ -12,7 +12,7 @@
 
 #include "includes/fillit.h"
 
-void matrix_add_right(matrix *root, t_dance *tmp;)
+void matrix_add_right(matrix *root, t_dance *tmp)
 {
 	t_dance *prev;
 

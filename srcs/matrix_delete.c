@@ -13,7 +13,7 @@
 #include "includes/fillit.h"
 
 // Ещё не доделал
-void matrix_delete(matrix **list)
+/*void matrix_delete(matrix **list)
 {
 	t_dance* prev = NULL;
 
@@ -26,4 +26,4 @@ void matrix_delete(matrix **list)
 	free((*list)->current);
 	free(*list);
 	*list = NULL;
-}
+}*/
