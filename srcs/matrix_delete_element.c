@@ -16,10 +16,8 @@ void	matrix_delete_element(matrix *element)
 {
 	t_dance *afterTarget = NULL;
 
-	if (element->current == NULL) {
+	if (element->current == NULL)
 		exit(1);
-	}
-
 	afterTarget = NULL;
 	if (element->current->right == element->current)
 	{

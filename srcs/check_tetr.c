@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   check_tetr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/10 17:31:10 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/13 17:08:12 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/13 17:08:16 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-char	*fillit(int fd)
+int	check_tetr(char *tetr)
 {
-	char	*result;
-	int		ret;
-	char	buff[22];
-	int 	*list;
-	char	count;
+	char	**tmp;
+	int		*vt;
+	int 	i;
+	int 	*a;
 
-	if (!(list = (int*)malloc(26)))
-		return (NULL);
-	count = 'A';
-	while ((ret = read(fd, buff, 21)) && (count <= 'Z'))
+	if (!(tmp = ft_strsplit(tetr, '\n')))
+		return ;
+	vt = first(tmp);
+	i = 0;
+	while (i < 20)
 	{
-		buff[ret] = '\0';
-		if (validation(buff))
-		{
-			safe(&list, buff);
-			count++;
-		}
-		else
-		{
-			ft_putstr("error\n");
-			return (NULL);
-		}
+		a = tetramines[i];
+		if (tmp[vt[0] + a[0]][vt[1] + a[1]] == '#')
+			if (tmp[vt[0] + a[2]][vt[1] + a[3]] == '#')
+				if (tmp[vt[0] + a[4]][vt[1] + a[5]] == '#')
+					return (i);
+		i++;
 	}
-	result = NULL;
-	return (result);
+	return (-1);
 }
