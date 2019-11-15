@@ -12,12 +12,12 @@
 
 #include "includes/fillit.h"
 
-void	test2(int *storage, int len)
+char	*test2(int *storage, int len)
 {
 	extern int	g_tetramines[19][10];
 	matrix		*root;
 	int 		m;
-	int 		c[10];
+	int 		*c;
 	int 		i;
 	int 		j;
 	int 		coord[8];
@@ -48,4 +48,5 @@ void	test2(int *storage, int len)
 		}
 		m++;
 	}
+	return (NULL);
 }
