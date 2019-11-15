@@ -37,6 +37,6 @@ char	*fillit(int fd)
 			return ("NULL");
 		}
 	}
-	result = test2(storage, count);
+	result = recur(storage, count);
 	return (result);
 }

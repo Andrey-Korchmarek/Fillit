@@ -95,5 +95,6 @@ int *get_coordinates(int a, int form);
 int min_map(int count);
 void	matrix_add_line(matrix **root, matrix *line);
 char	*test2(int *storage, int len);
+char	*recur(int *storage, int len);
 
 #endif
