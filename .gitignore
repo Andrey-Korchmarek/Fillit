@@ -66,4 +66,4 @@ test_gnl
 clang
 /prototipes.txt
 /test.sh
-/tmp/
+#/tmp/

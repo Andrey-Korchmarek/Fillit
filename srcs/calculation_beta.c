@@ -10,7 +10,7 @@ char	*calculation_beta(int *storage, int len)
 	i = 0;
 	while (i < len)
 	{
-		coord = get_coordinates(storage[i]);
+		coord = get_coordinates(size, storage[i]);
 		matrix_add_line(line_generator('A' + i, coord));
 		i++;
 	}
