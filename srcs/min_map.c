@@ -19,5 +19,5 @@ int min_map(int count)
 	i = 4;//Временно
 	while (i * i < 4 * count)
 		i++;
-	return (i);
+	return (i - 1);
 }

@@ -21,17 +21,19 @@ char	*test2(int *storage, int len)
 	int 		i;
 	int 		j;
 	int 		coord[8];
+	int 		a;
 
-	root = matrix_generator(min_map(len));
+	a = min_map(len);
+	root = matrix_generator(a);
 	m = 0;
 	while (m < len)
 	{
 		c = g_tetramines[storage[m]];
 		i = c[6];
-		while (i <= (min_map(len) - c[8]))
+		while (i <= (a - c[8]))
 		{
 			j = c[7];
-			while (j <= (min_map(len) - c[9]))
+			while (j <= (a - c[9]))
 			{
 				coord[0] = i;
 				coord[1] = j;
@@ -48,5 +50,24 @@ char	*test2(int *storage, int len)
 		}
 		m++;
 	}
-	return (NULL);
+	printf("%c %d %d | ", root->current->letter, root->current->x, root->current->y);
+	root->current = root->current->right;
+	while (root->current->letter != '!')
+	{
+		printf("%c %d %d | ", root->current->letter, root->current->x, root->current->y);
+		root->current = root->current->right;
+	}
+	root->current = root->current->down;
+	while (root->current->letter != '!')
+	{
+		printf("\n %c %d %d | ", root->current->letter, root->current->x, root->current->y);
+		root->current = root->current->right;
+		while (root->current->x != -1)
+		{
+			printf("%c %d %d | ", root->current->letter, root->current->x, root->current->y);
+			root->current = root->current->right;
+		}
+		root->current = root->current->down;
+	}
+	return ("test2");
 }

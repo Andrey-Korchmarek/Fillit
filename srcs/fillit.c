@@ -17,16 +17,16 @@ char	*fillit(int fd)
 	char	*result;
 	int		ret;
 	char	buff[22];
-	int		*storage;
+	int		storage[26];
 	int		count;
 
-	if (!(storage = (int*)malloc(sizeof(int) * 26)))
-		return (NULL);
+	/*if (!(storage = (int*)malloc(sizeof(int) * 26)))
+		return (NULL);*/
 	count = 0;
 	while ((ret = read(fd, buff, 21)) && (count < 26))
 	{
 		buff[ret] = '\0';
-		if (validation(buff))
+		if ((validation(buff)))
 		{
 			if ((storage[count] = check_tetr(buff)) != -1)
 				count++;
@@ -34,7 +34,7 @@ char	*fillit(int fd)
 		else
 		{
 			ft_putstr("error\n");
-			return (NULL);
+			return ("NULL");
 		}
 	}
 	result = test2(storage, count);
