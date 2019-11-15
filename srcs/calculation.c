@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   calculation.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:08:26 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/08 15:08:29 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/15 13:05:23 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #include "includes/fillit.h"
 
@@ -21,6 +22,7 @@ void	calculation(void)
 	int x;
 	int y;
 
+	coord = {0, 1, 1, 0, 1, 1};
 	x = 2;
 	y = 2;
 	queue = 'A';
