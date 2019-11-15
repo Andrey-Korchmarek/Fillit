@@ -1,6 +1,0 @@
-
-
-#ifndef UNTITLED_AELPHIAS_H
-#define UNTITLED_AELPHIAS_H
-
-#endif //UNTITLED_AELPHIAS_H
