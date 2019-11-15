@@ -93,5 +93,7 @@ int	validation(char *tetr);
 char	*calculation_beta(int *storage, int len);
 int *get_coordinates(int a, int form);
 int min_map(int count);
+void	matrix_add_line(matrix **root, matrix *line);
+void	test2(int *storage, int len);
 
 #endif
