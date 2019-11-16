@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/21 20:07:13 by mashley           #+#    #+#             */
-/*   Updated: 2019/10/21 10:28:56 by mashley          ###   ########.fr       */
+/*   Updated: 2019/11/16 17:55:51 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {

@@ -1,40 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 18:39:50 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 17:56:08 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/25 17:35:17 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/29 20:38:35 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	t_list	*tmp;
+	size_t				i;
+	unsigned char		*ptr_dst;
+	unsigned char		*ptr_src;
+	unsigned char		cc;
 
-	tmp = (t_list*)malloc(sizeof(t_list));
-	if (!tmp)
+	ptr_dst = (unsigned char *)dst;
+	ptr_src = (unsigned char *)src;
+	cc = (unsigned char)c;
+	i = 0;
+	if (!dst && !src)
 		return (NULL);
-	if (!content)
+	while (i < n)
 	{
-		tmp->content = NULL;
-		tmp->content_size = 0;
-	}
-	else
-	{
-		tmp->content = malloc(content_size);
-		if (!tmp->content)
+		if (ptr_src[i] == cc)
 		{
-			free(tmp);
-			return (NULL);
+			ptr_dst[i] = ptr_src[i];
+			return (&ptr_dst[i + 1]);
 		}
-		ft_memcpy(tmp->content, content, content_size);
-		tmp->content_size = content_size;
+		ptr_dst[i] = ptr_src[i];
+		i++;
 	}
-	tmp->next = NULL;
-	return (tmp);
+	return (NULL);
 }

@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 18:39:50 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 17:56:08 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/25 20:35:34 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/25 21:12:13 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_list	*tmp;
+	const unsigned char *ptr_s1;
+	const unsigned char *ptr_s2;
+	size_t				i;
 
-	tmp = (t_list*)malloc(sizeof(t_list));
-	if (!tmp)
-		return (NULL);
-	if (!content)
+	ptr_s1 = (const unsigned char *)s1;
+	ptr_s2 = (const unsigned char *)s2;
+	i = 0;
+	if (!n)
+		return (0);
+	while (i < n)
 	{
-		tmp->content = NULL;
-		tmp->content_size = 0;
+		if (ptr_s1[i] == ptr_s2[i])
+			i++;
+		else
+			return (ptr_s1[i] - ptr_s2[i]);
 	}
-	else
-	{
-		tmp->content = malloc(content_size);
-		if (!tmp->content)
-		{
-			free(tmp);
-			return (NULL);
-		}
-		ft_memcpy(tmp->content, content, content_size);
-		tmp->content_size = content_size;
-	}
-	tmp->next = NULL;
-	return (tmp);
+	return (0);
 }

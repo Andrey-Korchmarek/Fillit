@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strplen.c                                       :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 15:53:33 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/20 15:53:37 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/25 19:40:52 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/25 20:31:30 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-size_t	ft_strplen(const char *str)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t i;
+	unsigned const char *ptr_s;
+	size_t				i;
 
-	if (!str)
-		return (0);
+	ptr_s = (unsigned const char *)s;
 	i = 0;
-	while (str[i] != '\0')
+	while (i < n)
+	{
+		if (ptr_s[i] == (unsigned char)c)
+			return ((void*)(ptr_s + i));
 		i++;
-	return (i);
+	}
+	return (NULL);
 }

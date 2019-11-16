@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/19 10:31:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/09/24 14:31:57 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/25 21:26:19 by aelphias          #+#    #+#             */
+/*   Updated: 2019/10/07 23:24:34 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_memset(void *b, int c, size_t len)
+char	*ft_strcpy(char *dst, const char *src)
 {
-	size_t i;
+	char *rslt;
 
-	i = 0;
-	if (len == 0)
-		return (b);
-	while (i < len)
+	rslt = dst;
+	while (*src != '\0')
 	{
-		((char *)b)[i] = (char)c;
-		i++;
+		*dst = *((char *)src);
+		dst++;
+		src++;
 	}
-	return (b);
+	*dst = '\0';
+	return (rslt);
 }

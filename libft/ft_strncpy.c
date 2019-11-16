@@ -1,27 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tetadd.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 15:30:18 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/08 15:30:23 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/25 21:28:47 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/25 22:02:20 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-void	ft_tetadd(t_etris **alst, t_etris *new)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	if (new)
+	size_t i;
+
+	i = 0;
+	while (i < len && src[i])
 	{
-		if (*alst)
-		{
-			new->next = (*alst);
-			(*alst) = new;
-		}
-		else
-			(*alst) = new;
+		dst[i] = ((char *)src)[i];
+		i++;
 	}
+	i--;
+	while (++i < len)
+		dst[i] = '\0';
+	return (dst);
 }

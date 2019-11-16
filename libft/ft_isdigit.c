@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnode.c                                       :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/16 11:02:56 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 11:02:59 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/19 13:01:31 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/19 15:29:44 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
-
-void	ft_putnode(matrix *root)
+int	ft_isdigit(int c)
 {
-	ft_putchar(root->current->letter);
-	ft_putchar(' ');
-	ft_putnbr(root->current->x);
-	ft_putchar(' ');
-	ft_putnbr(root->current->y);
-	ft_putstr(" | ");
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
 }

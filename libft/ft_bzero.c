@@ -3,16 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/12 18:49:33 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/18 16:51:07 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/23 17:45:55 by aelphias          #+#    #+#             */
+/*   Updated: 2019/10/13 15:39:32 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-void	ft_bzero(void *b, size_t n)
+void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(b, '\0', n);
+	char	*ptr;
+	size_t	i;
+
+	if (!s || n == 0)
+		return ;
+	i = 0;
+	ptr = (char *)s;
+	while (i < n)
+	{
+		ptr[i] = '\0';
+		i++;
+	}
 }

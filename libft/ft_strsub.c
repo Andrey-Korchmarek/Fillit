@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 18:39:50 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 17:56:08 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/28 22:24:05 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/29 12:54:54 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	t_list	*tmp;
+	char	*new_s;
+	size_t	i;
 
-	tmp = (t_list*)malloc(sizeof(t_list));
-	if (!tmp)
+	if (s == NULL)
 		return (NULL);
-	if (!content)
+	new_s = (char *)malloc(sizeof(char) * len + 1);
+	if (new_s == NULL)
+		return (NULL);
+	i = 0;
+	while (i < len && s[start] != '\0')
 	{
-		tmp->content = NULL;
-		tmp->content_size = 0;
+		new_s[i] = s[start];
+		i++;
+		start++;
 	}
-	else
-	{
-		tmp->content = malloc(content_size);
-		if (!tmp->content)
-		{
-			free(tmp);
-			return (NULL);
-		}
-		ft_memcpy(tmp->content, content, content_size);
-		tmp->content_size = content_size;
-	}
-	tmp->next = NULL;
-	return (tmp);
+	new_s[i] = '\0';
+	return (new_s);
 }

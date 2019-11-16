@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcount.c                                      :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aelphias <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 12:16:45 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/02 19:45:46 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/22 18:53:15 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/22 19:12:53 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
-
-int ft_strcount(char *str, char c)
+int	ft_tolower(int c)
 {
-	int count;
-
-	count = 0;
-	while (*str)
-	{
-		if (*str == c)
-			count++;
-		str++;
-	}
-	return (count);
+	if (c > 64 && c < 91)
+		return (c + 32);
+	else
+		return (c);
 }

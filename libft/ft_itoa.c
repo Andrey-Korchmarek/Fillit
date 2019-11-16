@@ -1,40 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 18:39:50 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 17:56:08 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/29 17:26:31 by aelphias          #+#    #+#             */
+/*   Updated: 2019/10/21 16:12:05 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+static	int	num_size(int nb)
 {
-	t_list	*tmp;
+	int	sz;
 
-	tmp = (t_list*)malloc(sizeof(t_list));
-	if (!tmp)
+	sz = 1;
+	while (nb /= 10)
+		++sz;
+	return (sz);
+}
+
+char		*ft_itoa(int n)
+{
+	char				*s;
+	int					sz;
+	unsigned	int		buf;
+
+	sz = num_size(n);
+	buf = n;
+	if (n < 0)
+	{
+		buf = -n;
+		sz++;
+	}
+	if (!(s = ft_strnew(sz)))
 		return (NULL);
-	if (!content)
-	{
-		tmp->content = NULL;
-		tmp->content_size = 0;
-	}
-	else
-	{
-		tmp->content = malloc(content_size);
-		if (!tmp->content)
-		{
-			free(tmp);
-			return (NULL);
-		}
-		ft_memcpy(tmp->content, content, content_size);
-		tmp->content_size = content_size;
-	}
-	tmp->next = NULL;
-	return (tmp);
+	s[--sz] = buf % 10 + '0';
+	while (buf /= 10)
+		s[--sz] = buf % 10 + '0';
+	if (n < 0)
+		*(s + 0) = '-';
+	return (s);
 }

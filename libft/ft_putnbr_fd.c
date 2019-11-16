@@ -3,29 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 12:48:05 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/17 12:49:22 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/23 23:54:02 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/23 23:58:06 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
 void	ft_putnbr_fd(int n, int fd)
 {
-	if (n == INTMIN)
+	if (n == -2147483648)
+	{
 		ft_putstr_fd("-2147483648", fd);
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
-	}
-	else if (n >= 10)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putchar_fd(n % 10 + '0', fd);
 	}
 	else
-		ft_putchar_fd(n + '0', fd);
+	{
+		if (n < 0)
+		{
+			ft_putchar_fd('-', fd);
+			n = -n;
+		}
+		if (n / 10 > 0)
+		{
+			ft_putnbr_fd(n / 10, fd);
+		}
+		ft_putchar_fd(n % 10 + '0', fd);
+	}
 }

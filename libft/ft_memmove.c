@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 18:39:50 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 17:56:08 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/25 18:03:56 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/25 19:39:27 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	t_list	*tmp;
+	size_t		i;
+	char		*ptr_dst;
+	const char	*ptr_src;
 
-	tmp = (t_list*)malloc(sizeof(t_list));
-	if (!tmp)
+	ptr_dst = (char *)dst;
+	ptr_src = (const char *)src;
+	i = 0;
+	if (!dst && !src)
 		return (NULL);
-	if (!content)
+	if (ptr_src > ptr_dst)
 	{
-		tmp->content = NULL;
-		tmp->content_size = 0;
+		while (i < len)
+		{
+			ptr_dst[i] = ptr_src[i];
+			i++;
+		}
 	}
 	else
-	{
-		tmp->content = malloc(content_size);
-		if (!tmp->content)
+		while (len--)
 		{
-			free(tmp);
-			return (NULL);
+			ptr_dst[len] = ptr_src[len];
 		}
-		ft_memcpy(tmp->content, content, content_size);
-		tmp->content_size = content_size;
-	}
-	tmp->next = NULL;
-	return (tmp);
+	return ((void*)ptr_dst);
 }

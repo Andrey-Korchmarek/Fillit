@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 18:39:50 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 17:56:08 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/26 17:15:15 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/28 21:14:43 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_list	*tmp;
+	size_t				i;
+	const unsigned char	*ss1;
+	const unsigned char	*ss2;
 
-	tmp = (t_list*)malloc(sizeof(t_list));
-	if (!tmp)
-		return (NULL);
-	if (!content)
+	i = 0;
+	ss1 = (unsigned char *)s1;
+	ss2 = (unsigned char *)s2;
+	while (i < n && ss1[i] != '\0' && ss2[i] != '\0')
 	{
-		tmp->content = NULL;
-		tmp->content_size = 0;
+		if (ss1[i] != ss2[i])
+			return (ss1[i] - ss2[i]);
+		i++;
 	}
-	else
-	{
-		tmp->content = malloc(content_size);
-		if (!tmp->content)
-		{
-			free(tmp);
-			return (NULL);
-		}
-		ft_memcpy(tmp->content, content, content_size);
-		tmp->content_size = content_size;
-	}
-	tmp->next = NULL;
-	return (tmp);
+	if (ss1[i] != ss2[i] && i != n)
+		return (ss1[i] - ss2[i]);
+	return (0);
 }

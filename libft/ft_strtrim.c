@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 18:39:50 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 17:56:08 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/29 13:25:53 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/29 18:35:18 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+char	*ft_strtrim(char const *s)
 {
-	t_list	*tmp;
+	size_t	i;
+	size_t	len;
 
-	tmp = (t_list*)malloc(sizeof(t_list));
-	if (!tmp)
+	if (!s)
 		return (NULL);
-	if (!content)
-	{
-		tmp->content = NULL;
-		tmp->content_size = 0;
-	}
-	else
-	{
-		tmp->content = malloc(content_size);
-		if (!tmp->content)
-		{
-			free(tmp);
-			return (NULL);
-		}
-		ft_memcpy(tmp->content, content, content_size);
-		tmp->content_size = content_size;
-	}
-	tmp->next = NULL;
-	return (tmp);
+	i = 0;
+	len = ft_strlen(s) - 1;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	if (s[i] == '\0')
+		return (ft_strdup(s + i));
+	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
+		len--;
+	return (ft_strsub(s, i, len - i + 1));
 }

@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/21 18:39:50 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 17:56:08 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/25 23:28:51 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/26 13:35:36 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void const *content, size_t content_size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_list	*tmp;
+	size_t len_dst;
+	size_t len_src;
+	size_t i;
+	size_t b;
 
-	tmp = (t_list*)malloc(sizeof(t_list));
-	if (!tmp)
-		return (NULL);
-	if (!content)
+	len_dst = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	i = 0;
+	b = len_dst + len_src;
+	if (!src)
+		return (len_src);
+	if (size > len_dst)
 	{
-		tmp->content = NULL;
-		tmp->content_size = 0;
-	}
-	else
-	{
-		tmp->content = malloc(content_size);
-		if (!tmp->content)
+		while (src[i] && len_dst < size - 1)
 		{
-			free(tmp);
-			return (NULL);
+			dst[len_dst] = src[i];
+			i++;
+			len_dst++;
 		}
-		ft_memcpy(tmp->content, content, content_size);
-		tmp->content_size = content_size;
+		dst[len_dst] = '\0';
+		return (b);
 	}
-	tmp->next = NULL;
-	return (tmp);
+	return (size + len_src);
 }
