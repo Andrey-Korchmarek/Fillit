@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/16 14:07:20 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/16 15:26:19 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	
 	if (argc != 2)
 	{
-		ft_putstr("Give me one file");
+		ft_putstr("usage: ./fillit  file_with_tetriminos\n");
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
