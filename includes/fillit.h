@@ -6,11 +6,11 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 16:02:49 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/16 16:04:49 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-§#ifndef MASHLEY_FILLIT_H
+#ifndef MASHLEY_FILLIT_H
 #define MASHLEY_FILLIT_H
 # define INTMIN ( -2147483648 )
 # include <unistd.h>
