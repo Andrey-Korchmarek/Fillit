@@ -6,11 +6,11 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/16 15:26:19 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/16 18:18:38 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
 int g_tetramines[19][10] =	{{0, 1, 0, 2, 0, 3, 0, 0, 0, 3}, /* */
 							   {0, 1, 0, 2, 1, 0, 0, 0, 1, 2},

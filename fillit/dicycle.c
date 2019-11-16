@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   dicycle.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 10:44:01 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 10:44:05 by mashley          ###   ########.fr       */
+/*   Updated: 2019/11/16 18:54:58 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
 void	dicycle(matrix **root, int a, int form, int count)
 {

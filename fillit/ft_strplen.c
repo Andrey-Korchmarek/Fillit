@@ -1,27 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sign.c                                       :+:      :+:    :+:   */
+/*   ft_strplen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 18:36:58 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 19:34:01 by aelphias         ###   ########.fr       */
+/*   Created: 2019/09/20 15:53:33 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/20 15:53:37 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "includes/fillit.h"
 
-int	check_sign(char *tetr)
+size_t	ft_strplen(const char *str)
 {
-	int len;
+	size_t i;
 
-	len = ft_strlen(tetr);
-	if (ft_strcount(tetr, '.') != 12)
+	if (!str)
 		return (0);
-	if (ft_strcount(tetr, '#') != 4)
-		return (0);
-	if (ft_strcount(tetr, '\n') != (len / 5 + len % 5)) /* */ 
-		return (0);
-	return (1);
+	i = 0;
+	while (str[i] != '\0')
+		i++;
+	return (i);
 }

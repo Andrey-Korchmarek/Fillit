@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   validation.c                                       :+:      :+:    :+:   */
+/*   ft_tetadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 11:53:13 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 18:53:13 by aelphias         ###   ########.fr       */
+/*   Created: 2019/11/08 15:30:18 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/08 15:30:23 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "includes/fillit.h"
 
-int	validation(char *tetr)
+void	ft_tetadd(t_etris **alst, t_etris *new)
 {
-	char **tmp;
-
-	if (!(check_sign(tetr)))
-		return (0);
-	tmp = ft_strsplit(tetr, '\n');
-	if (check_neig1(tmp) + check_neig2(tmp) < 6)
-		return (0);
-	return (1);
+	if (new)
+	{
+		if (*alst)
+		{
+			new->next = (*alst);
+			(*alst) = new;
+		}
+		else
+			(*alst) = new;
+	}
 }

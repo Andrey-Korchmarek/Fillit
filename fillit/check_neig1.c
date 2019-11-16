@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_neig1.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 18:36:13 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/10 18:36:18 by mashley          ###   ########.fr       */
+/*   Updated: 2019/11/16 18:54:33 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
 int	check_neig1(char **tetr)
 {

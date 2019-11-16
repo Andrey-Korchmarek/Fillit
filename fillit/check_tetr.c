@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   check_tetr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 17:08:12 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/13 17:08:16 by mashley          ###   ########.fr       */
+/*   Updated: 2019/11/16 18:53:06 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
 int	check_tetr(char *tetr)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   calculation_beta.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/15 14:20:02 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/15 14:20:07 by mashley          ###   ########.fr       */
+/*   Updated: 2019/11/16 18:51:37 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
 char	*calculation_beta(int *storage, int tetrnom)
 {

@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/10 17:31:10 by mashley          ###   ########.fr       */
+/*   Updated: 2019/11/16 19:46:56 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
 char	*fillit(int fd)
 {
@@ -19,9 +19,9 @@ char	*fillit(int fd)
 	char	buff[22];
 	int		storage[26];
 	int		count;
+	int i;
 
-	/*if (!(storage = (int*)malloc(sizeof(int) * 26)))
-		return (NULL);*/
+	i = 0;
 	count = 0;
 	while ((ret = read(fd, buff, 21)) && (count < 26))
 	{
@@ -37,6 +37,20 @@ char	*fillit(int fd)
 			return ("NULL");
 		}
 	}
-	result = calculation_beta(storage, count);
+	if ((ft_strlen(buff) != 20))
+	{
+		ft_putstr("error\n");
+		return ("NULL");
+	}
+	printf("{ret=%i}\n", ret);
+	printf("{buff=%s}\n", buff);
+	//result = calculation_beta(storage, count);
+	while (i < count)
+	{
+		ft_putnbr(storage[i]);
+		ft_putchar('\n');
+		i++;
+	}
+	result = NULL;
 	return (result);
 }
