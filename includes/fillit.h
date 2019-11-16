@@ -90,11 +90,12 @@ void	matrix_delete_element(matrix *element);
 matrix	*matrix_generator(int size);
 void	safe(t_etris **list, char *tetr, char count);
 int	validation(char *tetr);
-char	*calculation_beta(int *storage, int len);
-int *get_coordinates(int a, int form);
+char	*calculation_beta(int *storage, int tetrnum);
+int *get_coord(int x, int y, int form);
 int min_map(int count);
 void	matrix_add_line(matrix **root, matrix *line);
 char	*test2(int *storage, int len);
 char	*recur(int *storage, int len);
+void	dicycle(matrix **root, int a, int form, int count);
 
 #endif

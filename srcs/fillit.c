@@ -37,6 +37,6 @@ char	*fillit(int fd)
 			return ("NULL");
 		}
 	}
-	result = recur(storage, count);
+	result = calculation_beta(storage, count);
 	return (result);
 }

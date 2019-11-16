@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_coordinates.c                                  :+:      :+:    :+:   */
+/*   get_coord.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,32 +12,21 @@
 
 #include "includes/fillit.h"
 
-int *get_coordinates(int a, int form)
+int *get_coord(int x, int y, int form)
 {
 	extern int g_tetramines[19][10];
 	int *c;
-	int i;
-	int j;
 	int *result;
 
+	result =(int*)malloc(sizeof(int) * 8);
 	c = g_tetramines[form];
-	if (!(result = (int*)malloc(sizeof(int) * 8)))
-		return (NULL);
-	i = c[6];
-	while (i <= (a - c[8]))
-	{
-		j = c[7];
-		while (j <= (a - c[9]))
-		{
-			result[0] = i;
-			result[1] = j;
-			result[2] = i + c[0];
-			result[3] = j + c[1];
-			result[4] = i + c[2];
-			result[5] = j + c[3];
-			result[6] = i + c[4];
-			result[7] = j + c[5];
-		}
-	}
+	result[0] = x;
+	result[1] = y;
+	result[2] = x + c[0];
+	result[3] = y + c[1];
+	result[4] = x + c[2];
+	result[5] = y + c[3];
+	result[6] = x + c[4];
+	result[7] = y + c[5];
 	return (result);
 }

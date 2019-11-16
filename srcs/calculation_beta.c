@@ -12,20 +12,42 @@
 
 #include "includes/fillit.h"
 
-//char	*calculation_beta(int *storage, int len)
-//{
-//	int	i;
-//	matrix *root;
-//	int size;
-//
-//	size = min_map(len);
-//	root = matrix_generator(size);
-//	i = 0;
-//	while (i < len)
-//	{
-//		//coord = get_coordinates(size, storage[i]);
-//		matrix_add_line(&root, line_generator('A' + i, size, storage[i]));
-//		i++;
-//	}
-//	return (NULL);
-//}
+char	*calculation_beta(int *storage, int tetrnom)
+{
+	matrix *root;
+	int i;
+
+	if (!(root = matrix_generator(min_map(tetrnom))))
+		return (NULL);
+	i = 0;
+	while (i < tetrnom)
+	{
+		dicycle(&root, min_map(tetrnom), storage[i], i);
+		i++;
+	}
+
+
+
+
+
+	printf("%c %d %d | ", root->current->letter, root->current->x, root->current->y);
+	root->current = root->current->right;
+	while (root->current->letter != '!')
+	{
+		printf("%c %d %d | ", root->current->letter, root->current->x, root->current->y);
+		root->current = root->current->right;
+	}
+	root->current = root->current->down;
+	while (root->current->letter != '!')
+	{
+		printf("\n %c %d %d | ", root->current->letter, root->current->x, root->current->y);
+		root->current = root->current->right;
+		while (root->current->x != -1)
+		{
+			printf("%c %d %d | ", root->current->letter, root->current->x, root->current->y);
+			root->current = root->current->right;
+		}
+		root->current = root->current->down;
+	}
+	return ("calculation_beta");
+}
