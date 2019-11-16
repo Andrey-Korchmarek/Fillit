@@ -12,7 +12,7 @@
 
 #ifndef MASHLEY_FILLIT_H
 #define MASHLEY_FILLIT_H
-
+# define INTMIN ( -2147483648 )
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -49,12 +49,13 @@ typedef struct	Ring {
 	t_dance		*current;
 } 				matrix;
 
-void	calculation(void);
+char	*calculation_beta(int *storage, int tetrnom);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);
 int	check_sign(char *tetr);
 int	check_tetr(char *tetr);
 int	*coordinates(char **tetr);
+void	dicycle(matrix **root, int a, int form, int count);
 int	*eight_to_six(int *valtet);
 char	*fillit(int fd);
 int	*first(char **tetr);
@@ -71,6 +72,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);
 void	ft_putchar(char c);
 void	ft_putchar_fd(char c, int fd);
+void	ft_putnbr(int n);
+void	ft_putnbr_fd(int n, int fd);
 void	ft_putstr(char const *s);
 void	ft_putstr_fd(char const *s, int fd);
 void	*ft_realloc(void *ptr, size_t newsize);
@@ -82,20 +85,18 @@ size_t	ft_strplen(const char *str);
 char			**ft_strsplit(char const *s, char c);
 void	ft_tetadd(t_etris **alst, t_etris *new);
 t_etris	*ft_tetnew(int *content, char queue);
+int *get_coord(int x, int y, int form);
 matrix	*line_generator(char count, int *coordinates);
 void matrix_add_down(matrix *hat, t_dance *tmp);
+void	matrix_add_line(matrix **root, matrix *line);
 void matrix_add_right(matrix *root, t_dance *tmp);
 matrix*	matrix_create();
 void	matrix_delete_element(matrix *element);
 matrix	*matrix_generator(int size);
+void	matrix_print(matrix *root);
+int min_map(int count);
 void	safe(t_etris **list, char *tetr, char count);
 int	validation(char *tetr);
-char	*calculation_beta(int *storage, int tetrnum);
-int *get_coord(int x, int y, int form);
-int min_map(int count);
-void	matrix_add_line(matrix **root, matrix *line);
-char	*test2(int *storage, int len);
-char	*recur(int *storage, int len);
-void	dicycle(matrix **root, int a, int form, int count);
+void	ft_putnode(matrix *root);
 
 #endif

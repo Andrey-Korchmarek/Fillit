@@ -25,29 +25,6 @@ char	*calculation_beta(int *storage, int tetrnom)
 		dicycle(&root, min_map(tetrnom), storage[i], i);
 		i++;
 	}
-
-
-
-
-
-	printf("%c %d %d | ", root->current->letter, root->current->x, root->current->y);
-	root->current = root->current->right;
-	while (root->current->letter != '!')
-	{
-		printf("%c %d %d | ", root->current->letter, root->current->x, root->current->y);
-		root->current = root->current->right;
-	}
-	root->current = root->current->down;
-	while (root->current->letter != '!')
-	{
-		printf("\n %c %d %d | ", root->current->letter, root->current->x, root->current->y);
-		root->current = root->current->right;
-		while (root->current->x != -1)
-		{
-			printf("%c %d %d | ", root->current->letter, root->current->x, root->current->y);
-			root->current = root->current->right;
-		}
-		root->current = root->current->down;
-	}
+	matrix_print(root);
 	return ("calculation_beta");
 }
