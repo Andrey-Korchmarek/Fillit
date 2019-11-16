@@ -14,14 +14,11 @@
 
 char	*fillit(int fd)
 {
-	char	*result;
 	int		ret;
 	char	buff[22];
 	int		storage[26];
 	int		count;
 
-	/*if (!(storage = (int*)malloc(sizeof(int) * 26)))
-		return (NULL);*/
 	count = 0;
 	while ((ret = read(fd, buff, 21)) && (count < 26))
 	{
@@ -37,6 +34,10 @@ char	*fillit(int fd)
 			return ("NULL");
 		}
 	}
-	result = calculation_beta(storage, count);
-	return (result);
+	if ((ft_strlen(buff) != 20))
+	{
+		ft_putstr("error\n");
+		return ("NULL");
+	}
+	return (calculation_beta(storage, count));
 }
