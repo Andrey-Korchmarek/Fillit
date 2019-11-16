@@ -19,6 +19,7 @@ char	*calculation_beta(int *storage, int tetrnom)
 
 	if (!(root = matrix_generator(min_map(tetrnom))))
 		return (NULL);
+	root->size = tetrnom;
 	i = 0;
 	while (i < tetrnom)
 	{

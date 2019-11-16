@@ -44,7 +44,8 @@ typedef struct		s_dance
 	struct s_dance	*down;
 }					t_dance;
 
-typedef struct	Ring {
+typedef struct	Ring
+{
 	size_t		size;
 	t_dance		*current;
 } 				matrix;
@@ -98,5 +99,12 @@ int min_map(int count);
 void	safe(t_etris **list, char *tetr, char count);
 int	validation(char *tetr);
 void	ft_putnode(matrix *root);
+size_t	ft_lstlen(t_list *lst);
+int matrix_check(matrix *root, t_list *answer);
+char *matrix_dancing_links(matrix **root);
+void	matrix_recur(t_dance *tmp, matrix **root,
+						t_list **answer, t_list **lines);
+void	matrix_hide_line(t_dance *head, t_list **lines);
+void	matrix_hide_column(t_dance *hat, t_list **answer);
 
 #endif
