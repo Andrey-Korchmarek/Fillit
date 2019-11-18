@@ -14,8 +14,8 @@
 
 char	*calculation_beta(int *storage, int tetrnom)
 {
-	matrix *root;
-	int i;
+	matrix	*root;
+	int		i;
 
 	if (!(root = matrix_generator(min_map(tetrnom))))
 		return (NULL);
@@ -26,6 +26,8 @@ char	*calculation_beta(int *storage, int tetrnom)
 		dicycle(&root, min_map(tetrnom), storage[i], i);
 		i++;
 	}
+
+	matrix_dancing_links(&root);
 	matrix_print(root);
 	return ("calculation_beta");
 }

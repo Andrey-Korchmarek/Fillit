@@ -18,4 +18,4 @@ add_executable(Fillit ${LIBRARY} main.c srcs/matrix_generator.c srcs/ft_dannew.c
 		tmp/test.c srcs/matrix_add_line.c tmp/test2.c srcs/dicycle.c
 		srcs/matrix_print.c srcs/ft_putnode.c srcs/matrix_check.c
 		srcs/ft_lstlen.c srcs/matrix_dancing_links.c srcs/matrix_recur.c
-		srcs/matrix_hide_line.c srcs/matrix_hide_column.c)
+		srcs/matrix_hide_line.c srcs/matrix_hide_column.c srcs/matrix_intersections.c)

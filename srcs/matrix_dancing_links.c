@@ -9,6 +9,8 @@ char *matrix_dancing_links(matrix **root)
 	answer = ft_lstnew(NULL, 0);
 	lines = ft_lstnew(NULL, 0);
 	tmp = (*root)->current->right->down;
+	//tmp = best_col(root);
+	//tmp = tmp->down;
 	while (tmp->letter != '@')
 	{
 		matrix_recur(tmp, root, &answer, &lines);
