@@ -29,15 +29,9 @@ char	*fillit(int fd)
 				count++;
 		}
 		else
-		{
-			ft_putstr("error\n");
-			return ("NULL");
-		}
+			return ("error\n");
 	}
 	if ((ft_strlen(buff) != 20))
-	{
-		ft_putstr("error\n");
-		return ("NULL");
-	}
+		return ("error\n");
 	return (calculation_beta(storage, count));
 }
