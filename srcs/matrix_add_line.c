@@ -12,32 +12,32 @@
 
 #include "includes/fillit.h"
 
-void	matrix_add_line(matrix **root, matrix *line)
+void	matrix_add_line(matrix **root, t_dance *line)
 {
 	matrix	*hat;
 
-	matrix_add_down(*root, line->current);
+	matrix_add_down(*root, line);
 	hat = matrix_create();
 	hat->current = (*root)->current->right;
-	line->current = line->current->right;
-	while (hat->current->x != line->current->x ||
-	hat->current->y != line->current->y)
+	line = line->right;
+	while (hat->current->x != line->x ||
+	hat->current->y != line->y)
 		hat->current = hat->current->right;
-	matrix_add_down(hat, line->current);
-	line->current = line->current->right;
-	while (hat->current->x != line->current->x ||
-		   hat->current->y != line->current->y)
+	matrix_add_down(hat, line);
+	line = line->right;
+	while (hat->current->x != line->x ||
+		   hat->current->y != line->y)
 		hat->current = hat->current->right;
-	matrix_add_down(hat, line->current);
-	line->current = line->current->right;
-	while (hat->current->x != line->current->x ||
-		   hat->current->y != line->current->y)
+	matrix_add_down(hat, line);
+	line = line->right;
+	while (hat->current->x != line->x ||
+		   hat->current->y != line->y)
 		hat->current = hat->current->right;
-	matrix_add_down(hat, line->current);
-	line->current = line->current->right;
-	while (hat->current->x != line->current->x ||
-		   hat->current->y != line->current->y)
+	matrix_add_down(hat, line);
+	line = line->right;
+	while (hat->current->x != line->x ||
+		   hat->current->y != line->y)
 		hat->current = hat->current->right;
-	matrix_add_down(hat, line->current);
-	line->current = line->current->right;
+	matrix_add_down(hat, line);
+	line = line->right;
 }

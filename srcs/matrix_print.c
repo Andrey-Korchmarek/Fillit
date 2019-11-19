@@ -34,4 +34,5 @@ void	matrix_print(matrix *root)
 		}
 		root->current = root->current->down;
 	}
+	ft_putstr("\n\n ");
 }

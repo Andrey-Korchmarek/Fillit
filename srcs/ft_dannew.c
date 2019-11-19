@@ -22,9 +22,9 @@ t_dance	*ft_dannew(char queue, int x, int y)
 	tmp->letter = queue;
 	tmp->x = x;
 	tmp->y = y;
-	tmp->left = NULL;
-	tmp->right = NULL;
-	tmp->up = NULL;
-	tmp->down = NULL;
+	tmp->left = tmp;
+	tmp->right =tmp;
+	tmp->up = tmp;
+	tmp->down = tmp;
 	return (tmp);
 }

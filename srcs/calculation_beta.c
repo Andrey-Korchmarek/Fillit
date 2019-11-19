@@ -28,6 +28,6 @@ char	*calculation_beta(int *storage, int tetrnom)
 	}
 
 	matrix_dancing_links(&root);
-	matrix_print(root);
+	//matrix_print(root);
 	return ("calculation_beta");
 }
