@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 17:08:12 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 18:53:06 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/19 15:44:18 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_tetr(char *tetr)
 {
 	char	**tmp;
-	int		*vt;
+	int		*vt; /*valid tetrx*/
 	int 	i;
 	int 	*a;
 	extern int g_tetramines[19][10];

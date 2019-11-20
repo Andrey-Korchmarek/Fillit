@@ -6,23 +6,23 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:08:26 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/15 13:05:23 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/20 12:21:18 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
 void	calculation(void)
 {
-	/*int coord[] = {0, 1, 1, 0, 1, 1};
+	int coord[] = {0, 1, 1, 0, 1, 1};
 	char queue;
 	char field[4][5];
 	int i;
 	int x;
 	int y;
 
-	coord = {0, 1, 1, 0, 1, 1};
+	
 	x = 2;
 	y = 2;
 	queue = 'A';
@@ -48,11 +48,11 @@ i = 0;
 	{
 		printf("%s\n", field[i]);
 		i++;
-	}*/
+	}
 }
 
-//int main(void)
-//{
-//	calculation();
-//	return (0);
-//}
+int main(void)
+{
+	calculation();
+	return (0);
+}

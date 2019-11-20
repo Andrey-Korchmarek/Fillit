@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 19:46:56 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/19 15:30:14 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,12 @@ char	*fillit(int fd)
 				count++;
 		}
 		else
-		{
-			ft_putstr("error\n");
-			return ("NULL");
-		}
+		return ("error\n");
 	}
-	if ((ft_strlen(buff) != 20))
-	{
-		ft_putstr("error\n");
-		return ("NULL");
-	}
-	printf("{ret=%i}\n", ret);
-	printf("{buff=%s}\n", buff);
+		if ((ft_strlen(buff) != 20))
+			return ("error\n");
+	//printf("{ret=%i}\n", ret);
+	//printf("{buff=%s}\n", buff);
 	//result = calculation_beta(storage, count);
 	while (i < count)
 	{

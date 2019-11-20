@@ -1,4 +1,8 @@
-#include "mashley.h"
+
+
+
+
+\#include "mashley.h"
 
 int hard_validation(char *tetr)
 {
