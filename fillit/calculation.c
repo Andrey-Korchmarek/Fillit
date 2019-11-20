@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:08:26 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/20 12:21:18 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/20 16:09:32 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	calculation(void)
 	int x;
 	int y;
 
-	
 	x = 2;
 	y = 2;
 	queue = 'A';
