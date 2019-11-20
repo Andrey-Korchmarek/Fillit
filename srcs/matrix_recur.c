@@ -12,21 +12,23 @@
 
 #include "includes/fillit.h"
 
-void	matrix_recur(t_dance *tmp, matrix **root,
-						matrix **answer, matrix **lines)
+void	matrix_recur(t_dance *tmp, matrix **root)
 {
 	t_dance	*chosen;
 	char 	tetr;
 
-	matrix_print(*root);
-	if (matrix_check(*root, *answer) == 1)
+//	matrix_print(*root);
+//	ft_putchar('T');
+	if (matrix_check(*root) == 1)
 	{
 		//print_result(*answer,)
 		//matrix_print(*root);
 		return ;
 	}
 
-	matrix_add_line(lines, tmp);
+	//matrix_safe_line(lines, tmp);
+	//matrix_print(*root);
+	//matrix_print(*lines);
 	while (tmp->left->x != -1)
 		tmp = tmp->left;
 	while (tmp->x != -1)
@@ -35,7 +37,7 @@ void	matrix_recur(t_dance *tmp, matrix **root,
 		tmp = tmp->down;
 		while (tmp->letter != '@')
 		{
-			matrix_hide_line(tmp, lines);
+			matrix_hide_line(tmp);
 			tmp = tmp->down;
 		}
 		tmp = chosen->right;
@@ -44,13 +46,13 @@ void	matrix_recur(t_dance *tmp, matrix **root,
 	while (tmp->letter != '!')
 	{
 		if (tmp->letter == tetr)
-			matrix_hide_line(tmp, lines);
+			matrix_hide_line(tmp);
 		tmp = tmp->down;
 	}
 	while (chosen->x != -1)
 	{
-		matrix_hide_column(chosen, answer);
+		matrix_hide_column(chosen);
 		chosen = chosen->left;
 	}
-	matrix_recur(tmp->down->right, root, answer, lines);
+	matrix_recur(tmp->down->right, root);
 }

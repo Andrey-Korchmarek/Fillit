@@ -25,7 +25,9 @@ matrix	*matrix_generator(int size)
 	{
 		j = 0;
 		while (j <= size)
+		{
 			matrix_add_right(root, ft_dannew('@', i, j++));
+		}
 		i++;
 	}
 	return (root);

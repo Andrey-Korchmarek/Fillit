@@ -19,15 +19,15 @@ void matrix_add_right(matrix *root, t_dance *tmp)
 	prev = NULL;
 	if (root->current == NULL)
 	{
-		tmp->right = tmp->left = tmp->up = tmp->down = tmp;
 		root->current = tmp;
 	}
 	else
 	{
-		tmp->right = root->current;
-		tmp->left = root->current->left;
-		root->current->left->right = tmp;
+		prev = root->current->left;
 		root->current->left = tmp;
+		prev->right = tmp;
+		tmp->left = prev;
+		tmp->right = root->current;
 	}
 	root->size++;
 }

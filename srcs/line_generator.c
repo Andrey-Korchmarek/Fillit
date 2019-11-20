@@ -12,7 +12,7 @@
 
 #include "includes/fillit.h"
 
-t_dance	*line_generator(char count, int *coordinates)
+matrix	*line_generator(char count, int *coordinates)
 {
 	matrix *head;
 	t_dance	*tmp;
@@ -27,5 +27,5 @@ t_dance	*line_generator(char count, int *coordinates)
 		matrix_add_right(head, tmp);
 		i += 2;
 	}
-	return (head->current);
+	return (head);
 }

@@ -93,24 +93,26 @@ char			**ft_strsplit(char const *s, char c);
 void	ft_tetadd(t_etris **alst, t_etris *new);
 t_etris	*ft_tetnew(int *content, char queue);
 int *get_coord(int x, int y, int form);
-t_dance	*line_generator(char count, int *coordinates);
+matrix	*line_generator(char count, int *coordinates);
 void	matrix_add_column(matrix **root, t_dance *column);
 void matrix_add_down(matrix *hat, t_dance *tmp);
-void	matrix_add_line(matrix **root, t_dance *line);
+void	matrix_add_line(matrix **root, matrix *line);
 void matrix_add_right(matrix *root, t_dance *tmp);
-int matrix_check(matrix *root, matrix *answer);
+int matrix_check(matrix *root);
 matrix	*matrix_create();
 char *matrix_dancing_links(matrix **root);
 void	matrix_delete_element(matrix *element);
 matrix	*matrix_generator(int size);
-void	matrix_hide_column(t_dance *hat, matrix **answer);
-void	matrix_hide_line(t_dance *head, matrix **lines);
+void	matrix_hide_column(t_dance *hat);
+void	matrix_hide_line(t_dance *head);
 void	matrix_print(matrix *root);
-void	matrix_recur(t_dance *tmp, matrix **root,
-					 matrix **answer, matrix **lines);
+void	matrix_recur(t_dance *tmp, matrix **root);
 int min_map(int count);
 void	print_result(matrix *answer, int size);
 void	safe(t_etris **list, char *tetr, char count);
 int	validation(char *tetr);
+void	matrix_safe_line(matrix **root, t_dance *line);
+void	ft_danring(t_dance **node);
+size_t	result_len(matrix *root);
 
 #endif

@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calculation_beta.c                                 :+:      :+:    :+:   */
+/*   matrix_safe_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 14:20:02 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/15 14:20:07 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/20 16:28:48 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/20 16:28:52 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-char	*calculation_beta(int *storage, int tetrnom)
+void	matrix_safe_line(matrix **root, t_dance *line)
 {
-	matrix	*root;
 	int		i;
+	matrix	*tmp;
 
-	if (!(root = matrix_generator(min_map(tetrnom))))
-		return (NULL);
-	root->size = tetrnom;
-	//matrix_print(root);
-	//ft_putchar('T');
-	i = 0;
-	while (i < tetrnom)
+	while (line->x != -1)
+		line = line->left;
+	if ((*root)->current == NULL)
 	{
-		dicycle(&root, min_map(tetrnom), storage[i], i);
-		i++;
+		(*root)->current = line;
+		return ;
 	}
-	//matrix_print(root);
-//	ft_putchar('T');
-	matrix_dancing_links(&root);
-	//matrix_print(root);
-	return ("calculation_beta");
+	else
+	{
+		tmp = (*root);
+		i = 0;
+		while (i < 5)
+		{
+			matrix_add_down(tmp, line);
+			tmp->current = tmp->current->right;
+			line = line->right;
+			i++;
+		}
+	}
 }

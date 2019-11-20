@@ -12,15 +12,13 @@
 
 #include "includes/fillit.h"
 
-void	matrix_hide_line(t_dance *head, matrix **lines)
+void	matrix_hide_line(t_dance *head)
 {
 	while (head->x != -1)
 		head = head->right;
-	matrix_add_down(*lines, head);
-	head->down->up = head->up;
-	head->up->down = head->down;
+	head->x = -2;
 	head = head->right;
-	while (head->x != -1)
+	while (head->x >= 0)
 	{
 		head->down->up = head->up;
 		head->up->down = head->down;

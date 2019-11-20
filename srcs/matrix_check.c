@@ -12,13 +12,13 @@
 
 #include "includes/fillit.h"
 
-int matrix_check(matrix *root, matrix *answer)
+int matrix_check(matrix *root)
 {
 	if (root->current->right == root->current)
 		return (1);
 	if (root->current->down == root->current)
 		return(0);
-	if (answer->size == root->size * 4)
+	if (result_len(root) == root->size * 4)
 		return (1);
 	return (-1);
 }

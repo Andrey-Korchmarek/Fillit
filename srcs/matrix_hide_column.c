@@ -12,15 +12,13 @@
 
 #include "includes/fillit.h"
 
-void	matrix_hide_column(t_dance *hat, matrix **answer)
+void	matrix_hide_column(t_dance *hat)
 {
 	while (hat->letter != '@')
 		hat = hat->down;
-	matrix_add_column(answer, hat);
-	hat->left->right = hat->right;
-	hat->right->left = hat->left;
+	hat->letter = '^';
 	hat = hat->down;
-	while (hat->letter != '@')
+	while (hat->letter != '^')
 	{
 		hat->left->right = hat->right;
 		hat->right->left = hat->left;

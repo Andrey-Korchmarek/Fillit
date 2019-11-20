@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   calculation_beta.c                                 :+:      :+:    :+:   */
+/*   result_len.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/15 14:20:02 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/15 14:20:07 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/20 16:36:52 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/20 16:36:55 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-char	*calculation_beta(int *storage, int tetrnom)
+size_t	result_len(matrix *root)
 {
-	matrix	*root;
-	int		i;
+	size_t count;
 
-	if (!(root = matrix_generator(min_map(tetrnom))))
-		return (NULL);
-	root->size = tetrnom;
-	//matrix_print(root);
-	//ft_putchar('T');
-	i = 0;
-	while (i < tetrnom)
+	count = 0;
+	root->current = root->current->right;
+	while (root->current->letter != '!')
 	{
-		dicycle(&root, min_map(tetrnom), storage[i], i);
-		i++;
+		if (root->current->letter == '^')
+			count++;
+		root->current = root->current->right;
 	}
-	//matrix_print(root);
-//	ft_putchar('T');
-	matrix_dancing_links(&root);
-	//matrix_print(root);
-	return ("calculation_beta");
+	return (count);
 }

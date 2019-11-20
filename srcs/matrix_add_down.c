@@ -20,14 +20,16 @@ void matrix_add_down(matrix *hat, t_dance *tmp)
 	if (hat->current == NULL)
 	{
 		hat->current = tmp;
-		tmp->right = tmp->left = tmp->up = tmp->down = tmp;
 	}
 	else
 	{
+		prev = hat->current->up;
 		tmp->down = hat->current;
-		tmp->up = hat->current->up;
-		hat->current->up->down = tmp;
+		tmp->up = prev;
+		prev->down = tmp;
 		hat->current->up = tmp;
+		free(prev);
+		prev = NULL;
 	}
 	hat->size++;
 }
