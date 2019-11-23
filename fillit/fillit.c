@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/19 15:30:14 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/23 22:09:29 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,15 @@ char	*fillit(int fd)
 			return ("error\n");
 	//printf("{ret=%i}\n", ret);
 	//printf("{buff=%s}\n", buff);
-	//result = calculation_beta(storage, count);
-	while (i < count)
+	calculation(storage[count - 1]);
+
+	//back_track(int storage[])
+/* 	while (i < count)
 	{
 		ft_putnbr(storage[i]);
 		ft_putchar('\n');
 		i++;
-	}
+	} */
 	result = NULL;
 	return (result);
 }

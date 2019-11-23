@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 19:48:23 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/23 22:04:07 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <fcntl.h>
 # include <string.h>
 # include <stdio.h>
+
+ typedef struct s_figure
+{
+	char		numb;
+	int			id;
+	struct s_figure *next;
+}				t_figure;  
 
 typedef struct		s_list
 {
@@ -49,7 +56,8 @@ typedef struct	Ring {
 	t_dance		*current;
 } 				matrix;
 
-char	*calculation_beta(int *storage, int tetrnom);
+//char	*calculation_beta(int *storage, int tetrnom);
+void	calculation(int id);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);
 int	check_sign(char *tetr);

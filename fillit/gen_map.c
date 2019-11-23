@@ -6,19 +6,21 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 12:42:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/20 16:21:52 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/23 21:21:42 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void    gen_map(int len)
+char   **gen_map
 {
    /* if(!( map = (char)ft_memalloc(len * sizeof(char) + 1)))
     return ; */
-    char map[len][len + 1];
-    int i;
+    char map[17][17];
+    int
     
+    return (&map);
+   /*  
     i = 0;
     while (i < len)
     {
@@ -43,7 +45,7 @@ void    gen_map(int len)
     printf("\n");
         i++;
     }
-    return ;
+    return ; */
 }
 
 int main()
@@ -52,5 +54,7 @@ int main()
     
     len = 4;
     gen_map(len);
+    printf(gen_map)
+    
     return (0);
 }

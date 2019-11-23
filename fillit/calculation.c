@@ -6,38 +6,58 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:08:26 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/20 16:09:32 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/23 22:11:40 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "fillit.h"
 
-void	calculation(void)
+int g_tetramines[19][6] =	  {{0, 1, 0, 2, 0, 3}, /* 0*/
+							   {0, 1, 0, 2, 1, 0},/* 1*/
+							   {0, 1, 0, 2, 1, 1},/* 2*/
+							   {0, 1, 0, 2, 1, 2},/* 3*/
+							   {0, 1, 1, -1, 1, 0},/* 4*/
+							   {0, 1, 1, 0, 1, 1},/*square5*/
+							   {0, 1, 1, 1, 1, 2},/* */
+							   {1, -2, 1, -1, 1, 0},/* */
+							   {1, -1, 1, 0, 1, 1},/* */
+							   {1, 0, 1, 1, 1, 2,},/* */
+							   {0, 1, 1, 0, 2, 0},/* */
+							   {0, 1, 1, 1, 2, 1},/* */
+							   {1, -1, 1, 0, 2, -1},/* */
+							   {1, 0, 1, 1, 2, 1},/* */
+							   {1, -1, 1, 0, 2, 0},/* */
+							   {1, 0, 1, 1, 2, 0},/* */
+							   {1, 0, 2, -1, 2, 0},/* */
+							   {1, 0, 2, 0, 2, 1},/* */
+							   {1, 0, 2, 0, 3, 0}};/* */
+
+
+void	calculation(int id)
 {
-	int coord[] = {0, 1, 1, 0, 1, 1};
-	char queue;
-	char field[4][5];
+	int *coord = g_tetramines[id];
+	char num;
+	char map[4][5];
 	int i;
 	int x;
 	int y;
 
-	x = 2;
-	y = 2;
-	queue = 'A';
+	x = 0;
+	y = 0;
+	num = 'A';
 	i = 0;
 	while (i < 4)
 	{
-		ft_memset(field[i], '.', 4);
-		field[i][4] = '\0';
+		map[i][4] = '\0';
 		i++;
 	}
 	i = 0;
 
-	field[x][y] = queue;
+	map[x][y] = num;
 	while (i < 6)
 	{
- 		field[x + coord[i]][y + coord[i + 1]] = queue;
+ 		map[x + coord[i]][y + coord[i + 1]] = num;
 		i += 2;
 	}
 
@@ -45,13 +65,25 @@ void	calculation(void)
 i = 0;
 	while ( i < 4)
 	{
-		printf("%s\n", field[i]);
+		printf("%s\n", map[i]);
 		i++;
 	}
 }
 
-int main(void)
+
+int main(int argc, char **argv)
 {
-	calculation();
+	int fd;
+	char *result;
+	
+	if (argc != 2)
+	{
+		ft_putstr("usage: ./fillit  file_with_tetriminos\n");
+		return (0);
+	}
+	fd = open(argv[1], O_RDONLY);
+	result = fillit(fd);
+	close(fd);
+	ft_putstr(result);
 	return (0);
 }
