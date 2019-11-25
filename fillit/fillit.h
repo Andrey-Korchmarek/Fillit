@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/23 22:04:07 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/25 10:54:29 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ typedef struct	Ring {
 
 //char	*calculation_beta(int *storage, int tetrnom);
 void	calculation(int id);
+void	gen_map(char map[16][17]);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);
 int	check_sign(char *tetr);

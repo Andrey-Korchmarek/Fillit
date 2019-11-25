@@ -6,55 +6,45 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 12:42:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/23 21:21:42 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/25 11:47:48 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char   **gen_map
+void   gen_map(char map[16][17])
 {
-   /* if(!( map = (char)ft_memalloc(len * sizeof(char) + 1)))
-    return ; */
-    char map[17][17];
-    int
+    int size;
+    int i;
     
-    return (&map);
-   /*  
+    size = 16;
     i = 0;
-    while (i < len)
+    while (i < size)
     {
-     map[i][len] = '\0';
-     i++;   
-    }
-    i = 0;
-    while (i < 4)
-    {
-        ft_memset(map[i], '.', 4);
-        i++;
-    }
-    while (i < len)
-    {
-        map[i][len] = 'A';
-        i++;
+        map[i][size] = '\0';
+        i++;   
     }
     i = 0;
-    while (i < 4)
+    while (i < size )
     {
-    printf("%s", map[i]);
-    printf("\n");
+        ft_memset(map[i], '.', size);
         i++;
     }
-    return ; */
 }
 
-int main()
+ int main(void)
 {
-    int len;
-    
-    len = 4;
-    gen_map(len);
-    printf(gen_map)
-    
+    int size;
+    char map[16][17];
+    int i;
+
+    i = 0;
+    size = 16;
+    gen_map(map);
+     while (i < size)
+     {
+        printf("%s\n", map[i]); 
+        i++;       
+     }
     return (0);
-}
+} 

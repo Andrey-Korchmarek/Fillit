@@ -1,0 +1,5 @@
+gen_map  creates map 17*17 and return it --create pointer in main and sent it parametre
+int move_tetra(char storage[]) take map and puts tetras on it and moves it listening to backtracking recursive_function
+
+storage  
+recursive_function if tetr doesn't fit
