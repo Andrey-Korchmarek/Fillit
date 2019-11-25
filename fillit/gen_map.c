@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 12:42:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/25 11:47:48 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/25 11:53:25 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void   gen_map(char map[16][17])
     }
 }
 
- int main(void)
+/*  int main(void)
 {
     int size;
     char map[16][17];
@@ -47,4 +47,4 @@ void   gen_map(char map[16][17])
         i++;       
      }
     return (0);
-} 
+}  */

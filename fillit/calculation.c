@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:08:26 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/24 16:58:51 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/25 14:19:39 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,20 @@ int g_tetramines[19][10] =	{{0, 1, 0, 2, 0, 3, 0, 0, 0, 3}, /* */
 							   {1, 0, 2, 0, 2, 1, 0, 0, 2, 1},
 							   {1, 0, 2, 0, 3, 0, 0, 0, 3, 0}};
 
-void	calculation(int id)
+void	calculation(int id, char map[16][17])
 {
-	int *coord = g_tetramines[id];
+	int *coord;
 	char num;
 	int i;
 	int x;
 	int y;
 
-	x = 0;
-	y = 1;
-	num = 'A';
+	coord = g_tetramines[id];
 	i = 0;
-	while (i < 4)
+	x = 0;
+	y = 0;
+	num = 'A';
+	/* while (i < 4)
 	{
 		map[i][4] = '\0';
 		i++;
@@ -56,7 +57,7 @@ void	calculation(int id)
 		ft_memset(map[i], '.', 4);
 		i++;
 	}
-	i = 0;
+	i = 0; */
 	map[x][y] = num;
 	while (i < 6)
 	{
@@ -66,26 +67,33 @@ void	calculation(int id)
 }
 
 
-/* int main(int argc, char **argv)
+int main(int argc, char **argv)
 {
+	char map[16][17];
 	int fd;
-	char **map;
 	int i;
-	
+	int size;
+	int id;
+
+	size = 16;
 	i = 0;
+	id = 0;
 	if (argc != 2)
 	{
 		ft_putstr("usage: ./fillit  file_with_tetriminos\n");
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
-	gen_map(&map);
-	while ( i < 17)
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
+	i = 0;
+	id = fillit(fd);
+	printf("{ main() id: %d  }\n", id);
+	gen_map(map);
+	calculation(id, map);
+ 	while (i < size)
+     {
+        printf("%s\n", map[i]); 
+        i++;       
+     }
 	close(fd);
-	return (20);
+	return (0);
 }
- */

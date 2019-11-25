@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/25 10:54:29 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/25 14:52:01 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
  typedef struct s_figure
 {
-	char		numb;
+	int		number;
 	int			id;
 	struct s_figure *next;
 }				t_figure;  
@@ -57,7 +57,8 @@ typedef struct	Ring {
 } 				matrix;
 
 //char	*calculation_beta(int *storage, int tetrnom);
-void	calculation(int id);
+void    backtrack();
+void	calculation(int id, char map[16][17]);
 void	gen_map(char map[16][17]);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);
@@ -66,7 +67,7 @@ int	check_tetr(char *tetr);
 int	*coordinates(char **tetr);
 void	dicycle(matrix **root, int a, int form, int count);
 int	*eight_to_six(int *valtet);
-char	*fillit(int fd);
+int		fillit(int fd);
 int	*first(char **tetr);
 void	ft_bzero(void *b, size_t n);
 t_dance	*ft_dannew(char queue, int x, int y);
