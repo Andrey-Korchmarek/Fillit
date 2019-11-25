@@ -51,6 +51,13 @@ typedef struct	Ring
 } 				matrix;
 
 
+
+
+char	*test(int *storage, int tetrnom);
+
+
+
+
 char	*calculation_beta(int *storage, int tetrnom);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);

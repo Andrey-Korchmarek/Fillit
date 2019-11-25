@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.c                                           :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/10 17:31:10 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/25 16:00:36 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/25 16:00:47 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-char	*fillit(int fd)
+/* Тестовый файл */
+char	*test(int *storage, int tetrnom)
 {
-	int		ret;
-	char	buff[22];
-	int		storage[26];
-	int		count;
+	matrix	*root;
+	int		i;
 
-	count = 0;
-	while ((ret = read(fd, buff, 21)) && (count < 26))
+	if (!(root = matrix_generator(min_map(tetrnom))))
+		return (NULL);
+	root->size = tetrnom;
+	//matrix_print(root);
+	//ft_putchar('T');
+	i = 0;
+	while (i < tetrnom)
 	{
-		buff[ret] = '\0';
-		if ((validation(buff)))
-		{
-			if ((storage[count] = check_tetr(buff)) != -1)
-				count++;
-		}
-		else
-			return ("error\n");
+		dicycle(&root, min_map(tetrnom), storage[i], i);
+		i++;
 	}
-	if ((ft_strlen(buff) != 20))
-		return ("error\n");
-	return (test(storage, count));
+	//matrix_print(root);
+//	ft_putchar('T');
+	matrix_dancing_links(&root);
+	//matrix_print(root);
+	return ("test");
 }
