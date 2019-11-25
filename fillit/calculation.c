@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:08:26 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/25 14:19:39 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/25 16:14:24 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,18 +46,6 @@ void	calculation(int id, char map[16][17])
 	x = 0;
 	y = 0;
 	num = 'A';
-	/* while (i < 4)
-	{
-		map[i][4] = '\0';
-		i++;
-	}
-	i = 0;
-	while (i < 4)
-	{
-		ft_memset(map[i], '.', 4);
-		i++;
-	}
-	i = 0; */
 	map[x][y] = num;
 	while (i < 6)
 	{
@@ -66,13 +54,13 @@ void	calculation(int id, char map[16][17])
 	}
 }
 
-
 int main(int argc, char **argv)
 {
 	char map[16][17];
 	int fd;
 	int i;
 	int size;
+	
 	int id;
 
 	size = 16;

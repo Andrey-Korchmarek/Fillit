@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tetnew.c                                        :+:      :+:    :+:   */
+/*   lst_add.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 15:32:33 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/25 15:21:31 by aelphias         ###   ########.fr       */
+/*   Created: 2019/11/25 15:29:39 by aelphias          #+#    #+#             */
+/*   Updated: 2019/11/25 17:04:49 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
-t_etris	*ft_tetnew(int *content, char queue)
+t_figure    *lst_add(t_figure *head, int id, int number)
 {
-	t_etris	*tmp;
+    int i;
+    t_figure *tmp;
+    t_figure *tmp2;
 
-	tmp = (t_etris*)
-	
-	malloc(sizeof(t_etris));
-	if (!tmp)
-		return (NULL);
-	tmp->content = malloc(sizeof(int) * 6);
-	if (!tmp->content)
-	{
-		free(tmp);
-		return (NULL);
-	}
-	ft_memcpy(tmp->content, content, 6);
-	tmp->queue = queue;
-	tmp->next = NULL;
-	return (tmp);
+    i = 0;
+    tmp = (t_figure)malloc(size_t(t_etris));
+    tmp->next = NULL;
+    if (!head)
+        head = tmp;
+    while (tmp->next != NULL)
+       tmp = tmp->next;
+    tmp->next = tmp2;
+    tmp2->next = NULL;
+    free(tmp);
+    return (head);
 }

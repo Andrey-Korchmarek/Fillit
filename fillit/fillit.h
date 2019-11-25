@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/25 14:52:01 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/25 16:45:48 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,17 @@
  typedef struct s_figure
 {
 	int		number;
-	int			id;
+	int		id;
+	int		node;
 	struct s_figure *next;
 }				t_figure;  
 
-typedef struct		s_list
+/* typedef struct		s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
-}					t_list;
+}					t_list; */
 
 typedef struct		s_etris
 {
@@ -57,6 +58,7 @@ typedef struct	Ring {
 } 				matrix;
 
 //char	*calculation_beta(int *storage, int tetrnom);
+t_figure    *lst_create(int id, int number);
 void    backtrack();
 void	calculation(int id, char map[16][17]);
 void	gen_map(char map[16][17]);
@@ -71,12 +73,12 @@ int		fillit(int fd);
 int	*first(char **tetr);
 void	ft_bzero(void *b, size_t n);
 t_dance	*ft_dannew(char queue, int x, int y);
-void	ft_lstadd(t_list **alst, t_list *new);
+/* void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
 void	ft_lstiter(t_list *lst, void (*f)(t_list*elem));
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
-t_list	*ft_lstnew(void const *content, size_t content_size);
+t_list	*ft_lstnew(void const *content, size_t content_size); */
 void	*ft_memalloc(size_t size);
 void	*ft_memcpy(void *dest, const void *src, size_t len);
 void	*ft_memset(void *b, int c, size_t len);

@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tetnew.c                                        :+:      :+:    :+:   */
+/*   lst_create.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/08 15:32:33 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/25 15:21:31 by aelphias         ###   ########.fr       */
+/*   Created: 2019/11/25 15:43:17 by aelphias          #+#    #+#             */
+/*   Updated: 2019/11/25 16:49:37 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "fillit.h"
 
-t_etris	*ft_tetnew(int *content, char queue)
+t_figure    *lst_create(int id, int number)
 {
-	t_etris	*tmp;
-
-	tmp = (t_etris*)
-	
-	malloc(sizeof(t_etris));
-	if (!tmp)
-		return (NULL);
-	tmp->content = malloc(sizeof(int) * 6);
-	if (!tmp->content)
-	{
-		free(tmp);
-		return (NULL);
-	}
-	ft_memcpy(tmp->content, content, 6);
-	tmp->queue = queue;
-	tmp->next = NULL;
-	return (tmp);
+    t_figure *tmp;
+    tmp = (t_figure)malloc(size_t(t_figure));
+    tmp->next = NULL;
+    tmp->id = id;
+    tmp->number = number;
+    return (tmp); 
 }
