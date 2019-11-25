@@ -17,6 +17,8 @@ void	matrix_safe_line(matrix **root, t_dance *line)
 	int		i;
 	matrix	*tmp;
 
+	if (!root || !*root || !line)
+		return ;
 	while (line->x != -1)
 		line = line->left;
 	if ((*root)->current == NULL)

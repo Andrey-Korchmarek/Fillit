@@ -20,6 +20,8 @@ void	dicycle(matrix **root, int a, int form, int count)
 	int *c;
 	int *coord;
 
+	if (!root || !*root)
+		return ;
 	c = g_tetramines[form];
 	i = c[6];
 	while (i <= (a - c[8]))
@@ -33,4 +35,5 @@ void	dicycle(matrix **root, int a, int form, int count)
 		}
 		i++;
 	}
+	ft_putstr("G\n");
 }

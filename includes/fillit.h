@@ -51,7 +51,7 @@ typedef struct	Ring
 } 				matrix;
 
 
-char	*calculation_beta(int *storage, int tetrnom);
+char	*calculation_beta(int *storage, size_t tetrnom);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);
 int	check_sign(char *tetr);
@@ -114,5 +114,8 @@ int	validation(char *tetr);
 void	matrix_safe_line(matrix **root, t_dance *line);
 void	ft_danring(t_dance **node);
 size_t	result_len(matrix *root);
+void	matrix_delete_line(t_dance *head);
+void	matrix_delete(matrix **root);
+void	print_node(t_dance *tmp);
 
 #endif

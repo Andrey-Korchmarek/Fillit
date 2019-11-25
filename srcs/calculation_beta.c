@@ -12,25 +12,23 @@
 
 #include "includes/fillit.h"
 
-char	*calculation_beta(int *storage, int tetrnom)
+char	*calculation_beta(int *storage, size_t tetrnom)
 {
 	matrix	*root;
-	int		i;
+	size_t	i;
 
 	if (!(root = matrix_generator(min_map(tetrnom))))
 		return (NULL);
+	matrix_print(root);
 	root->size = tetrnom;
-	//matrix_print(root);
-	//ft_putchar('T');
 	i = 0;
 	while (i < tetrnom)
 	{
 		dicycle(&root, min_map(tetrnom), storage[i], i);
 		i++;
 	}
-	//matrix_print(root);
-//	ft_putchar('T');
+
 	matrix_dancing_links(&root);
-	//matrix_print(root);
+	matrix_delete(&root);
 	return ("calculation_beta");
 }

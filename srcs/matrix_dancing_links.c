@@ -16,12 +16,20 @@ char *matrix_dancing_links(matrix **root)
 {
 	t_dance *tmp;
 
+	if (!root || !*root)
+		return (NULL);
 	tmp = NULL;
+	ft_putstr("W\n");
 	tmp = ((*root)->current->right->down);
+	print_node((*root)->current);
+	print_node((*root)->current->right);
+	tmp = (*root)->current->right;
+	print_node(tmp->down);
 	//tmp = best_col(root);
 	//tmp = tmp->down;
 	while (tmp->letter != '@')
 	{
+		ft_putstr("C\n");
 		matrix_recur(tmp, root);
 		//print_result(answer, min_map((*root)->size));
 		matrix_print(*root);

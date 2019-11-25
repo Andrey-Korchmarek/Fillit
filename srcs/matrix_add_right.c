@@ -16,6 +16,8 @@ void matrix_add_right(matrix *root, t_dance *tmp)
 {
 	t_dance *prev;
 
+	if (!root || !tmp)
+		return ;
 	prev = NULL;
 	if (root->current == NULL)
 	{

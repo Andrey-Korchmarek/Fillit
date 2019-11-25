@@ -16,6 +16,8 @@ void matrix_add_down(matrix *hat, t_dance *tmp)
 {
 	t_dance *prev;
 
+	if (!hat || !tmp)
+		return ;
 	prev = NULL;
 	if (hat->current == NULL)
 	{

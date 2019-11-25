@@ -14,6 +14,8 @@
 
 void	matrix_hide_line(t_dance *head)
 {
+	if (!head)
+		return ;
 	while (head->x != -1)
 		head = head->right;
 	head->x = -2;

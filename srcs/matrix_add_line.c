@@ -17,6 +17,8 @@ void	matrix_add_line(matrix **root, matrix *line)
 	matrix	*hat;
 	int 	i;
 
+	if (!root || !*root || !line)
+		return ;
 	while (line->current->x != -1)
 		line->current = line->current->left;
 	matrix_add_down(*root, line->current);

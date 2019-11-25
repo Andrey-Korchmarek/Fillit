@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_check.c                                     :+:      :+:    :+:   */
+/*   matrix_delete_line.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/19 18:52:54 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/19 18:52:59 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/23 14:54:44 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/23 14:54:48 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-int matrix_check(matrix *root)
+void	matrix_delete_line(t_dance *head)
 {
-	if (!root)
-		return (-1);
-	if (root->current->right == root->current)
-		return (1);
-	if (root->current->down == root->current)
-		return(0);
-	if (result_len(root) == root->size * 4)
-		return (1);
-	return (-1);
+	t_dance	*tmp1;
+	t_dance	*tmp2;
+
+	if (!head)
+		return ;
+	tmp1 = head->left;
+	while (tmp1 != head)
+	{
+		tmp2 = tmp1->left;
+		free(tmp1);
+		tmp1 = tmp2;
+	}
+	free(tmp1);
 }

@@ -17,7 +17,9 @@ void	matrix_recur(t_dance *tmp, matrix **root)
 	t_dance	*chosen;
 	char 	tetr;
 
-//	matrix_print(*root);
+	if (!root || !*root || !tmp)
+		return ;
+	//	matrix_print(*root);
 //	ft_putchar('T');
 	if (matrix_check(*root) == 1)
 	{

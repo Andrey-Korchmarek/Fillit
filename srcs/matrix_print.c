@@ -14,6 +14,8 @@
 
 void	matrix_print(matrix *root)
 {
+	if (!root)
+		return ;
 	ft_putnode(root);
 	root->current = root->current->right;
 	while (root->current->letter != '!')

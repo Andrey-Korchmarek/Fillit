@@ -14,6 +14,8 @@
 
 void	matrix_hide_column(t_dance *hat)
 {
+	if (!hat)
+		return ;
 	while (hat->letter != '@')
 		hat = hat->down;
 	hat->letter = '^';
