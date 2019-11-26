@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 99)
 
 add_compile_options(-Wall -Wextra -Werror)
 
-FILE(GLOB LIBRARY ./srcs/*.c )
+FILE(GLOB LIBRARY ./srcs/*.c ./test/*.c)
 
 include_directories(.)
 
@@ -17,5 +17,5 @@ add_executable(Fillit ${LIBRARY} main.c srcs/matrix_generator.c srcs/ft_dannew.c
 		srcs/check_tetr.c srcs/calculation_beta.c srcs/get_coord.c srcs/min_map.c
 		tmp/test.c srcs/matrix_add_line.c tmp/test2.c srcs/dicycle.c
 		srcs/matrix_print.c srcs/ft_putnode.c srcs/matrix_check.c
-		srcs/ft_lstlen.c srcs/matrix_dancing_links.c srcs/matrix_recur.c
-		srcs/matrix_hide_line.c srcs/matrix_hide_column.c srcs/print_result.c srcs/find_coord.c srcs/ft_danlen.c srcs/ft_danadd.c srcs/matrix_add_column.c srcs/matrix_safe_line.c srcs/ft_danring.c srcs/result_len.c srcs/test.c)
+		tmp/ft_lstlen.c srcs/matrix_dancing_links.c srcs/matrix_recur.c
+		srcs/matrix_hide_line.c srcs/matrix_hide_column.c srcs/print_result.c srcs/find_coord.c srcs/ft_danlen.c srcs/ft_danadd.c srcs/matrix_add_column.c srcs/matrix_safe_line.c srcs/ft_danring.c srcs/result_len.c test/test.c test/m_test.c)

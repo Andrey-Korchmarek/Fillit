@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test2.c                                            :+:      :+:    :+:   */
+/*   test1.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -79,7 +79,7 @@ char	*recur(int *storage, int len)
 }
 
 /*
-char	*test2(int *storage, int len)
+char	*test3(int *storage, int len)
 {
 	extern int	g_tetramines[19][10];
 	matrix		*root;

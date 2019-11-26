@@ -12,7 +12,7 @@
 
 #include "includes/fillit.h"
 
-void	ft_danadd(t_dance **alst, t_dance*new)
+void	ft_danadd(t_dance **alst, t_dance *new)
 {
 	if (new)
 	{

@@ -33,5 +33,5 @@ char	*fillit(int fd)
 	}
 	if ((ft_strlen(buff) != 20))
 		return ("error\n");
-	return (test(storage, count));
+	return (m_test(storage, count));
 }

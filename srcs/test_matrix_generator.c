@@ -1,37 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   matrix_generator.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/25 16:00:36 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/25 16:00:47 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-/* Тестовый файл */
-char	*test(int *storage, int tetrnom)
+matrix	*test_matrix_generator(int size)
 {
 	matrix	*root;
-	int		i;
+	int 	i;
+	int 	j;
 
-	if (!(root = matrix_generator(min_map(tetrnom))))
-		return (NULL);
-	root->size = tetrnom;
-	//matrix_print(root);
-	//ft_putchar('T');
+	root = matrix_create();
+	matrix_add_right(root, ft_dannew('!', -1, -1));
 	i = 0;
-	while (i < tetrnom)
+	while (i <= size)
 	{
-		dicycle(&root, min_map(tetrnom), storage[i], i);
+		j = 0;
+		while (j <= size)
+		{
+			matrix_add_right(root, ft_dannew('@', i, j++));
+		}
 		i++;
 	}
-	//matrix_print(root);
-//	ft_putchar('T');
-	matrix_dancing_links(&root);
-	//matrix_print(root);
-	return ("test");
+	return (root);
 }
