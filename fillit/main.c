@@ -6,46 +6,38 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/24 16:20:37 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/27 17:53:05 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int g_tetramines[19][6] =	  {{0, 1, 0, 2, 0, 3}, /* 0*/
-							   {0, 1, 0, 2, 1, 0},/* 1*/
-							   {0, 1, 0, 2, 1, 1},/* 2*/
-							   {0, 1, 0, 2, 1, 2},/* 3*/
-							   {0, 1, 1, -1, 1, 0},/* 4*/
-							   {0, 1, 1, 0, 1, 1},/*square5*/
-							   {0, 1, 1, 1, 1, 2},/* */
-							   {1, -2, 1, -1, 1, 0},/* */
-							   {1, -1, 1, 0, 1, 1},/* */
-							   {1, 0, 1, 1, 1, 2,},/* */
-							   {0, 1, 1, 0, 2, 0},/* */
-							   {0, 1, 1, 1, 2, 1},/* */
-							   {1, -1, 1, 0, 2, -1},/* */
-							   {1, 0, 1, 1, 2, 1},/* */
-							   {1, -1, 1, 0, 2, 0},/* */
-							   {1, 0, 1, 1, 2, 0},/* */
-							   {1, 0, 2, -1, 2, 0},/* */
-							   {1, 0, 2, 0, 2, 1},/* */
-							   {1, 0, 2, 0, 3, 0}};/* */
-
 int main(int argc, char **argv)
 {
-	int fd;
-	char *result;
-	
+	char	map[16][17]; /*gen_map*/
+	char	storage[26]; /*fillit*/
+	int		fd; /*read()*/
+	int		i;
+	int		size;
+	int		count;
+
+	count = 0;
+	size = 16;
+	i = 0;
 	if (argc != 2)
 	{
 		ft_putstr("usage: ./fillit  file_with_tetriminos\n");
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
+	gen_map(map);
+	fillit(fd, count, storage);
+	backtrack(count, storage, map);
+ 	while (i < size)
+     {
+        printf("%s\n", map[i]); 
+        i++;       
+     }
 	close(fd);
-	ft_putstr(result);
 	return (0);
 }
-0

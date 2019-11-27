@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/25 16:45:48 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/27 17:48:31 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@
 # include <string.h>
 # include <stdio.h>
 
- typedef struct s_figure
+
+
+
+/* typedef struct s_figure
 {
 	int		number;
 	int		id;
-	int		node;
 	struct s_figure *next;
-}				t_figure;  
+}				t_figure;  /*
 
 /* typedef struct		s_list
 {
@@ -58,9 +60,9 @@ typedef struct	Ring {
 } 				matrix;
 
 //char	*calculation_beta(int *storage, int tetrnom);
-t_figure    *lst_create(int id, int number);
-void    backtrack();
-void	calculation(int id, char map[16][17]);
+//t_figure	*t_fig_create(int id, int number);
+void    backtrack(int id, char	storage[26], char map[16][17])
+//void	calculation(int id, char map[16][17]);
 void	gen_map(char map[16][17]);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);
@@ -68,8 +70,8 @@ int	check_sign(char *tetr);
 int	check_tetr(char *tetr);
 int	*coordinates(char **tetr);
 void	dicycle(matrix **root, int a, int form, int count);
-int	*eight_to_six(int *valtet);
-int		fillit(int fd);
+int		*eight_to_six(int *valtet);
+int		fillit(int fd, int count, char storage[26]);
 int	*first(char **tetr);
 void	ft_bzero(void *b, size_t n);
 t_dance	*ft_dannew(char queue, int x, int y);
@@ -112,3 +114,6 @@ int	validation(char *tetr);
 void	ft_putnode(matrix *root);
 
 #endif
+
+
+							   

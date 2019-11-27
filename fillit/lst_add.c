@@ -19,7 +19,7 @@ t_figure    *lst_add(t_figure *head, int id, int number)
     t_figure *tmp2;
 
     i = 0;
-    tmp = (t_figure)malloc(size_t(t_etris));
+    tmp = (t_figure)malloc(size_t(t_figure));
     tmp->next = NULL;
     if (!head)
         head = tmp;
