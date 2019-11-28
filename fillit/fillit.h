@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/27 17:48:31 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/28 13:59:12 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,6 @@
 # include <fcntl.h>
 # include <string.h>
 # include <stdio.h>
-
-
-
-
-/* typedef struct s_figure
-{
-	int		number;
-	int		id;
-	struct s_figure *next;
-}				t_figure;  /*
-
-/* typedef struct		s_list
-{
-	void			*content;
-	size_t			content_size;
-	struct s_list	*next;
-}					t_list; */
 
 typedef struct		s_etris
 {
@@ -61,7 +44,7 @@ typedef struct	Ring {
 
 //char	*calculation_beta(int *storage, int tetrnom);
 //t_figure	*t_fig_create(int id, int number);
-void    backtrack(int id, char	storage[26], char map[16][17])
+void    backtrack(int id, char	storage[26], char map[16][17]);
 //void	calculation(int id, char map[16][17]);
 void	gen_map(char map[16][17]);
 int	check_neig1(char **tetr);

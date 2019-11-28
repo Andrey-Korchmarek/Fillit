@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 12:42:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/25 11:53:25 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/28 13:52:21 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,3 @@ void   gen_map(char map[16][17])
         i++;
     }
 }
-
-/*  int main(void)
-{
-    int size;
-    char map[16][17];
-    int i;
-
-    i = 0;
-    size = 16;
-    gen_map(map);
-     while (i < size)
-     {
-        printf("%s\n", map[i]); 
-        i++;       
-     }
-    return (0);
-}  */

@@ -1,1 +1,11 @@
  g fillit/gen_map.c fillit/fillit.h libft/libft.a && ./a.out
+
+
+ gcc fillit/calculation.c fillit/fillit.h
+  libft/libft.a fillit/check_tetr.c
+   fillit/validation.c fillit/check_neig1.c 
+   fillit/check_neig2.c fillit/check_sign.c
+    fillit/first.c fillit/ft_strcount.c
+     fillit/gen_map.c fillit/fillit.c && ./a.out figure
+
+

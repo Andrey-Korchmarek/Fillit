@@ -6,13 +6,13 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/27 17:10:38 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/28 13:40:09 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	fillit(int fd, int count char storage[26])
+int	fillit(int fd, int count, char storage[26])
 {
 	/* char	*result; */
 	int		ret;
@@ -25,7 +25,7 @@ int	fillit(int fd, int count char storage[26])
 		buff[ret] = '\0';
 		if ((validation(buff)))
 		{
-			if ((storage[count] = check_tetr(buff))  /*form of  figure*/
+			if ((storage[count] = check_tetr(buff)))  /*form of  figure*/
 				count++;
 		}
 		else
