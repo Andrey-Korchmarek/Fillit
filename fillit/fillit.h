@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/28 13:59:12 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/28 17:31:48 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <string.h>
 # include <stdio.h>
+# include "../libft/libft.h"
 
 typedef struct		s_etris
 {
@@ -54,7 +55,7 @@ int	check_tetr(char *tetr);
 int	*coordinates(char **tetr);
 void	dicycle(matrix **root, int a, int form, int count);
 int		*eight_to_six(int *valtet);
-int		fillit(int fd, int count, char storage[26]);
+int		fillit(int fd, char storage[26]);
 int	*first(char **tetr);
 void	ft_bzero(void *b, size_t n);
 t_dance	*ft_dannew(char queue, int x, int y);

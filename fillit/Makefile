@@ -6,7 +6,7 @@
 #    By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/10/29 11:36:31 by aelphias          #+#    #+#              #
-#    Updated: 2019/11/28 14:11:10 by aelphias         ###   ########.fr        #
+#    Updated: 2019/11/28 16:02:04 by aelphias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS =  main.c gen_map.c fillit.c backtrack.c validation.c check_sign.c \
 check_neig1.c check_neig2.c first.c fillit.h ../libft/libft.a check_tetr.c \
  ft_strcount.c
  
-FLG = -Wall -Wextra -Werror
+FLG = -g -Wall -Wextra -Werror
 
 all: $(NAME)
 
