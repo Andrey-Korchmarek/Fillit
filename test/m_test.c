@@ -32,14 +32,14 @@ static void m_add_down(matrix *alst, t_dance *tmp)
 	{
 		prev = alst->current->up;
 		tmp->down = alst->current;
-		tmp->up = prev;
+		tmp->up = alst->current->up;
 		alst->current->up = tmp;
-		prev->down = tmp;
+		alst->current->up->down = tmp;
 	}
 	alst->size++;
 }
 
-static void m_add_down(t_dance **alst, t_dance *tmp)
+static void m_add_elem(t_dance **alst, t_dance *tmp)
 {
 	t_dance *prev;
 
@@ -56,16 +56,14 @@ static void m_add_down(t_dance **alst, t_dance *tmp)
 	{
 		prev = (*alst)->up;
 		tmp->down = (*alst);
-		tmp->up = prev;
+		tmp->up = (*alst)->up;
 		(*alst)->up = tmp;
-		prev->down = tmp;
+		(*alst)->up->down = tmp;
 	}
 }
 
 static void m_add_right(matrix *alst, t_dance *tmp)
 {
-	t_dance *prev;
-
 	if (alst->current == NULL)
 		alst->current = tmp;
 	else if (alst->current->right == alst->current)
@@ -77,36 +75,12 @@ static void m_add_right(matrix *alst, t_dance *tmp)
 	}
 	else
 	{
-		prev = alst->current->left;
 		tmp->right = alst->current;
-		tmp->left = prev;
+		tmp->left = alst->current->left;
 		alst->current->left = tmp;
-		prev->right = tmp;
+		alst->current->left->right = tmp;
 	}
 	alst->size++;
-}
-
-static void m_add_right(matrix *alst, t_dance *tmp)
-{
-	t_dance *prev;
-
-	if (alst->current == NULL)
-		alst->current = tmp;
-	else if (alst->current->right == alst->current)
-	{
-		alst->current->left = tmp;
-		alst->current->right = tmp;
-		tmp->left = alst->current;
-		tmp->right = alst->current;
-	}
-	else
-	{
-		prev = alst->current->left;
-		tmp->right = alst->current;
-		tmp->left = prev;
-		alst->current->left = tmp;
-		prev->right = tmp;
-	}
 }
 
 static matrix *m_new(t_dance *current, size_t size)
@@ -151,7 +125,7 @@ static matrix *m_generate(int a)
 		j = 0;
 		while (j <= a)
 		{
-			matrix_add_right(root, ft_dannew('@', i, j));
+			m_add_right(root, ft_dannew('@', i, j));
 			j++;
 		}
 		i++;
@@ -176,7 +150,7 @@ static matrix *m_line_generate(char queue, int *coord)
 	return (head);
 }
 
-static matrix *m_add_line(matrix *alst, matrix *line)
+static void m_add_line(matrix *alst, matrix *line)
 {
 	t_dance *hat;
 	t_dance *tmp;
@@ -184,13 +158,15 @@ static matrix *m_add_line(matrix *alst, matrix *line)
 	m_add_down(alst, line->current);
 	hat = alst->current->right;
 	tmp = line->current->right;
-	while (hat->letter == '@')
+	while (alst->current->right->letter == '@')
 	{
-		while (hat->x != tmp->x || hat->y != tmp->y)
-			hat = hat->right;
-
+		while (alst->current->right->x != tmp->x ||
+		alst->current->right->y != tmp->y)
+			alst->current->right = alst->current->right->right;
+		m_add_elem(&hat, tmp);
+		line->current->right = line->current->right->right;
 	}
-
+	alst->size += line->size;
 }
 
 char	*m_test(int *storage, int tetrnom)
@@ -217,22 +193,15 @@ char	*m_test(int *storage, int tetrnom)
 			j = tetr[7];
 			while (j <= (a - tetr[9]))
 			{
-
 				coord = t_get_coord(i, j, storage[count]);
-
-
 				line = m_line_generate('A' + count, coord);
-
 				free(coord);
-
-				test1(root, line);
-
-
+				m_add_line(root, line);
 				j++;
 			}
 			i++;
 		}
 		count++;
-		ft_putchar('\n');
 	}
+	return ("test");
 }
