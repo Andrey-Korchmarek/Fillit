@@ -14,7 +14,8 @@
 
 char	*fillit(int fd)
 {
-	char	*result;
+	//char	*result;
+	matrix	*root;
 	int		ret;
 	char	buff[22];
 	int		storage[26];
@@ -33,10 +34,13 @@ char	*fillit(int fd)
 		}
 		else
 		{
-			ft_putstr("error\n");
-			return ("NULL");
+			return ("error\n");
 		}
 	}
-	result = calculation_beta(storage, count);
-	return (result);
+	if ((ft_strlen(buff) != 20))
+		return ("error\n");
+	root = create_matrix(storage, count);
+
+	//result = create_matrix(storage, count);
+	return ("result");
 }

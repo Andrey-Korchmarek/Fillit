@@ -12,7 +12,12 @@
 
 #include "includes/fillit.h"
 
-char	*calculation_beta(int *storage, int tetrnom)
+static void test_change(matrix *root)
+{
+	root->current->y = -1;
+}
+
+matrix	*create_matrix(int *storage, int tetrnom)
 {
 	matrix *root;
 	int i;
@@ -25,6 +30,8 @@ char	*calculation_beta(int *storage, int tetrnom)
 		dicycle(&root, min_map(tetrnom), storage[i], i);
 		i++;
 	}
+	test_change(root);
 	matrix_print(root);
-	return ("calculation_beta");
+	//ft_delete_dest_list(root);
+	return (root);
 }
