@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/29 12:59:28 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/29 17:43:01 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,12 @@ int main(int argc, char **argv)
 	printf("{main  after fillit - 3}\n");
 	backtrack(&count, storage, map);
 	printf("{main after backtrack 4}\n");
+	i = 0;
+	while (i < 5)
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
 	close(fd);
 	return (0);
 }
