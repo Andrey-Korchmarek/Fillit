@@ -6,12 +6,11 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/28 17:35:07 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/29 12:59:28 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
 
 int g_tetramines[19][10] =	{{0, 1, 0, 2, 0, 3, 0, 0, 0, 3}, /* */
 							   {0, 1, 0, 2, 1, 0, 0, 0, 1, 2},
@@ -36,17 +35,15 @@ int g_tetramines[19][10] =	{{0, 1, 0, 2, 0, 3, 0, 0, 0, 3}, /* */
 int main(int argc, char **argv)
 {
 	char	map[16][17]; /*gen_map*/
-	//char	storage[26]; /*fillit*/
-	int		fd; /*read()*/
+	int		fd; 
 	int		i;
 	int		size;
 	int		count;
-	char 	storage[27];
+	int		storage[26];
 
-	*storage = *ft_strnew(26);
-	ft_memset(&storage, 't', 26);
+	count = 0;
 	i = 0;
-	while (i < 26)
+	while (i < 2)
 	{
 		printf("%c\n", storage[i]);
 		i++;
@@ -64,9 +61,10 @@ int main(int argc, char **argv)
 	printf("{main 1}\n");
 	gen_map(map);
 	printf("{main - after gen_map - 2}\n");
-	count = fillit(fd, storage);
-	printf("{main  after fillt 3}\n");
-	backtrack(count, storage, map);
+	fillit(fd, storage, &count);
+	printf("{main after fillit, count %d}\n", count);
+	printf("{main  after fillit - 3}\n");
+	backtrack(&count, storage, map);
 	printf("{main after backtrack 4}\n");
 	close(fd);
 	return (0);

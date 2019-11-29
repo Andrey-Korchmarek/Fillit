@@ -6,36 +6,36 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/28 17:15:41 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/29 12:55:04 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	fillit(int fd, char storage[26])
+int	fillit(int fd, int	storage[26], int *count)
 {
 	int		ret;
 	char	buff[22];
 	int		i;/*debug*/
-	int		count;
 
+	printf("I'm here from fillit 1 \n");
 	i = 0;
-	count = 0;
-		printf("{fillit - storage before read= %c}\n", storage[0]);
-	while ((ret = read(fd, buff, 21)) && (count < 26))
+	while ((ret = read(fd, buff, 21)) && (*count < 26))
 	{
 		buff[ret] = '\0';
 		if ((validation(buff)))
 		{
-			if ((storage[count] = check_tetr(buff)))
-				count++;
+			printf("I'm here from fillit - reading and writing cycle\n");
+			if ((storage[*count] = check_tetr(buff)))
+				*count = *count + 1;
 		}
 		else
 		return (-1);
-		printf("{fillit - count = %d}\n", count);
-		printf("{fillit - storage = %c}\n", storage[0]);
+		printf("{fillit - count = %d}", *count);
+		printf("{fillit - storage = %d}\n", storage[0]);
 	}
+	printf("fillit buff=\n%s", buff);
 		if ((ft_strlen(buff) != 20))
 			return(-1);
-	return(count);
+	return(0);
 }

@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:53:13 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/28 13:39:14 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/29 11:28:55 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	validation(char *tetr)
 {
 	char **tmp;
-
+printf("I'm here from validation\n");
 	if (!(check_sign(tetr)))
 		return (0);
 	tmp = ft_strsplit(tetr, '\n');
