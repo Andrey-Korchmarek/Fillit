@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 15:08:26 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/29 17:21:11 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/30 15:31:27 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	calculation(int id, int count, char map[16][17])
 	while (i < 6)
 	{
  		map[x + coord[i]][y + coord[i + 1]] = num;
-		i += 2;
+		i += 2; 
 	}
 	
 }

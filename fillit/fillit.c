@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/29 12:55:04 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/11/30 14:20:01 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	fillit(int fd, int	storage[26], int *count)
 	int		ret;
 	char	buff[22];
 	int		i;/*debug*/
+	    extern int g_tetramines[19][10];
+
 
 	printf("I'm here from fillit 1 \n");
 	i = 0;
@@ -31,9 +33,18 @@ int	fillit(int fd, int	storage[26], int *count)
 		}
 		else
 		return (-1);
-		printf("{fillit - count = %d}", *count);
-		printf("{fillit - storage = %d}\n", storage[0]);
+		printf("{fillit - count = %d\n}", *count);
+		printf("{fillit - storage = %d}\n", storage[*count]);
 	}
+	i = 0;
+
+	printf("I'm from fillit figure coordinates:\n");
+	 while (i < 6)
+    {
+        printf("%d", g_tetramines[*count][i]);
+        i++;
+    }
+	printf("\n");
 	printf("fillit buff=\n%s", buff);
 		if ((ft_strlen(buff) != 20))
 			return(-1);
