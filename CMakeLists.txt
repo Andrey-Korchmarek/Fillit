@@ -6,16 +6,12 @@ set(CMAKE_C_STANDARD 99)
 
 add_compile_options(-Wall -Wextra -Werror)
 
-FILE(GLOB LIBRARY ./srcs/*.c )
+FILE(GLOB LIBRARY ./libft/*.c  )
 
 include_directories(.)
 
-#include_directories(includes)
+include_directories(libft)
 #include_directories(srcs)
-add_executable(Fillit ${LIBRARY} main.c srcs/matrix_generator.c srcs/ft_dannew.c
-		srcs/line_generator.c srcs/matrix_create.c srcs/matrix_add_right.c
-		srcs/matrix_delete.c srcs/matrix_add_down.c srcs/matrix_delete_element.c
-		srcs/check_tetr.c srcs/calculation_beta.c srcs/get_coord.c srcs/min_map.c
-		tmp/test.c srcs/matrix_add_line.c tmp/test2.c srcs/dicycle.c
-		srcs/matrix_print.c srcs/ft_putnode.c)
+add_executable(Fillit ${LIBRARY} ./fillit/main.c ./fillit/gen_map.c ./fillit/fillit.c ./fillit/backtrack.c ./fillit/validation.c ./fillit/check_sign.c
+./fillit/check_neig1.c ./fillit/check_neig2.c ./fillit/first.c ./fillit/check_tetr.c ./fillit/ft_strcount.c )
 
