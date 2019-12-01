@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/11/30 16:21:43 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/01 12:46:54 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,28 @@ void clean_map(char map[16][17])
     }
     
 }
-void    insert(char abc, int *coord, char map[16][17], int y, int x)
+int    insert(char abc, int *coord, char map[16][17], int y, int x)
 {   
     int i;
      
     i = 0;
-    map[x][y] = abc;
-    while (i < 6)
-    {
-        map[y + coord[i]][x + coord[i + 1]] = abc;
-        i = i +2 ;
-    }
+    if (map[0][0] == '.')
+        map[0][0] = abc;
+    else
+        return(0);
     
+    while (i < 6 )
+    {
+        if (map[y + coord[i]][x + coord[i + 1]] == '.')
+        {
+            
+            map[y + coord[i]][x + coord[i + 1]] = abc;
+            i = i + 2 ;
+        }
+        else
+            return(0);
+    }
+    return (1);
 }
 
 void    backtrack(int *count, int storage[26], char map[16][17])
@@ -65,10 +75,8 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     y = coord[7];
     col = 0;
     row = 0;
-       // row = coord[6]; // using 2 last pairs from storage array to have safe boundaries
     abc = 'A';
     printf("backtrack abc=%c\n", abc);
-
     //printf("backtrack coord =%s\n", coord);
         printf("backtrack fig coordintes = ");
 	 i = 0;
@@ -77,8 +85,7 @@ void    backtrack(int *count, int storage[26], char map[16][17])
         printf("%d", g_tetramines[*count][i]);
         i++;
     }
-        printf("\n");
-    
+    printf("\n");
     printf("backtrack map =%s\n", map[0]);
     printf("backtrack storage =%d\n", storage[0]);
        // a = min_a(count);
@@ -94,4 +101,4 @@ void    backtrack(int *count, int storage[26], char map[16][17])
             }
             col++;
         } */
-}
+} 
