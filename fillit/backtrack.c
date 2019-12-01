@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/01 12:46:54 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/01 14:41:39 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     printf("backtrack map =%s\n", map[0]);
     printf("backtrack storage =%d\n", storage[0]);
   	 a = min_a(count);
-  	 a = 10;
    // printf("a=%d\n",a);
     if (x <= a - coord[9] && y <= coord[8])
     	insert(abc, coord, map, y, x);
