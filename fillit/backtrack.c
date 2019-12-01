@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/01 15:25:12 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/01 16:01:06 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,11 +95,14 @@ void    backtrack(int *count, int storage[26], char map[16][17])
    i = 0;
     while(i < *count && x <= a - coord[9] && y <= coord[8])
     {
-    	insert(abc, coord, map, y, x);
+    	if (insert(abc, coord, map, y, x))
+            {
+                a++;
+                insert(abc, coord, map, y, x);
+            }
      //   back = 0;
         i++;
     }
-
 	i = 0;
 	while (i <= a)
 	{
