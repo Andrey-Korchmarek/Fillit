@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/01 12:46:54 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/01 15:25:12 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,7 @@ int    insert(char abc, int *coord, char map[16][17], int y, int x)
     {
         if (map[y + coord[i]][x + coord[i + 1]] == '.')
         {
-            
-            map[y + coord[i]][x + coord[i + 1]] = abc;
+             map[y + coord[i]][x + coord[i + 1]] = abc;
             i = i + 2 ;
         }
         else
@@ -59,19 +58,21 @@ int    insert(char abc, int *coord, char map[16][17], int y, int x)
 
 void    backtrack(int *count, int storage[26], char map[16][17])
 {
+    extern int g_tetramines[19][10];
     int a;
     int col;
     int row;
     int *coord;
     char abc;
-    extern int g_tetramines[19][10];
     int x;
     int y;
     int i;
     int j;
-
+   // int back;
+ 
 	coord = g_tetramines[storage[*count - 1]]; /* [storage[*count - 1] is a number  of figure 0-18 */
     i = 0;
+    //back = 1;
     x = coord[7];
     y = coord[6];
     col = 0;
@@ -79,7 +80,7 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     abc = 'A';
     printf("backtrack abc=%c\n", abc);
     //printf("backtrack coord =%s\n", coord);
-        printf("backtrack fig coordintes = ");
+        printf("backtrack fig coordinates = ");
 	 i = 0;
      while (i < 6)
     {
@@ -90,10 +91,15 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     printf("backtrack map =%s\n", map[0]);
     printf("backtrack storage =%d\n", storage[0]);
   	 a = min_a(count);
-  	 a = 10;
    // printf("a=%d\n",a);
-    if (x <= a - coord[9] && y <= coord[8])
+   i = 0;
+    while(i < *count && x <= a - coord[9] && y <= coord[8])
+    {
     	insert(abc, coord, map, y, x);
+     //   back = 0;
+        i++;
+    }
+
 	i = 0;
 	while (i <= a)
 	{

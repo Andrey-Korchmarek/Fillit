@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/01 13:22:34 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/01 12:01:34 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/01 15:19:42 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,14 @@ int main(int argc, char **argv)
 //		printf("%s\n", map[i]);
 //		i++;
 //	}
+printf("from main. Storage =\n");
+while (i < count)
+{
+	printf("%d and ", storage[i]);
+	i++;
+}
+
+
 	close(fd);
 	return (0);
 }
