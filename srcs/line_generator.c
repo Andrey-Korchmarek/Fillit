@@ -27,6 +27,5 @@ matrix	*line_generator(char count, int *coordinates)
 		matrix_add_right(head, tmp);
 		i += 2;
 	}
-	ft_putstr("F\n");
 	return (head);
 }

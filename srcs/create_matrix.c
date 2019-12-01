@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sign.c                                       :+:      :+:    :+:   */
+/*   calculation_beta.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 18:36:58 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/10 18:37:01 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/15 14:20:02 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/15 14:20:07 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-int	check_sign(char *tetr)
+matrix	*create_matrix(int *storage, int tetrnom)
 {
-	int len;
+	matrix *root;
+	int i;
 
-	len = ft_strlen(tetr);
-	if (ft_strcount(tetr, '.') != 12)
-		return (0);
-	if (ft_strcount(tetr, '#') != 4)
-		return (0);
-	if (ft_strcount(tetr, '\n') != (len / 5 + len % 5))
-		return (0);
-	return (1);
+	if (!(root = matrix_generator(min_map(tetrnom))))
+		return (NULL);
+	i = 0;
+	while (i < tetrnom)
+	{
+		dicycle(&root, min_map(tetrnom), storage[i], i);
+		i++;
+	}
+	//matrix_print(root);
+	return (root);
 }

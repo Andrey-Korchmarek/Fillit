@@ -14,8 +14,6 @@
 
 void	matrix_print(matrix *root)
 {
-	if (!root)
-		return ;
 	ft_putnode(root);
 	root->current = root->current->right;
 	while (root->current->letter != '!')
@@ -36,5 +34,4 @@ void	matrix_print(matrix *root)
 		}
 		root->current = root->current->down;
 	}
-	ft_putstr("\n\n ");
 }

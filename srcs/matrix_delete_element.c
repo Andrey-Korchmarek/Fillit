@@ -14,11 +14,11 @@
 
 void	matrix_delete_element(matrix *element)
 {
-	t_dance *aftertarget;
+	t_dance *afterTarget = NULL;
 
 	if (element->current == NULL)
 		exit(1);
-	aftertarget = NULL;
+	afterTarget = NULL;
 	if (element->current->right == element->current)
 	{
 		if (element->current->up == element->current)
@@ -28,21 +28,19 @@ void	matrix_delete_element(matrix *element)
 		}
 		else
 		{
-			aftertarget = element->current->up;
+			afterTarget = element->current->up;
 			element->current->up->down = element->current->down;
 			element->current->down->up = element->current->up;
 			free(element->current);
-			element->current = aftertarget;
+			element->current = afterTarget;
 		}
-	}
-	else
-	{
-		aftertarget = element->current->right;
+	} else {
+		afterTarget = element->current->right;
 		element->current->right->left = element->current->left;
 		element->current->left->right = element->current->right;
 		element->current->up->down = element->current->down;
 		element->current->down->up = element->current->up;
 		free(element->current);
-		element->current = aftertarget;
+		element->current = afterTarget;
 	}
 }

@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_sign.c                                       :+:      :+:    :+:   */
+/*   cg_delete_dest_row.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/10 18:36:58 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/10 18:37:01 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/30 20:39:44 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/30 20:39:47 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-int	check_sign(char *tetr)
+void	cg_delete_dest_row(t_dance *head)
 {
-	int len;
+	t_dance	*tmp1;
+	t_dance	*tmp2;
 
-	len = ft_strlen(tetr);
-	if (ft_strcount(tetr, '.') != 12)
-		return (0);
-	if (ft_strcount(tetr, '#') != 4)
-		return (0);
-	if (ft_strcount(tetr, '\n') != (len / 5 + len % 5))
-		return (0);
-	return (1);
+	tmp1 = head->left;
+	while (tmp1 != head)
+	{
+		tmp2 = tmp1->left;
+		free(tmp1);
+		tmp1 = tmp2;
+	}
+	free(tmp1);
 }

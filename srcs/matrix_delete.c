@@ -12,28 +12,45 @@
 
 #include "includes/fillit.h"
 
-void	matrix_delete(matrix **root)
+void		matrix_delete(matrix *root)
 {
-	t_dance *tmp1;
-	t_dance *tmp2;
+	t_dance	*tmp1;
+	t_dance	*tmp2;
 
-	if (!root || !*root || !(*root)->current)
+	if (!root || !root->current)
 		return ;
-	tmp1 = (*root)->current->up;
-	while (tmp1 != (*root)->current)
+	tmp1 = (root->current)->up;
+	while (tmp1 != root->current)
 	{
 		tmp2 = tmp1->up;
-		matrix_delete_line(tmp1);
+		cg_delete_dest_row(tmp1);
 		tmp1 = tmp2;
 	}
-	tmp1 = (*root)->current->left;
-	while (tmp1 != (*root)->current)
+	tmp1 = (root->current)->left;
+	while (tmp1 != root->current)
 	{
 		tmp2 = tmp1->left;
 		free(tmp1);
 		tmp1 = tmp2;
 	}
-	free((*root)->current);
-	free(*root);
-	*root = NULL;
+	free(root->current);
+	root->current = NULL;
+	free(root);
+	root = NULL;
 }
+
+// Ещё не доделал
+/*void matrix_delete(matrix **list)
+{
+	t_dance* prev = NULL;
+
+	while ((*list)->current->next)
+	{
+		prev = (*list)->current;
+		(*list)->current = (*list)->current->next;
+		free(prev);
+	}
+	free((*list)->current);
+	free(*list);
+	*list = NULL;
+}*/
