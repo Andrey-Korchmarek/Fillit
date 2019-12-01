@@ -38,7 +38,7 @@ void    insert(char abc, int *coord, char map[16][17], int y, int x)
     int i;
      
     i = 0;
-    map[0][0] = abc;
+    map[x][y] = abc;
     while (i < 6)
     {
         map[y + coord[i]][x + coord[i + 1]] = abc;
@@ -58,16 +58,17 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     int x;
     int y;
     int i;
-        
+
+	coord = g_tetramines[storage[*count - 1]];
     i = 0;
-    x = 0;
-    y = 0;
+    x = coord[6];
+    y = coord[7];
     col = 0;
     row = 0;
        // row = coord[6]; // using 2 last pairs from storage array to have safe boundaries
     abc = 'A';
     printf("backtrack abc=%c\n", abc);
-    coord = g_tetramines[*count];
+
     //printf("backtrack coord =%s\n", coord);
         printf("backtrack fig coordintes = ");
 	 i = 0;
@@ -79,7 +80,7 @@ void    backtrack(int *count, int storage[26], char map[16][17])
         printf("\n");
     
     printf("backtrack map =%s\n", map[0]);
-    printf("backtrack storage =%c\n", storage[0]);
+    printf("backtrack storage =%d\n", storage[0]);
        // a = min_a(count);
     a = 0;
     printf("a=%d\n",a);

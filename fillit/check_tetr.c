@@ -24,7 +24,7 @@ int	check_tetr(char *tetr)
 		return (-1);
 	vt = first(tmp);
 	i = 0;
-	while (i < 20)
+	while (i < 19)
 	{
 		a = g_tetramines[i];
 		if (tmp[vt[0] + a[0]][vt[1] + a[1]] == '#')
