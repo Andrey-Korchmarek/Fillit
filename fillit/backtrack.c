@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/01 16:01:06 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/01 16:25:41 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,13 @@ void clean_map(char map[16][17])
     }
     
 }
-int    insert(char abc, int *coord, char map[16][17], int y, int x)
+int    insert(char abc, int *coord, char map[16][17], int y, int x, int a)
 {   
     int i;
      
     i = 0;
+    while (x <= a - coord[9] && y <=a - coord[8])
+    {
     if (map[y][x] == '.')
         map[y][x] = abc;
     else
@@ -54,6 +56,7 @@ int    insert(char abc, int *coord, char map[16][17], int y, int x)
             return(0);
     }
     return (1);
+    }
 }
 
 void    backtrack(int *count, int storage[26], char map[16][17])
@@ -68,10 +71,12 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     int y;
     int i;
     int j;
+    int flg;
    // int back;
  
 	coord = g_tetramines[storage[*count - 1]]; /* [storage[*count - 1] is a number  of figure 0-18 */
     i = 0;
+    flg = 0;
     //back = 1;
     x = coord[7];
     y = coord[6];
@@ -91,18 +96,23 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     printf("backtrack map =%s\n", map[0]);
     printf("backtrack storage =%d\n", storage[0]);
   	 a = min_a(count);
-   // printf("a=%d\n",a);
+    printf("a=%d\n",a);
    i = 0;
-    while(i < *count && x <= a - coord[9] && y <= coord[8])
+    while(i < *count)
     {
-    	if (insert(abc, coord, map, y, x))
-            {
-                a++;
-                insert(abc, coord, map, y, x);
-            }
-     //   back = 0;
+    	flg = insert(abc, coord, map, y, x, a);
         i++;
     }
+    while (!flg && !(insert(abc, coord, map, y, x)) )
+    {
+        a++;
+        while(i < *count && x <= a - coord[9] && y <=a - coord[8])
+        {
+    	flg = insert(abc, coord, map, y, x);
+         
+        i++;
+        }
+    }   
 	i = 0;
 	while (i <= a)
 	{
