@@ -38,8 +38,8 @@ int    insert(char abc, int *coord, char map[16][17], int y, int x)
     int i;
      
     i = 0;
-    if (map[x][y] == '.')
-        map[x][y] = abc;
+    if (map[y][x] == '.')
+        map[y][x] = abc;
     else
         return(0);
     
@@ -68,11 +68,12 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     int x;
     int y;
     int i;
+    int j;
 
-	coord = g_tetramines[storage[*count - 1]];
+	coord = g_tetramines[storage[*count - 1]]; /* [storage[*count - 1] is a number  of figure 0-18 */
     i = 0;
-    x = coord[6];
-    y = coord[7];
+    x = coord[7];
+    y = coord[6];
     col = 0;
     row = 0;
     abc = 'A';
@@ -88,10 +89,24 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     printf("\n");
     printf("backtrack map =%s\n", map[0]);
     printf("backtrack storage =%d\n", storage[0]);
-       // a = min_a(count);
-    a = 0;
-    printf("a=%d\n",a);
-    insert(abc, coord, map, y, x);
+  	 a = min_a(count);
+  	 a = 10;
+   // printf("a=%d\n",a);
+    if (x <= a - coord[9] && y <= coord[8])
+    	insert(abc, coord, map, y, x);
+	i = 0;
+	while (i <= a)
+	{
+		j = 0;
+		while (j <= a)
+		{
+			ft_putchar(map[i][j]);
+			j++;
+		}
+		ft_putchar('\n');
+		i++;
+	}
+
        /* while (col <= a)        {
             while (row <= a)
             {   
