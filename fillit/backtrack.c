@@ -38,8 +38,8 @@ int    insert(char abc, int *coord, char map[16][17], int y, int x)
     int i;
      
     i = 0;
-    if (map[0][0] == '.')
-        map[0][0] = abc;
+    if (map[x][y] == '.')
+        map[x][y] = abc;
     else
         return(0);
     
