@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/01 15:09:21 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/02 16:47:26 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ int	fillit(int fd, int	storage[26], int *count)
 		printf("fillit buff=\n%s", buff);
 		if ((validation(buff)))
 		{
-			printf("I'm here from fillit - reading and writing cycle\n");
-			if ((storage[*count] = check_tetr(buff)))
-				*count = *count + 1;
+			storage[*count] = check_tetr(buff);
+			*count = *count + 1;
+			printf("{ fillit } - reading and writing cycle\n");
+			
 		}
 		else
 		return (-1);

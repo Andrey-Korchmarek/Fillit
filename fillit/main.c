@@ -1,4 +1,4 @@
-/* ************************************************************************** */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
@@ -45,7 +45,7 @@ int main(int argc, char **argv)
 	i = 0;
 	while (i < 2)
 	{
-		printf("%c\n", storage[i]);
+		printf(" {main }storage[i] %c\n", storage[i]);
 		i++;
 	}
 	i = 0;
@@ -66,19 +66,12 @@ int main(int argc, char **argv)
 	backtrack(&count, storage, map);
 	printf("{main after backtrack 4}\n");
 	i = 0;
-//	while (i < 7)
-//	{
-//		printf("%s\n", map[i]);
-//		i++;
-//	}
-printf("from main. Storage =\n");
-while (i < count)
-{
-	printf("%d and ", storage[i]);
-	i++;
-}
-
-
+	printf("from main. Storage =\n");
+	while (i < count)
+	{
+		printf("%d ", storage[i]);
+		i++;
+	}
 	close(fd);
 	return (0);
 }
