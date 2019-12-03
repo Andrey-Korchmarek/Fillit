@@ -40,7 +40,8 @@ int main(int argc, char **argv)
 	int		size;
 	int		count;
 	int		storage[26];
-
+	int *st_swap;
+	
 	count = 0;
 	i = 0;
 	while (i < 2)
@@ -61,9 +62,14 @@ int main(int argc, char **argv)
 	gen_map(map);
 	printf("{main - after gen_map - 2}\n");
 	fillit(fd, storage, &count);
+	st_swap = storage;
 	printf("{main after fillit, count %d}\n", count);
 	printf("{main  after fillit - 3}\n");
-	backtrack(&count, storage, map);
+	backtrack(&count, storage, map);  //main algorithm
+	st_swap = storage;
+	ft_swap(&st_swap[0], &st_swap[1]);
+	clean_map(map);
+	backtrack(&count, st_swap, map);  //main algorithm
 	printf("{main after backtrack 4}\n");
 	i = 0;
 	printf("from main. Storage =\n");

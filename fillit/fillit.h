@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/29 11:45:03 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:11:55 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,12 @@ typedef struct	Ring {
 	t_dance		*current;
 } 				matrix;
 
+void ft_swap(int *a, int *b);
 //char	*calculation_beta(int *storage, int tetrnom);
 //t_figure	*t_fig_create(int id, int number);
 void    backtrack(int *count, int	storage[26], char map[16][17]);
 //void	calculation(int id, char map[16][17]);
+void clean_map(char map[16][17]);
 void	gen_map(char map[16][17]);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);

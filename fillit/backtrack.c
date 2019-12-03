@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/03 11:54:20 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/03 12:17:35 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,19 @@ int    insert(char abc, int *coord, char map[16][17], int y, int x, int a)
             return (-1);
         else
         {
-            map[y][x] = abc;
             while (i < 6 )
             {
                 if (map[y + coord[i]][x + coord[i + 1]] != '.')
                     return (-1);
-                else
-                {
-                    map[y + coord[i]][x + coord[i + 1]] = abc;
-                 if (i == 4)
-                    return (0);
-                }
                 i = i + 2;
              }
         }
     }
-    return(-1);
+    map[y][x] = abc;
+    map[y + coord[0]][x + coord[1]] = abc;
+     map[y + coord[2]][x + coord[3]] = abc;
+      map[y + coord[4]][x + coord[5]] = abc;
+    return(0);
 }
 
 void print(int a, char map[16][17])
@@ -81,6 +78,7 @@ void print(int a, char map[16][17])
     i = 0;
     while (i <= a)
 	{
+        
 		j = 0;
 		while (j <= a)
 		{
@@ -103,11 +101,8 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     int y;
     int j;
     int flg;
-   int n;
-   int *st_swap;
-
-   st_swap = storage;
-   ft_swap(&st_swap[0], &st_swap[1]);
+    int n;
+    
     printf("backtrack count = %d\n", *count);
     a = min_a(count);
 	coord = g_tetramines[storage[0]]; /* [storage[*count - 1] is a number  of figure 0-18 */
