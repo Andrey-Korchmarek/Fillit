@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/02 17:55:23 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/03 11:54:20 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,15 @@ void clean_map(char map[16][17])
         ft_memset(map[i], '.', 16);
         i++;
     }
+}
+
+void ft_swap(int *a, int *b)
+{
+	int tmp_a;
+
+	tmp_a = *a;
+	*a = *b;
+	*b = tmp_a;
 }
 
 int    insert(char abc, int *coord, char map[16][17], int y, int x, int a)
@@ -95,7 +104,9 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     int j;
     int flg;
    int n;
-   
+   int st_swap[26]
+
+   st_swap = storage;
     printf("backtrack count = %d\n", *count);
     a = min_a(count);
 	coord = g_tetramines[storage[0]]; /* [storage[*count - 1] is a number  of figure 0-18 */
@@ -123,7 +134,6 @@ void    backtrack(int *count, int storage[26], char map[16][17])
         coord = g_tetramines[storage[i]];
         i++;
     } */
-    
     
     
 flg = 0;
