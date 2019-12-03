@@ -104,9 +104,10 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     int j;
     int flg;
    int n;
-   int st_swap[26]
+   int *st_swap;
 
    st_swap = storage;
+   ft_swap(&st_swap[0], &st_swap[1]);
     printf("backtrack count = %d\n", *count);
     a = min_a(count);
 	coord = g_tetramines[storage[0]]; /* [storage[*count - 1] is a number  of figure 0-18 */
@@ -170,4 +171,4 @@ flg = 0;
      } 
     
     print(a, map);
-} 
+}
