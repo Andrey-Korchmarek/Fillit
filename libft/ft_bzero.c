@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   min_map.c                                          :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 20:04:41 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/13 20:04:43 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/12 18:49:33 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/18 16:51:07 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-int min_map(int count)
+void	ft_bzero(void *b, size_t n)
 {
-	int i;
-
-	i = 2;
-	while (i * i < 4 * count)
-		i++;
-	return (i - 1);
+	ft_memset(b, '\0', n);
 }

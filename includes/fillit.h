@@ -49,7 +49,13 @@ typedef struct	Ring {
 	t_dance		*current;
 } 				matrix;
 
-char	*calculation_beta(int *storage, int tetrnom);
+typedef struct			s_cwr
+{
+	t_list				*head;
+	struct s_cwr		*right;
+}						t_cwr;
+
+matrix	*create_matrix(int *storage, int tetrnom, int size);
 int	check_neig1(char **tetr);
 int	check_neig2(char **tetr);
 int	check_sign(char *tetr);
@@ -57,7 +63,7 @@ int	check_tetr(char *tetr);
 int	*coordinates(char **tetr);
 void	dicycle(matrix **root, int a, int form, int count);
 int	*eight_to_six(int *valtet);
-char	*fillit(int fd);
+matrix	*fillit(int fd, int *count);
 int	*first(char **tetr);
 void	ft_bzero(void *b, size_t n);
 t_dance	*ft_dannew(char queue, int x, int y);
@@ -90,7 +96,7 @@ matrix	*line_generator(char count, int *coordinates);
 void matrix_add_down(matrix *hat, t_dance *tmp);
 void	matrix_add_line(matrix **root, matrix *line);
 void matrix_add_right(matrix *root, t_dance *tmp);
-matrix*	matrix_create();
+matrix*	matrix_new();
 void	matrix_delete_element(matrix *element);
 matrix	*matrix_generator(int size);
 void	matrix_print(matrix *root);
@@ -98,5 +104,20 @@ int min_map(int count);
 void	safe(t_etris **list, char *tetr, char count);
 int	validation(char *tetr);
 void	ft_putnode(matrix *root);
+void		matrix_delete(matrix *root);
+void	cg_delete_dest_row(t_dance *head);
+int	calculation(matrix *root, int count);
+int	ft_isupper(int c);
+
+int	cg_fillit(t_dance *goal, t_cwr **stack, int tet_count);
+void		cg_uncover_and_free(t_cwr **stack, int i);
+void	cg_stack_del_node(t_cwr **stack);
+void			cg_uncover(t_list *queue);
+t_cwr			*cg_add_to_stack(t_cwr **stack, t_list *new);
+int				cg_cover_all(t_list **queue, t_dance *goal);
+void	cg_print_tetris(matrix *root);
+
+matrix *calculation_and_output(int *storage, int tetnom);
+int *read_and_validation(int fd, int *count);
 
 #endif

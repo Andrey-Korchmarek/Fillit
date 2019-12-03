@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/06 11:13:51 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/06 11:40:22 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+char	*ft_strdup(const char *src)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	char	*dup;
+	size_t	i;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
+	if (ft_strplen(src) + 1 == 0)
+		return (NULL);
+	dup = (char *)malloc(sizeof(char) * (ft_strplen(src) + 1));
+	if (!dup)
+		return (NULL);
 	i = 0;
-	while (i <= size)
+	while (src[i])
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
+		dup[i] = src[i];
 		i++;
 	}
-	return (root);
+	dup[i] = '\0';
+	return (dup);
 }

@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/17 11:26:21 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/20 18:17:27 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	char			*tmp;
+	char			*result;
+	unsigned int	i;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
+	if (ft_strplen((char*)s) + 1 == 0)
+		return (NULL);
+	result = (char*)malloc(sizeof(char) * (ft_strplen((char*)s) + 1));
+	if (!s || !result)
+		return (NULL);
+	tmp = (char*)s;
 	i = 0;
-	while (i <= size)
+	while (tmp[i])
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
+		result[i] = f(i, tmp[i]);
 		i++;
 	}
-	return (root);
+	result[i] = '\0';
+	return (result);
 }

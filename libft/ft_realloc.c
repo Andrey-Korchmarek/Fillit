@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/18 11:05:42 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/18 11:06:06 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+void	*ft_realloc(void *ptr, size_t newsize)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	char	*newptr;
+	size_t	cursize;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
-	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
-	}
-	return (root);
+	if (!ptr)
+		return (malloc(newsize));
+	cursize = sizeof(ptr);
+	if (newsize <= cursize)
+		return (ptr);
+	newptr = (char*)malloc(newsize);
+	ft_memcpy(ptr, newptr, cursize);
+	free(ptr);
+	return (newptr);
 }

@@ -1,32 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/25 12:54:46 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/25 13:14:53 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	t_list		*new_list;
+	t_list		*tmp_list;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
+	if (!lst)
+		return (NULL);
+	tmp_list = f(lst);
+	new_list = tmp_list;
+	while (lst->next)
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
+		lst = lst->next;
+		tmp_list->next = f(lst);
+		if (!tmp_list->next)
+		{
+			free(tmp_list->next);
+			return (NULL);
+		}
+		tmp_list = tmp_list->next;
 	}
-	return (root);
+	return (new_list);
 }

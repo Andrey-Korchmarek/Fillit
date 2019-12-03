@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   min_map.c                                          :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 20:04:41 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/13 20:04:43 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/12 19:01:52 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/12 19:01:52 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-int min_map(int count)
+char	*ft_strncat(char *dest, const char *src, size_t n)
 {
-	int i;
+	size_t i;
+	size_t j;
 
-	i = 2;
-	while (i * i < 4 * count)
+	i = 0;
+	while (dest[i] != '\0')
 		i++;
-	return (i - 1);
+	j = 0;
+	while (src[j] != '\0' && j < n)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }

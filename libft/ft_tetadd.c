@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_tetadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/08 15:30:18 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/08 15:30:23 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "tmp/fillit.h"
 
-matrix	*matrix_generator(int size)
+void	ft_tetadd(t_etris **alst, t_etris *new)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
-
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
+	if (new)
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
+		if (*alst)
+		{
+			new->next = (*alst);
+			(*alst) = new;
+		}
+		else
+			(*alst) = new;
 	}
-	return (root);
 }

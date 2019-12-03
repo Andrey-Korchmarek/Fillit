@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   read_and_validation.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/12/03 17:50:42 by mashley           #+#    #+#             */
+/*   Updated: 2019/12/03 17:50:45 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-matrix	*matrix_generator(int size)
+int *read_and_validation(int fd, int *count)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	int		ret;
+	char	buff[22];
+	int		storage[26];
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
+	while ((ret = read(fd, buff, 21)) && (*count < 26))
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
+		buff[ret] = '\0';
+		if ((validation(buff)))
+		{
+			if ((storage[*count] = check_tetr(buff)) != -1)
+				(*count)++;
+		}
+		else
+			return (NULL);
 	}
-	return (root);
+	if ((ft_strlen(buff) != 20))
+		return (NULL);
+	return (NULL);
 }

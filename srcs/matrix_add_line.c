@@ -17,7 +17,7 @@ void	matrix_add_line(matrix **root, matrix *line)
 	matrix	*hat;
 
 	matrix_add_down(*root, line->current);
-	hat = matrix_create();
+	hat = matrix_new();
 	hat->current = (*root)->current->right;
 	line->current = line->current->right;
 	while (hat->current->x != line->current->x ||

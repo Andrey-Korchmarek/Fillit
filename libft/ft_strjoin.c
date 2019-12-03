@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/17 11:58:58 by mashley           #+#    #+#             */
+/*   Updated: 2019/10/02 17:06:42 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	char	*str;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
-	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
-	}
-	return (root);
+	if (!s1 || !s2)
+		return (NULL);
+	if (ft_strplen(s1) + ft_strplen(s2) + 1 == 0)
+		return (NULL);
+	str = (char*)malloc(sizeof(char) * (ft_strplen(s1) + ft_strplen(s2) + 1));
+	if (!str)
+		return (NULL);
+	ft_strcpy(str, s1);
+	ft_strcat(str, s2);
+	return (str);
 }

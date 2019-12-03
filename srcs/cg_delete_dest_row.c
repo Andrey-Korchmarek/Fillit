@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   cg_delete_dest_row.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/30 20:39:44 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/30 20:39:47 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-matrix	*matrix_generator(int size)
+void	cg_delete_dest_row(t_dance *head)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	t_dance	*tmp1;
+	t_dance	*tmp2;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
+	tmp1 = head->left;
+	while (tmp1 != head)
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
+		tmp2 = tmp1->left;
+		free(tmp1);
+		tmp1 = tmp2;
 	}
-	return (root);
+	free(tmp1);
 }

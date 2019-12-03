@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   min_map.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 20:04:41 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/13 20:04:43 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/11 13:57:44 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/11 13:57:44 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include <string.h>
 
-int min_map(int count)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int i;
+	unsigned char	*tmp;
 
-	i = 2;
-	while (i * i < 4 * count)
-		i++;
-	return (i - 1);
+	if (len == 0)
+		return (b);
+	tmp = (unsigned char *)b;
+	while (len--)
+	{
+		*tmp = (unsigned char)c;
+		if (len)
+			tmp++;
+	}
+	return (b);
 }

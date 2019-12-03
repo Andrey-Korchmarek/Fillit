@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/17 11:51:30 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/19 17:03:55 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	size_t	i;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
+	if (!s1 || !s2)
+		return (0);
+	if (n == 0)
+		return (1);
 	i = 0;
-	while (i <= size)
+	while (i < n && s1[i] && s2[i])
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
+		if (s1[i] != s2[i])
+			return (0);
 		i++;
 	}
-	return (root);
+	if (i == n)
+		i--;
+	if (s1[i] != s2[i])
+		return (0);
+	return (1);
 }

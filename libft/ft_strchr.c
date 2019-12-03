@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/10 11:19:20 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/16 16:29:38 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+char	*ft_strchr(const char *str, int c)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	size_t i;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
 	i = 0;
-	while (i <= size)
+	while (str[i] != '\0')
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
+		if (str[i] == c)
+			return ((char*)(str + i));
 		i++;
 	}
-	return (root);
+	if ((char)c == '\0')
+		return ((char*)(str + i));
+	return (NULL);
 }

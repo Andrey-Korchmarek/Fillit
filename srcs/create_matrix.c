@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   calculation_beta.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/15 14:20:02 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/15 14:20:07 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-matrix	*matrix_generator(int size)
+matrix	*create_matrix(int *storage, int tetrnom, int size)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	matrix *root;
+	int i;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
+	if (!(root = matrix_generator(size)))
+		return (NULL);
 	i = 0;
-	while (i <= size)
+	while (i < tetrnom)
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
+		dicycle(&root, size, storage[i], i);
 		i++;
 	}
+	//matrix_print(root);
 	return (root);
 }

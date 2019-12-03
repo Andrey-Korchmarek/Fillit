@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   calculation_and_output.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/12/03 17:50:04 by mashley           #+#    #+#             */
+/*   Updated: 2019/12/03 17:50:08 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-matrix	*matrix_generator(int size)
+matrix *calculation_and_output(int *storage, int tetnom)
 {
 	matrix	*root;
-	int 	i;
-	int 	j;
+	int		size;
+	int		res;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
+	res = 0;
+	size = min_map(tetnom);
+	while (!res)
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
+		root = create_matrix(storage, tetnom, size);
+		res = 1;
 	}
 	return (root);
 }

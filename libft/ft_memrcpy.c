@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_memrcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/20 11:45:48 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/20 11:47:42 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+void	*ft_memrcpy(void *dst, const void *src, size_t len)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	unsigned char		*buffer;
+	const unsigned char	*source;
+	size_t				i;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
+	buffer = dst;
+	source = src;
+	i = (len - 1);
+	while (i > 0)
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
+		buffer[i] = source[i];
+		i--;
 	}
-	return (root);
+	buffer[0] = source[0];
+	return (dst);
 }

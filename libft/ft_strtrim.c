@@ -1,32 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/17 12:08:05 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/19 19:52:03 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+char	*ft_strtrim(char const *s)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	char	*str;
+	size_t	start;
+	size_t	finish;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
-	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
-	}
-	return (root);
+	if (!s)
+		return (NULL);
+	start = 0;
+	while (ft_isspace(s[start]))
+		start++;
+	finish = ft_strlen(s);
+	while (finish && ft_isspace(s[finish - 1]))
+		finish--;
+	if (!finish)
+		return (ft_strnew(0));
+	str = ft_strsub(s, start, (finish - start));
+	return (str);
 }

@@ -10,11 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "includes/fillit.h"
 
-void	calculation(void)
+int	calculation(matrix *root, int count)
 {
+	int			res;
+	t_cwr		*stack;
+	//int			n_tet;
+
+	res = 0;
+	while (!res)
+	{
+		//if ((n_tet = ft_check_valid_root(*root, tetr)) > 0)//проверка матрицы на ошибки создания
+		//{
+			stack = NULL;//для сохранения списков скрытых строк
+			if ((res = cg_fillit((root->current)->down, &stack, count)) != 0)//основная рекурсивная функция
+				break ;
+			cg_uncover_and_free(&stack, 2);
+		//}
+		matrix_delete(root);
+		count++;
+	}
+	if (res == 1)
+		cg_print_tetris(root);//печатать результат. Я не понял
+	cg_uncover_and_free(&stack, 2);
+	return (res);
+}
+
+//{
 	/*int coord[] = {0, 1, 1, 0, 1, 1};
 	char queue;
 	char field[4][5];
@@ -49,7 +72,7 @@ i = 0;
 		printf("%s\n", field[i]);
 		i++;
 	}*/
-}
+//}
 
 //int main(void)
 //{

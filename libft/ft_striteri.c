@@ -1,32 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/17 11:10:18 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/18 19:07:21 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	size_t i;
+	size_t len;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
+	if (!s || !f)
+		return ;
 	i = 0;
-	while (i <= size)
+	len = ft_strlen(s);
+	while (i < len)
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
+		f(i, &s[i]);
 		i++;
 	}
-	return (root);
 }

@@ -1,23 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   min_map.c                                          :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/13 20:04:41 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/13 20:04:43 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/12 19:02:07 by mashley           #+#    #+#             */
+/*   Updated: 2019/09/12 19:02:07 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-int min_map(int count)
+int	ft_strncmp(const char *str1, const char *str2, size_t n)
 {
-	int i;
+	size_t	i;
 
-	i = 2;
-	while (i * i < 4 * count)
+	if (n == 0)
+		return (0);
+	i = 0;
+	while (i < n - 1 && str1[i] == str2[i] && str1[i] && str2[i])
 		i++;
-	return (i - 1);
+	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }

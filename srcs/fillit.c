@@ -12,31 +12,45 @@
 
 #include "includes/fillit.h"
 
-char	*fillit(int fd)
+matrix	*fillit(int fd, int *count)
 {
-	char	*result;
+	matrix	*result;
 	int		ret;
 	char	buff[22];
 	int		storage[26];
-	int		count;
+	matrix *error;
 
-	/*if (!(storage = (int*)malloc(sizeof(int) * 26)))
-		return (NULL);*/
-	count = 0;
-	while ((ret = read(fd, buff, 21)) && (count < 26))
+	/*
+	 matrix *result;
+	 int count;
+
+	 count = 0;
+	 if (!(storage = read_and_validation(fd, &count)))
+	 return (0);
+	 result = calculation_and_output(storage, count);
+	 matrix_delete(result);
+	 return (1);
+	 *
+	 *
+	 *
+	 * */
+
+
+	error = matrix_new();
+	while ((ret = read(fd, buff, 21)) && (*count < 26))
 	{
 		buff[ret] = '\0';
 		if ((validation(buff)))
 		{
-			if ((storage[count] = check_tetr(buff)) != -1)
-				count++;
+			if ((storage[*count] = check_tetr(buff)) != -1)
+				(*count)++;
 		}
 		else
-		{
-			ft_putstr("error\n");
-			return ("NULL");
-		}
+			return (error);
 	}
-	result = calculation_beta(storage, count);
+	if ((ft_strlen(buff) != 20))
+		return (error);
+	result = create_matrix(storage, *count, min_map(*count));
+	result = calculation_and_output(storage, *count);
 	return (result);
 }

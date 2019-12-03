@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix_generator.c                                 :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/11 10:28:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/11 10:28:56 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/21 20:07:13 by mashley           #+#    #+#             */
+/*   Updated: 2019/10/21 10:28:56 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "libft.h"
 
-matrix	*matrix_generator(int size)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	t_list *tmp;
+	t_list *lst;
 
-	root = matrix_new();
-	matrix_add_right(root, ft_dannew('!', -1, -1));
-	i = 0;
-	while (i <= size)
+	if (!alst || !del || !*alst)
+		return ;
+	lst = *alst;
+	while (lst != NULL)
 	{
-		j = 0;
-		while (j <= size)
-			matrix_add_right(root, ft_dannew('@', i, j++));
-		i++;
+		tmp = lst->next;
+		ft_lstdelone(&lst, del);
+		lst = tmp;
 	}
-	return (root);
+	*alst = NULL;
 }
