@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/03 15:35:16 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/04 13:54:45 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ int min_a(int *count) // "a" means a side of map square
 {
     int i;
 
-    i = 16;
+    i = 4;
     while(i * i < 4 * *count) /* How on earth does it work?)*/
-    i++;
+        ++i;
     printf("{ min_a = %d }\n", i - 1);
     return (i - 1);
 }
@@ -37,30 +37,28 @@ void clean_map(char map[16][17])
 
 int    insert(char abc, int *coord, char map[16][17], int y, int x, int a)
 {   
-    int i;
-    
-    i = 0;
-    if(x <= a - coord[9] && y <=a - coord[8])
-    {
-        if (map[y][x] != '.')
+	while (x <= a && y <= a)
+	{
+        if (y + coord[0] > a || x + coord[1] > a 
+         	|| y + coord[2] > a || x + coord[3] > a 
+         	|| y + coord[4] > a || x + coord[5] > a
+            || y + coord[0] < 0 || x + coord[1] < 0 
+            || y + coord[2] < 0 || x + coord[3] < 0 
+            || y + coord[4] < 0 || x + coord[5] < 0 )
             return (-1);
-        else
-        {
-            while (i < 6 )
-            {
-                if (map[y + coord[i]][x + coord[i + 1]] != '.')
-                    return (-1);
-                i = i + 2;
-             }
-        }
+			printf("{ insert  failed return-1 }\n");
+		if (map[y][x] != '.' || map[coord[0]][coord[1]] != '.' || 
+		map[coord[2]][coord[3]] != '.' || map[coord[4]][coord[5]] != '.' )
+            return (-2);
+			printf("{ insert  failed return -2 }\n");
+        map[y][x] = abc;
+    	map[y + coord[0]][x + coord[1]] = abc;
+    	map[y + coord[2]][x + coord[3]] = abc;
+    	map[y + coord[4]][x + coord[5]] = abc; 
+        
     }
-    map[y][x] = abc;
-    map[y + coord[0]][x + coord[1]] = abc;
-    map[y + coord[2]][x + coord[3]] = abc;
-    map[y + coord[4]][x + coord[5]] = abc;
-    return(0);
+    return (0);
 }
-
 
 void print(int a, char map[16][17])
 {
@@ -84,7 +82,6 @@ void print(int a, char map[16][17])
 void    backtrack(int *count, int storage[26], char map[16][17])
 {
     extern int g_tetramines[19][10];
-    int *coord;
     char abc;
     int i;
     int a;
@@ -92,7 +89,7 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     int y;
     int j;
     int flg;
-    int n;
+ //   int n;
    
     printf("backtrack count = %d\n", *count);
     a = min_a(count);
@@ -104,17 +101,16 @@ void    backtrack(int *count, int storage[26], char map[16][17])
     i = 0;
     flg = 0;
     
-    n = 0;
+    /* n = 0;
     while (n < *count)
     {
-       coord = g_tetramines[storage[n]];
        i = 0;
         while (i <= a)
 	    {
 		    j = 0;
 		    while (j <= a)
 		    {
-			    if (!(insert(abc + n, coord, map, i , j, a)))
+			    if (!(insert(abc + n,  g_tetramines[storage[n]], map, i , j, a)))
                 {
                     flg = 1;
                     break;
@@ -133,7 +129,7 @@ void    backtrack(int *count, int storage[26], char map[16][17])
           flg = 0;
           continue; 
         } 
-     } 
-    
-    print(16, map);
+     }  */
+    insert(abc,  g_tetramines[storage[0]], map, i , j, a);
+    print(a, map);
 } 
