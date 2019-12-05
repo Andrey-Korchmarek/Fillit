@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/05 15:01:29 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/05 15:19:00 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int    insert(int *coord, char map[16][17], int a)
     abc = 'A';
     y = 0;
     while (y <= a )
-    {
+    {   
+        printf("{insert} y <= a | y =%d\n", y);
+        printf("{insert} y <= a | x =%d\n", x);
         x = 0;
 	    while (x <= a)
         {//int g_tetramines[19][10] =	{{0, 1, 0, 2, 0, 3}, /* 0*/     
@@ -61,7 +63,9 @@ int    insert(int *coord, char map[16][17], int a)
                 && y + coord[0] >= 0 && x + coord[1] >= 0 
                 && y + coord[2] >= 0 && x + coord[3] >= 0 
                 && y + coord[4] >= 0 && x + coord[5] >= 0 )
-            {
+            {   
+                printf("{insert} x <= a| y =%d\n", y);
+                printf("{insert} x <= a| x =%d\n", x);
                 map[y][x] = abc;
     	        map[y + coord[0]][x + coord[1]] = abc;
     	        map[y + coord[2]][x + coord[3]] = abc;
@@ -98,9 +102,19 @@ void    backtrack(int *count, int storage[26], char map[16][17])
 {
     extern int g_tetramines[19][10];
     int a;
+    int n;
     
+    n = 0;
     printf("backtrack count = %d\n", *count);
     a = min_a(count);
-    insert(g_tetramines[storage[0]], map, a);
+    while(n < *count)
+    {
+        if ((insert(g_tetramines[storage[n]], map, a) == 1))
+        {
+            a++;
+            printf("{backtrack inside n < *count a= %d}\n",a);
+        }
+        n++;
+    }
     print(a, map);
 } 
