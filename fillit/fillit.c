@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/03 15:41:25 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/06 16:26:16 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	fillit(int fd, int	storage[26], int *count)
 	int		i;/*debug*/
 	extern int g_tetramines[19][10];
 
-
 	printf("I'm here from fillit 1 \n");
 	i = 0;
 	while ((ret = read(fd, buff, 21)) && (*count < 26))
@@ -28,10 +27,9 @@ int	fillit(int fd, int	storage[26], int *count)
 		printf("fillit buff=\n%s", buff);
 		if ((validation(buff)))
 		{
-			storage[*count] = check_tetr(buff);
+			storage[*count] = check_tetr(buff); // rename what tetr
 			*count = *count + 1;
 			printf("{ fillit } - reading and writing cycle\n");
-			
 		}
 		else
 		return (-1);

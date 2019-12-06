@@ -51,7 +51,8 @@ int main(int argc, char **argv)
 	printf("{main 1}\n");
 	gen_map(map);
 	printf("{main - after gen_map - 2}\n");
-	fillit(fd, storage, &count);
+	if ((fillit(fd, storage, &count)== -1))
+		ft_putstr("error\n");
 	printf("{main after fillit, count %d}\n", count);
 	printf("{main  after fillit - 3}\n");
 	backtrack(&count, storage, map);
