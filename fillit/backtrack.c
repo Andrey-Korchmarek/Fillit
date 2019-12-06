@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/06 17:07:53 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/06 17:54:28 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,9 +109,10 @@ void print(int a, char map[16][17])
 	}
 }
 
-void    backtrack(int *count, int storage[26], char map[16][17])
+int     backtrack(int *count, int storage[26], char map[16][17], char c)
 {
     extern int g_tetramines[19][10];
+    /*
     int a;
     int n;
     char abc;
@@ -132,5 +133,43 @@ void    backtrack(int *count, int storage[26], char map[16][17])
         }
         n++;
     }
-   print(a, map);
+    */
+    int x = 0;
+    int y = 0;
+    int a = min_a(count);
+    int *coord = g_tetramines[storage[c - 'A']];
+    if (*count == 0)
+        return (1);
+    while (x <= a)
+    {
+        while (y <= a)
+        {
+            if (y + coord[0] >= 0 && y + coord[0] <= a &&
+            y + coord[2] >= 0 && y + coord[2] <= a &&
+            y + coord[4] >= 0 && y + coord[4] <= a &&
+            x + coord[1] >= 0 && x + coord[1] <= a &&
+            x + coord[3] >= 0 && x + coord[3] <= a &&
+            x + coord[5] >= 0 && x + coord[5] <= a &&
+            map[y][x] == '.' &&
+            map[y + coord[0]][x + coord[1]] == '.' &&
+            map[y + coord[2]][x + coord[3]] == '.' &&
+            map[y + coord[4]][x + coord[5]] == '.')
+            {
+                map[y][x] = c;
+                map[y + coord[0]][x + coord[1]] = c;
+                map[y + coord[2]][x + coord[3]] = c;
+                map[y + coord[4]][x + coord[5]] = c;
+                if (backtrack(count - 1, storage, map, c))
+                    return (1);
+            }
+            map[y][x] = '.';
+            map[y + coord[0]][x + coord[1]] = '.';
+            map[y + coord[2]][x + coord[3]] = '.';
+            map[y + coord[4]][x + coord[5]] = '.';
+            ++y;
+        }
+        ++x;
+    }
+    //print(a, map);
+    return (0);
 } 

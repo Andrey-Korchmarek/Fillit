@@ -32,6 +32,37 @@
 							   {1, 0, 2, 0, 2, 1},/* 17*/
 							   {1, 0, 2, 0, 3, 0}};/* 18*/
 
+int min_aa(int *count) // "a" means a side of map square
+{
+    int i;
+    
+    i = 2;
+    while(i * i < 4 * *count) /* How on earth does it work?)*/
+        ++i;
+    printf("{ min_a = %d }\n", i - 1);
+    return (i);
+}
+
+void printt(int a, char map[16][17])
+{
+    int i;
+    int j;
+    
+    i = 0;
+    while (i <= a)
+	{
+		j = 0;
+		while (j <= a)
+		{
+			ft_putchar(map[i][j]);
+			j++;
+		}
+		ft_putchar('\n');
+		i++;
+	}
+}
+
+
 int main(int argc, char **argv)
 {
 	char	map[16][17]; /*gen_map*/
@@ -55,7 +86,8 @@ int main(int argc, char **argv)
 		ft_putstr("error\n");
 	printf("{main after fillit, count %d}\n", count);
 	printf("{main  after fillit - 3}\n");
-	backtrack(&count, storage, map);
+	backtrack(&count, storage, map, 'A');
+	printt(min_aa(&count), map);
 	printf("{main after backtrack 4}\n");
 	i = 0;
 	printf("from main. Storage =\n");
