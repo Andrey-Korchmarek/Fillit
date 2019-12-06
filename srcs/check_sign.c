@@ -12,6 +12,13 @@
 
 #include "includes/fillit.h"
 
+/*
+ * В валидной тетраминке должно быть 12 точек, 4 решётки и 4-5 переносов
+ * строки на определённых индексах
+ *
+ * Функция возвращает 1 если это так и 0 в остальных случаях
+ * */
+
 int	check_sign(char *tetr)
 {
 	int len;
@@ -22,6 +29,9 @@ int	check_sign(char *tetr)
 	if (ft_strcount(tetr, '#') != 4)
 		return (0);
 	if (ft_strcount(tetr, '\n') != (len / 5 + len % 5))
+		return (0);
+	if (tetr[4] != '\n' || tetr[9] != '\n' ||
+		tetr[14] != '\n' || tetr[19] != '\n')
 		return (0);
 	return (1);
 }

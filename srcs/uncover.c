@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   uncover.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 11:55:50 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/19 19:27:11 by mashley          ###   ########.fr       */
+/*   Created: 2019/12/04 19:26:28 by mashley           #+#    #+#             */
+/*   Updated: 2019/12/04 19:26:31 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fillit/libft.h"
+#include "includes/fillit.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+void			uncover(t_list *queue)
 {
-	char	*str;
-	size_t	i;
+	t_dance	*row;
+	t_dance	*hrow;
 
-	if (!s || start + len > ft_strplen(s))
-		return (NULL);
-	str = ft_strnew(len);
-	i = 0;
-	if (str)
+	while (queue)
 	{
-		while (i < len)
+		hrow = (t_dance*)(queue->content);
+		row = hrow;
+		while (row->right != hrow)
 		{
-			str[i] = s[start + i];
-			i++;
+			(row->up)->down = row;
+			(row->down)->up = row;
+			row = row->right;
 		}
-		str[i] = '\0';
+		(row->up)->down = row;
+		(row->down)->up = row;
+		queue = queue->next;
 	}
-	return (str);
 }

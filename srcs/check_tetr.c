@@ -12,13 +12,19 @@
 
 #include "includes/fillit.h"
 
+/*
+ * Функция принимает считанную тетраминку
+ *
+ * Возвращет индекс в глобальной переменной, соответствующий её форме
+ * */
+
 int	check_tetr(char *tetr)
 {
-	char	**tmp;
-	int		*vt;
-	int 	i;
-	int 	*a;
-	extern int g_tetramines[19][10];
+	extern int	g_tetramines[19][10];
+	char		**tmp;
+	int			*vt;
+	int			i;
+	int			*a;
 
 	if (!(tmp = ft_strsplit(tetr, '\n')))
 		return (-1);

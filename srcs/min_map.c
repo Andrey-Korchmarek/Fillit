@@ -12,7 +12,7 @@
 
 #include "includes/fillit.h"
 
-int min_map(int count)
+int	min_map(int count)
 {
 	int i;
 

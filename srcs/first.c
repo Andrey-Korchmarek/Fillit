@@ -12,6 +12,12 @@
 
 #include "includes/fillit.h"
 
+/*
+ * Функция тетраминку в формате массива строк
+ *
+ * Возвращает координаты первой решётки
+ * */
+
 int	*first(char **tetr)
 {
 	int i;
@@ -29,7 +35,7 @@ int	*first(char **tetr)
 			{
 				first[0] = i;
 				first[1] = j;
-				return(first);
+				return (first);
 			}
 			j++;
 		}

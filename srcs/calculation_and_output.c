@@ -12,9 +12,10 @@
 
 #include "includes/fillit.h"
 
-matrix *calculation_and_output(int *storage, int tetnom)
+t_ring	*calculation_and_output(int *storage, int tetnom)
 {
-	matrix	*root;
+	t_ring	*root;
+	t_cwr	*stack;
 	int		size;
 	int		res;
 
@@ -23,7 +24,15 @@ matrix *calculation_and_output(int *storage, int tetnom)
 	while (!res)
 	{
 		root = create_matrix(storage, tetnom, size);
-		res = 1;
+		stack = NULL;
+		if ((res = algoritm_x((root->current)->down, &stack)) != 0)
+			break ;
+		uncover_and_free(&stack, 2);
+		matrix_delete(root);
+		size++;
 	}
+	if (res == 1)
+		print_tetris(root);
+	uncover_and_free(&stack, 2);
 	return (root);
 }

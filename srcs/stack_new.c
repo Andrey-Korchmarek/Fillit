@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   simple_validation.c                                :+:      :+:    :+:   */
+/*   stack_new.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/01 19:07:26 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/02 19:29:27 by aelphias         ###   ########.fr       */
+/*   Created: 2019/12/04 19:01:16 by mashley           #+#    #+#             */
+/*   Updated: 2019/12/04 19:01:29 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "mashley.h"
+#include "includes/fillit.h"
 
-int simple_validation(char *tetr, int ret)
+t_cwr	*stack_new(t_list *new)
 {
-	
-	if (ft_strcount(tetr, '.') != 12)
-		return (0);
-	if (ft_strcount(tetr, '#') != 4)
-		return (0);
-	if (ft_strcount(tetr, '\n') != (ret / 5 + ret % 20))
-		return(0);
-	return (1);
+	t_cwr		*tmp;
+
+	tmp = (t_cwr*)malloc(sizeof(t_cwr));
+	if (!new)
+		return (NULL);
+	tmp->right = NULL;
+	tmp->head = new;
+	return (tmp);
 }

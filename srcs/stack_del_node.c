@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strplen.c                                       :+:      :+:    :+:   */
+/*   stack_del_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/20 15:53:33 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/20 15:53:37 by mashley          ###   ########.fr       */
+/*   Created: 2019/12/04 19:24:23 by mashley           #+#    #+#             */
+/*   Updated: 2019/12/04 19:24:26 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fillit/libft.h"
+#include "includes/fillit.h"
 
-size_t	ft_strplen(const char *str)
+void	stack_del_node(t_cwr **stack)
 {
-	size_t i;
+	t_list	*head;
+	t_list	*tmp;
+	t_cwr	*node;
 
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i] != '\0')
-		i++;
-	return (i);
+	head = (t_list*)(*stack)->head;
+	if ((*stack)->right == NULL)
+	{
+		free(*stack);
+		*stack = NULL;
+	}
+	else
+	{
+		node = *stack;
+		*stack = (*stack)->right;
+		free(node);
+	}
+	while (head)
+	{
+		tmp = head->next;
+		free(head);
+		head = tmp;
+	}
 }

@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   delete_dest_row.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 11:13:39 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/20 14:38:00 by mashley          ###   ########.fr       */
+/*   Created: 2019/11/30 20:39:44 by mashley           #+#    #+#             */
+/*   Updated: 2019/11/30 20:39:47 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fillit/libft.h"
+#include "includes/fillit.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	delete_dest_row(t_dance *head)
 {
-	char	*tmp;
-	char	*result;
-	size_t	i;
+	t_dance	*tmp1;
+	t_dance	*tmp2;
 
-	if (!s || !f)
-		return (NULL);
-	if (ft_strplen((char*)s) + 1 == 0)
-		return (NULL);
-	result = (char*)malloc(sizeof(*s) * (ft_strplen((char*)s) + 1));
-	if (!result)
-		return (NULL);
-	tmp = (char*)s;
-	i = 0;
-	while (tmp[i])
+	tmp1 = head->left;
+	while (tmp1 != head)
 	{
-		result[i] = f(tmp[i]);
-		i++;
+		tmp2 = tmp1->left;
+		free(tmp1);
+		tmp1 = tmp2;
 	}
-	result[i] = '\0';
-	return (result);
+	free(tmp1);
 }

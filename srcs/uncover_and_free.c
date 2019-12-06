@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   uncover_and_free.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 11:58:58 by mashley           #+#    #+#             */
-/*   Updated: 2019/10/02 17:06:42 by mashley          ###   ########.fr       */
+/*   Created: 2019/12/04 19:20:36 by mashley           #+#    #+#             */
+/*   Updated: 2019/12/04 19:20:40 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fillit/libft.h"
+#include "includes/fillit.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void		uncover_and_free(t_cwr **stack, int i)
 {
-	char	*str;
-
-	if (!s1 || !s2)
-		return (NULL);
-	if (ft_strplen(s1) + ft_strplen(s2) + 1 == 0)
-		return (NULL);
-	str = (char*)malloc(sizeof(char) * (ft_strplen(s1) + ft_strplen(s2) + 1));
-	if (!str)
-		return (NULL);
-	ft_strcpy(str, s1);
-	ft_strcat(str, s2);
-	return (str);
+	if (!*stack)
+		return ;
+	if (i == 1)
+	{
+		uncover((*stack)->head);
+		stack_del_node(stack);
+	}
+	else
+	{
+		while (*stack)
+		{
+			uncover((*stack)->head);
+			stack_del_node(stack);
+		}
+	}
 }

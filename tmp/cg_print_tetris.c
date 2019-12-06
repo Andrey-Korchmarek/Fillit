@@ -1,6 +1,6 @@
 #include "includes/fillit.h"
 
-void	cg_print_tetris(matrix *root)
+void	cg_print_tetris(t_ring *root)
 {
 	t_dance *print;
 

@@ -12,32 +12,28 @@
 
 #include "includes/fillit.h"
 
-void	matrix_add_line(matrix **root, matrix *line)
+/*
+ * Функция принимает две матрицы
+ *
+ * Добавляет строку в матрицу снизу
+ * */
+
+void	matrix_add_line(t_ring **root, t_ring *line)
 {
-	matrix	*hat;
+	t_ring	*hat;
 
 	matrix_add_down(*root, line->current);
 	hat = matrix_new();
 	hat->current = (*root)->current->right;
 	line->current = line->current->right;
-	while (hat->current->x != line->current->x ||
-	hat->current->y != line->current->y)
-		hat->current = hat->current->right;
-	matrix_add_down(hat, line->current);
-	line->current = line->current->right;
-	while (hat->current->x != line->current->x ||
-		   hat->current->y != line->current->y)
-		hat->current = hat->current->right;
-	matrix_add_down(hat, line->current);
-	line->current = line->current->right;
-	while (hat->current->x != line->current->x ||
-		   hat->current->y != line->current->y)
-		hat->current = hat->current->right;
-	matrix_add_down(hat, line->current);
-	line->current = line->current->right;
-	while (hat->current->x != line->current->x ||
-		   hat->current->y != line->current->y)
-		hat->current = hat->current->right;
-	matrix_add_down(hat, line->current);
-	line->current = line->current->right;
+	while (line->current->x != -1)
+	{
+		while (hat->current->x != line->current->x ||
+				hat->current->y != line->current->y)
+			hat->current = hat->current->right;
+		matrix_add_down(hat, line->current);
+		line->current = line->current->right;
+	}
+	free(hat);
+	free(line);
 }

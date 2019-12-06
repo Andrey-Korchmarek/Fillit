@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_abs.c                                           :+:      :+:    :+:   */
+/*   cover_same_letter.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/18 16:06:15 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/18 16:06:55 by mashley          ###   ########.fr       */
+/*   Created: 2019/12/04 19:15:13 by mashley           #+#    #+#             */
+/*   Updated: 2019/12/04 19:15:16 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/fillit.h"
 
-int	ft_abs(int n)
+/*
+ * Функция принимает узел и очередь?
+ *
+ * Скрывает все строки с такой же буквой как целевого узла кроме его самого
+ * */
+
+void	cover_same_letter(t_dance *goal, t_list **queue)
 {
-	if (n == INTMIN)
-		return (-1);
-	else
-		return ((n < 0) ? -n : n);
+	t_dance	*node;
+
+	node = goal->down;
+	while (node != goal)
+	{
+		if (goal->letter == node->letter)
+			cover_row(node, queue);
+		node = node->down;
+	}
 }

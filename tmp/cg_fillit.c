@@ -1,6 +1,6 @@
 #include "includes/fillit.h"
 
-int	cg_fillit(t_dance *goal, t_cwr **stack, int tet_count)
+int	cg_fillit(t_dance *goal, t_cwr **stack)
 {
 	t_list *q;//список для сохранения скрываемых строк
 	int cov_res;
@@ -18,7 +18,7 @@ int	cg_fillit(t_dance *goal, t_cwr **stack, int tet_count)
 		if (cov_res > 0)
 		{
 			cg_add_to_stack(stack, q);//сохранение очереди скрытых строк в стеке
-			if (cg_fillit(goal->down, stack, tet_count) == 1)//рекурсия
+			if (cg_fillit(goal->down, stack	) == 1)//рекурсия
 				return (1);
 			if (cov_res < 2)
 				cg_uncover_and_free(stack, 1);

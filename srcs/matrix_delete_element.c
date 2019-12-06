@@ -12,7 +12,7 @@
 
 #include "includes/fillit.h"
 
-void	matrix_delete_element(matrix *element)
+void	matrix_delete_element(t_ring *element)
 {
 	t_dance *afterTarget = NULL;
 

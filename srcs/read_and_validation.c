@@ -12,12 +12,13 @@
 
 #include "includes/fillit.h"
 
-int *read_and_validation(int fd, int *count)
+int	*read_and_validation(int fd, int *count)
 {
 	int		ret;
 	char	buff[22];
-	int		storage[26];
+	int		*storage;
 
+	storage = (int*)malloc(sizeof(int) * 26);
 	while ((ret = read(fd, buff, 21)) && (*count < 26))
 	{
 		buff[ret] = '\0';
@@ -31,5 +32,5 @@ int *read_and_validation(int fd, int *count)
 	}
 	if ((ft_strlen(buff) != 20))
 		return (NULL);
-	return (NULL);
+	return (storage);
 }

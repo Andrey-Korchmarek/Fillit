@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   stack_add.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 11:43:58 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/06 12:34:31 by mashley          ###   ########.fr       */
+/*   Created: 2019/12/04 19:03:55 by mashley           #+#    #+#             */
+/*   Updated: 2019/12/04 19:03:59 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include "includes/fillit.h"
 
-int	*ft_range(int min1, int max1, int min2, int max2)
+t_cwr	*stack_add(t_cwr **stack, t_list *new)
 {
-	int *run;
-	int i;
-	int j
-	int mm1;
-	int mm2;
+	t_cwr	*tmp;
 
-	if (max1 <= min1 || max2 <= min2)
+	if (!stack || !new)
 		return (NULL);
-	run = (int*)malloc(sizeof(int) * (max1 - min1) * (max2 - min2));
-	if (!run)
+	tmp = stack_new(new);
+	if (!tmp)
 		return (NULL);
-	i = 0;
-	mm1 = max1 - min1;
-	mm2 = max2 - max1;
-	while (i < mm1)
+	if (!*stack)
+		*stack = tmp;
+	else
 	{
-		run[i] = min;
-		min++;
-		i++;
+		tmp->right = *stack;
+		*stack = tmp;
 	}
-	return (run);
+	return (*stack);
 }

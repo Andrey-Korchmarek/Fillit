@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_matrix.c                                 :+:      :+:    :+:   */
+/*   ft_create_t_ring.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,11 +12,11 @@
 
 #include "includes/fillit.h"
 
-matrix*	matrix_new()
+t_ring	*matrix_new(void)
 {
-	matrix *tmp;
+	t_ring *tmp;
 
-	if (!(tmp = (matrix*)malloc(sizeof(matrix))))
+	if (!(tmp = (t_ring*)malloc(sizeof(t_ring))))
 		return (NULL);
 	tmp->size = 0;
 	tmp->current = NULL;

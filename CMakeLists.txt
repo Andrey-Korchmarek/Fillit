@@ -5,7 +5,7 @@ set(CMAKE_C_STANDARD 99)
 
 add_compile_options(-Wall -Wextra -Werror)
 
-FILE(GLOB LIBRARY ./srcs/*.c ./cghael/*.c )
+FILE(GLOB LIBRARY ./srcs/*.c )
 
 include_directories(.)
 

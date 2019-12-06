@@ -12,11 +12,17 @@
 
 #include "includes/fillit.h"
 
-int *get_coord(int x, int y, int form)
+/*
+ * Функция принимает кординаты начала тетраминки и её форму
+ *
+ * Возвращает координаты всех элементов тетраминки
+ * */
+
+int	*get_coord(int x, int y, int form)
 {
-	extern int g_tetramines[19][10];
-	int *c;
-	int *result;
+	extern int	g_tetramines[19][10];
+	int			*c;
+	int			*result;
 
 	result =(int*)malloc(sizeof(int) * 8);
 	c = g_tetramines[form];

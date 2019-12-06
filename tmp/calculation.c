@@ -12,28 +12,33 @@
 
 #include "includes/fillit.h"
 
-int	calculation(matrix *root, int count)
+int	calculation(int *storage, int tetnom)
 {
 	int			res;
 	t_cwr		*stack;
+	int size;
+	t_ring *root;
 	//int			n_tet;
 
+	size = min_map(tetnom);
 	res = 0;
 	while (!res)
 	{
 		//if ((n_tet = ft_check_valid_root(*root, tetr)) > 0)//проверка матрицы на ошибки создания
 		//{
+		root = create_matrix(storage, tetnom, size);
 			stack = NULL;//для сохранения списков скрытых строк
-			if ((res = cg_fillit((root->current)->down, &stack, count)) != 0)//основная рекурсивная функция
+			if ((res = algoritm_x((root->current)->down, &stack)) != 0)//основная рекурсивная функция
 				break ;
-			cg_uncover_and_free(&stack, 2);
+			uncover_and_free(&stack, 2);
 		//}
 		matrix_delete(root);
-		count++;
+		size++;
 	}
 	if (res == 1)
-		cg_print_tetris(root);//печатать результат. Я не понял
-	cg_uncover_and_free(&stack, 2);
+		print_tetris(root);
+	uncover_and_free(&stack, 2);
+
 	return (res);
 }
 

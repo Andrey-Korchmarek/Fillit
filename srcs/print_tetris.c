@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   print_tetris.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/11 10:46:53 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/11 13:53:18 by mashley          ###   ########.fr       */
+/*   Created: 2019/12/04 19:17:41 by mashley           #+#    #+#             */
+/*   Updated: 2019/12/04 19:17:44 by mashley          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fillit/libft.h"
+#include "includes/fillit.h"
 
-char	*ft_strcat(char *dest, const char *src)
+/* */
+
+void	print_tetris(t_ring *root)
 {
-	size_t	i;
-	size_t	j;
+	t_dance *print;
 
-	i = 0;
-	while (dest[i] != '\0')
-		i++;
-	j = 0;
-	while (src[j] != '\0')
+	print = (root->current)->right;
+	while (print->letter != '!')
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		if (ft_isupper(print->down->letter))
+			ft_putchar(print->down->letter);
+		else
+			ft_putchar('.');
+		if (print->x != print->right->x)
+			ft_putchar('\n');
+		print = print->right;
 	}
-	dest[i] = '\0';
-	return (dest);
 }
