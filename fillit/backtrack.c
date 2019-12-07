@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/06 17:54:28 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/07 19:32:22 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int min_a(int *count) // "a" means a side of map square
     int i;
     
     i = 2;
-    while(i * i < 4 * *count) /* How on earth does it work?)*/
+    while(i * i < 4 * *count)
         ++i;
     printf("{ min_a = %d }\n", i - 1);
     return (i);
@@ -39,7 +39,7 @@ void clean_map(char map[16][17])
     }
 }
 
-int    insert(int *coord, char map[16][17], int a, char abc)
+/* int    insert(int *coord, char map[16][17], int a, char abc)
 {   
     int y;
     int x;
@@ -53,8 +53,8 @@ int    insert(int *coord, char map[16][17], int a, char abc)
         x = 0;
 	    while (x <= a)
         {
-        //int g_tetramines[19][10] =	{{0, 1, 0, 2, 0, 3}, /* 0*/  
-        /*
+        int g_tetramines[19][10] =	{{0, 1, 0, 2, 0, 3}, 
+        
         if (y + coord[0] <= a 
         && x + coord[1] <= a && y + coord[2] <= a 
         && x + coord[3] <= a && y + coord[4] <= a 
@@ -62,7 +62,7 @@ int    insert(int *coord, char map[16][17], int a, char abc)
         && y + coord[2] >= 0 && x + coord[3] >= 0 
         && y + coord[4] >= 0 && x + coord[5] >= 0 
         )
-        */
+        
 	   		printf("y = %d | x = %d\n", y, x);
             if (y + coord[0] >= 0 && y + coord[0] <= a &&
             y + coord[2] >= 0 && y + coord[2] <= a &&
@@ -89,7 +89,7 @@ int    insert(int *coord, char map[16][17], int a, char abc)
     }
     return (0);
 }
-
+ */
 void print(int a, char map[16][17])
 {
     int i;
@@ -109,6 +109,13 @@ void print(int a, char map[16][17])
 	}
 }
 
+void    put_tetr(int x, int y, char c)
+{
+    map[y][x] = c;
+    map[y + coord[0]][x + coord[1]] = c;
+    map[y + coord[2]][x + coord[3]] = c;
+    map[y + coord[4]][x + coord[5]] = c;
+}
 int     backtrack(int *count, int storage[26], char map[16][17], char c)
 {
     extern int g_tetramines[19][10];
@@ -136,8 +143,10 @@ int     backtrack(int *count, int storage[26], char map[16][17], char c)
     */
     int x = 0;
     int y = 0;
-    int a = min_a(count);
-    int *coord = g_tetramines[storage[c - 'A']];
+    //int a = min_a(count);
+    int a = 16;
+    int *coord = g_tetramines[storage[c - 'A']]; /* c = 'A';
+     c - 'A' = 000 - null in ascii table so we count from 0, from the beginning.*/
     if (*count == 0)
         return (1);
     while (x <= a)
@@ -155,11 +164,8 @@ int     backtrack(int *count, int storage[26], char map[16][17], char c)
             map[y + coord[2]][x + coord[3]] == '.' &&
             map[y + coord[4]][x + coord[5]] == '.')
             {
-                map[y][x] = c;
-                map[y + coord[0]][x + coord[1]] = c;
-                map[y + coord[2]][x + coord[3]] = c;
-                map[y + coord[4]][x + coord[5]] = c;
-                if (backtrack(count - 1, storage, map, c))
+                put_tetr(x, y, c);
+                if (backtrack(count, storage, map, c))
                     return (1);
             }
             map[y][x] = '.';

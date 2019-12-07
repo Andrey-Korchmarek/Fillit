@@ -89,15 +89,12 @@ int main(int argc, char **argv)
 	backtrack(&count, storage, map, 'A');
 	printt(min_aa(&count), map);
 	printf("{main after backtrack 4}\n");
-	i = 0;
 	printf("from main. Storage =\n");
 		printf(" Number tet in storage:\n ");
-	while (i < count)
-	{
+	i = -1;
+	while (++i < count)
 		printf("%d ", storage[i]);
-		i++;
-	}
-		printf("\n");
+	printf("\n");
 	close(fd);
 	return (0);
 }

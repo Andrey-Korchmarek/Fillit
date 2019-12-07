@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/06 16:26:16 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/07 19:27:59 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,10 @@ int	fillit(int fd, int	storage[26], int *count)
 		printf("{fillit - count = %d\n}", *count);
 		printf("{fillit - storage = %d}\n", storage[*count]);
 	}
-	i = 0;
 	printf("I'm from fillit figure coordinates:\n");
-	 while (i < 6)
-    {
+	i = -1;
+	 while (++i < 6)
         printf("%d", g_tetramines[*count][i]);
-        i++;
-    }
 	printf("\n");
 		if ((ft_strlen(buff) != 20))
 			return(-1);
