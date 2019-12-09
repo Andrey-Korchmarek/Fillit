@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/08 18:13:46 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/09 14:02:48 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@
 {
     int i;
     
-    i = 4;
+    i = 2;
     while(i * i < 4 * *count)
         ++i;
-    printf("{ min_a = %d }\n", i);
-    return (i);
+    printf("{ min_a() min_a = %d }\n", i - 1);
+    return (i - 1);
 } 
 
 void clean_map(char map[16][17])
@@ -38,7 +38,6 @@ void clean_map(char map[16][17])
         i++;
     }
 }
-
 
 void print(int a, char map[16][17])
 {
@@ -67,14 +66,17 @@ int     backtrack(int *count, int storage[26], char map[16][17], char c)
     int x = 0;
     int y = 0;
     int a = min_a(count);
-    int *coord = g_tetramines[storage[c - 'A']]; /* c = 'A';
+    int *coord;
+    
+    coord =    
+     g_tetramines[storage[c - 'A']]; /* c = 'A';
      c - 'A' = 000 - null in ascii table so we count from 0, from the beginning.*/
      printf("{ backtrack } count=%d",*count);
     if (*count == 0)
         return (1);
-    while (x <= a)
+    while (y <= a)
     {
-        while (y <= a)
+        while (x <= a)
         {
             if (y + coord[0] >= 0 && y + coord[0] <= a &&
             y + coord[2] >= 0 && y + coord[2] <= a &&
@@ -91,17 +93,16 @@ int     backtrack(int *count, int storage[26], char map[16][17], char c)
                 map[y + coord[0]][x + coord[1]] = c;
                 map[y + coord[2]][x + coord[3]] = c;
                 map[y + coord[4]][x + coord[5]] = c;
-                if (backtrack(count, storage, map, ++c))
+                if (backtrack(count, storage, map, c))
                     return (1);
             }
             //map[y][x] = '.';
             //map[y + coord[0]][x + coord[1]] = '.';
             //map[y + coord[2]][x + coord[3]] = '.';
             //map[y + coord[4]][x + coord[5]] = '.';
-            ++y;
+            ++x;
         }
-        ++x;
+        ++y;
     }
-   
     return (0);
-} 
+}

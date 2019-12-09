@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/08 17:34:30 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/09 12:27:09 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,11 @@ int	fillit(int fd, int	storage[26], int *count)
 		{
 			storage[*count] = check_tetr(buff); // rename what tetr
 			*count = *count + 1;
-			printf("{ fillit } - reading and writing cycle\n");
+			printf("{ fillit } - writing cycle to storage\n");
 		}
 		else
 		return (-1);
 		printf("{fillit - count = %d\n}", *count);
-		printf("{fillit - storage = %d}\n", storage[*count]);
 	}
 	printf("I'm from fillit figure coordinates:\n");
 	i = -1;
