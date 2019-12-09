@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 	print(min_a(&count), map);
 	printf("{main after backtrack 4}\n");
 	printf("from main. Storage =\n");
-		printf(" Number tet in storage:\n ");
+		printf(" id and number tet in storage:\n ");
 	i = -1;
 	while (++i < count)
 		printf("%d ", storage[i]);

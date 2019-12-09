@@ -27,22 +27,6 @@ typedef struct		s_etris
 	struct s_etris	*next;
 }					t_etris;
 
-typedef struct		s_dance
-{
-	char 			letter;
-	int 			x;
-	int 			y;
-	struct s_dance	*left;
-	struct s_dance	*right;
-	struct s_dance	*up;
-	struct s_dance	*down;
-}					t_dance;
-
-typedef struct	Ring {
-	size_t		size;
-	t_dance		*current;
-} 				matrix;
-
 void print(int a, char map[16][17]);
 int min_a(int *count);
 //char	*calculation_beta(int *storage, int tetrnom);
@@ -55,12 +39,12 @@ int	check_neig2(char **tetr);
 int	check_sign(char *tetr);
 int	check_tetr(char *tetr);
 int	*coordinates(char **tetr);
-void	dicycle(matrix **root, int a, int form, int count);
+
 int		*eight_to_six(int *valtet);
 int		fillit(int fd, int	storage[26], int *count);
 int	*first(char **tetr);
 void	ft_bzero(void *b, size_t n);
-t_dance	*ft_dannew(char queue, int x, int y);
+
 /* void	ft_lstadd(t_list **alst, t_list *new);
 void	ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void	ft_lstdelone(t_list **alst, void (*del)(void*, size_t));
@@ -86,18 +70,11 @@ char			**ft_strsplit(char const *s, char c);
 void	ft_tetadd(t_etris **alst, t_etris *new);
 t_etris	*ft_tetnew(int *content, char queue);
 int *get_coord(int x, int y, int form);
-matrix	*line_generator(char count, int *coordinates);
-void matrix_add_down(matrix *hat, t_dance *tmp);
-void	matrix_add_line(matrix **root, matrix *line);
-void matrix_add_right(matrix *root, t_dance *tmp);
-matrix*	matrix_create();
-void	matrix_delete_element(matrix *element);
-matrix	*matrix_generator(int size);
-void	matrix_print(matrix *root);
+
 int min_map(int count);
 void	safe(t_etris **list, char *tetr, char count);
 int	validation(char *tetr);
-void	ft_putnode(matrix *root);
+
 
 #endif
 

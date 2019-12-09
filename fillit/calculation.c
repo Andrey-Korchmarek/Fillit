@@ -15,8 +15,9 @@
 
 void	calculation(int id, int count, char map[16][17])
 {
+	extern int g_tetramines[19][10];
 	int *coord;
-	char ;
+	char num;
 	int i;
 	int x;
 	int y;

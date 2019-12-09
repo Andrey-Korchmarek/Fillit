@@ -19,7 +19,7 @@ int	fillit(int fd, int	storage[26], int *count)
 	int		i;/*debug*/
 	extern int g_tetramines[19][10];
 
-	printf("I'm here from fillit 1 \n");
+	//printf("I'm here from fillit 1 \n");
 	i = 0;
 	while ((ret = read(fd, buff, 21)) && (*count < 26))
 	{
@@ -29,16 +29,13 @@ int	fillit(int fd, int	storage[26], int *count)
 		{
 			storage[*count] = check_tetr(buff); // rename what tetr
 			*count = *count + 1;
-			printf("{ fillit } - writing cycle to storage\n");
+			//printf("{ fillit } - writing cycle to storage\n");
 		}
 		else
 		return (-1);
-		printf("{fillit - count = %d\n}", *count);
+		//printf("{fillit - count = %d\n}", *count);
 	}
-	printf("I'm from fillit figure coordinates:\n");
-	i = -1;
-	 while (++i < 6)
-        printf("%d", g_tetramines[*count][i]);
+	//printf("I'm from fillit figure coordinates:\n");
 	printf("\n");
 		if ((ft_strlen(buff) != 20))
 			return(-1);

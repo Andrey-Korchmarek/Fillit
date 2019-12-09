@@ -20,10 +20,10 @@
 {
     int i;
     
-    i = 2;
+    i = 10;
     while(i * i < 4 * *count)
         ++i;
-    printf("{ min_a() min_a = %d }\n", i - 1);
+    //printf("{ min_a() min_a = %d }\n", i - 1);
     return (i - 1);
 } 
 
@@ -71,7 +71,7 @@ int     backtrack(int *count, int storage[26], char map[16][17], char c)
     coord =    
      g_tetramines[storage[c - 'A']]; /* c = 'A';
      c - 'A' = 000 - null in ascii table so we count from 0, from the beginning.*/
-     printf("{ backtrack } count=%d",*count);
+     //printf("{ backtrack } count=%d",*count);
     if (*count == 0)
         return (1);
     while (y <= a)
@@ -93,7 +93,7 @@ int     backtrack(int *count, int storage[26], char map[16][17], char c)
                 map[y + coord[0]][x + coord[1]] = c;
                 map[y + coord[2]][x + coord[3]] = c;
                 map[y + coord[4]][x + coord[5]] = c;
-                if (backtrack(count, storage, map, c))
+                if (backtrack(count, storage, map, ++c))
                     return (1);
             }
             //map[y][x] = '.';
