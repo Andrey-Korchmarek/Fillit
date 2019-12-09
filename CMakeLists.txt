@@ -1,6 +1,5 @@
-
 cmake_minimum_required(VERSION 3.14)
-project(Fillit)
+project(mashley)
 
 set(CMAKE_C_STANDARD 99)
 
@@ -11,11 +10,5 @@ FILE(GLOB LIBRARY ./srcs/*.c )
 include_directories(.)
 
 include_directories(includes)
-add_executable(Fillit ${LIBRARY} main.c srcs/matrix_generator.c srcs/ft_dannew.c
-		srcs/line_generator.c srcs/matrix_create.c srcs/matrix_add_right.c
-		srcs/matrix_delete.c srcs/matrix_add_down.c srcs/matrix_delete_element.c
-		srcs/check_tetr.c srcs/calculation_beta.c srcs/get_coord.c srcs/min_map.c
-		tmp/test.c srcs/matrix_add_line.c tmp/test2.c srcs/dicycle.c
-		srcs/matrix_print.c srcs/ft_putnode.c srcs/matrix_check.c
-		srcs/ft_lstlen.c srcs/matrix_dancing_links.c srcs/matrix_recur.c
-		srcs/matrix_hide_line.c srcs/matrix_hide_column.c srcs/print_result.c srcs/find_coord.c srcs/ft_danlen.c srcs/ft_danadd.c srcs/matrix_add_column.c srcs/matrix_safe_line.c srcs/ft_danring.c srcs/result_len.c srcs/matrix_delete_line.c srcs/print_node.c)
+
+add_executable(mashley ${LIBRARY} main.c )

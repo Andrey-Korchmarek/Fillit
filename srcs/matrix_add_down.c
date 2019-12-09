@@ -10,24 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-void matrix_add_down(matrix *hat, t_dance *tmp)
-{
-t_dance *prev;
+/*
+ * Функция принимает матрицу и узел
+ *
+ * Добавляет новый узел в самое нижнее положение в столбце
+ * */
 
-prev = NULL;
-if (hat->current == NULL)
+void	matrix_add_down(t_ring *hat, t_dance *tmp)
 {
-hat->current = tmp;
-tmp->right = tmp->left = tmp->up = tmp->down = tmp;
-}
-else
-{
-tmp->down = hat->current;
-tmp->up = hat->current->up;
-hat->current->up->down = tmp;
-hat->current->up = tmp;
-}
-hat->size++;
+	t_dance *prev;
+
+	prev = NULL;
+	if (hat->current == NULL)
+	{
+		hat->current = tmp;
+		tmp->right = tmp;
+		tmp->left = tmp;
+		tmp->up = tmp;
+		tmp->down = tmp;
+	}
+	else
+	{
+		tmp->down = hat->current;
+		tmp->up = hat->current->up;
+		hat->current->up->down = tmp;
+		hat->current->up = tmp;
+	}
+	hat->size++;
 }

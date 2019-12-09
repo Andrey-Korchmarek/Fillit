@@ -10,15 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-matrix	*matrix_generator(int size)
+/*
+ * Функция принимает размер
+ *
+ * Возвращает самую первую строку матрицы с координатами
+ * */
+
+t_ring	*matrix_generator(int size)
 {
-	matrix	*root;
-	int 	i;
-	int 	j;
+	t_ring	*root;
+	int		i;
+	int		j;
 
-	root = matrix_create();
+	root = matrix_new();
 	matrix_add_right(root, ft_dannew('!', -1, -1));
 	i = 0;
 	while (i <= size)

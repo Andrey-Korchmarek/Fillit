@@ -10,32 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-matrix	*fillit(int fd, int *count)
+int	fillit(int fd)
 {
-	matrix	*result;
-	int		ret;
-	char	buff[22];
-	int		storage[26];
-	matrix *error;
+	t_ring	*result;
+	int		*storage;
+	int		count;
 
-	error = matrix_create();
-	/*if (!(storage = (int*)malloc(sizeof(int) * 26)))
-		return (error);*/
-	while ((ret = read(fd, buff, 21)) && (*count < 26))
-	{
-		buff[ret] = '\0';
-		if ((validation(buff)))
-		{
-			if ((storage[*count] = check_tetr(buff)) != -1)
-				(*count)++;
-		}
-		else
-			return (error);
-	}
-	if ((ft_strlen(buff) != 20))
-		return (error);
-	result = create_matrix(storage, *count);
-	return (result);
+	count = 0;
+	if (!(storage = read_and_validation(fd, &count)))
+		return (0);
+	result = calculation_and_output(storage, count);
+	free(storage);
+	matrix_delete(result);
+	return (1);
 }

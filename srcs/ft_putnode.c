@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-void	ft_putnode(matrix *root)
+void	ft_putnode(t_ring *root)
 {
 	ft_putchar(root->current->letter);
 	ft_putchar(' ');

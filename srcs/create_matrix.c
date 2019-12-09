@@ -10,21 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-matrix	*create_matrix(int *storage, int tetrnom)
+/*
+ * Функция принимает сохранённые тетраминки, их число и размер карты
+ *
+ * Возвращает матрицу для алгоритма х
+ * */
+
+t_ring	*create_matrix(int *storage, int tetrnom, int size)
 {
-	matrix *root;
-	int i;
+	t_ring	*root;
+	int		i;
 
-	if (!(root = matrix_generator(min_map(tetrnom))))
+	if (!(root = matrix_generator(size)))
 		return (NULL);
+	matrix_print(root);
+	root->size = tetrnom;
 	i = 0;
 	while (i < tetrnom)
 	{
-		dicycle(&root, min_map(tetrnom), storage[i], i);
+		dicycle(&root, size, storage[i], i);
 		i++;
 	}
-	//matrix_print(root);
 	return (root);
 }

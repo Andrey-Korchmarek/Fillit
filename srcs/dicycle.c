@@ -10,15 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-void	dicycle(matrix **root, int a, int form, int count)
+/*
+ * Функция принимает матрицу, максимальный индекс на карте, форму и
+ * порядковый номер тетраминки
+ *
+ * Генерирует и добавляет в матрицу все строки для тетраминки
+ *
+ * */
+
+void	dicycle(t_ring **root, int a, int form, int count)
 {
 	extern int	g_tetramines[19][10];
-	int	i;
-	int j;
-	int *c;
-	int *coord;
+	int			i;
+	int			j;
+	int			*c;
+	int			*coord;
 
 	c = g_tetramines[form];
 	i = c[6];
@@ -29,6 +37,7 @@ void	dicycle(matrix **root, int a, int form, int count)
 		{
 			coord = get_coord(i, j, form);
 			matrix_add_line(root, line_generator('A' + count, coord));
+			free(coord);
 			j++;
 		}
 		i++;

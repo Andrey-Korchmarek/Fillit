@@ -10,9 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-void matrix_add_right(matrix *root, t_dance *tmp)
+/*
+ * Функция принимает матрицу и узел
+ *
+ * Добавляет новый узел в крайнее правое положение в строке
+ * */
+
+void	matrix_add_right(t_ring *root, t_dance *tmp)
 {
 	t_dance *prev;
 
@@ -20,7 +26,10 @@ void matrix_add_right(matrix *root, t_dance *tmp)
 	if (root->current == NULL)
 	{
 		root->current = tmp;
-		tmp->right = tmp->left = tmp->up = tmp->down = tmp;
+		tmp->right = tmp;
+		tmp->left = tmp;
+		tmp->up = tmp;
+		tmp->down = tmp;
 	}
 	else
 	{
@@ -28,7 +37,8 @@ void matrix_add_right(matrix *root, t_dance *tmp)
 		tmp->left = root->current->left;
 		root->current->left->right = tmp;
 		root->current->left = tmp;
-		tmp->up = tmp->down = tmp;
+		tmp->up = tmp;
+		tmp->down = tmp;
 	}
 	root->size++;
 }

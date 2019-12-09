@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-void	matrix_print(matrix *root)
+void	matrix_print(t_ring *root)
 {
 	ft_putnode(root);
 	root->current = root->current->right;

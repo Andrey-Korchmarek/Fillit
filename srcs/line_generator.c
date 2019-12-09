@@ -10,15 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-matrix	*line_generator(char count, int *coordinates)
+/*
+ * Функция принимает букву и координаты тетраминки
+ *
+ * Возвращает строку матрицы
+ * */
+
+t_ring	*line_generator(char count, int *coordinates)
 {
-	matrix *head;
+	t_ring	*head;
 	t_dance	*tmp;
-	int 	i;
+	int		i;
 
-	head = matrix_create();
+	head = matrix_new();
 	matrix_add_right(head, ft_dannew(count, -1, 0));
 	i = 0;
 	while (i < 8)

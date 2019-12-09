@@ -35,16 +35,18 @@ int g_tetramines[19][10] =	{{0, 1, 0, 2, 0, 3, 0, 0, 0, 3}, /* */
 int main(int argc, char **argv)
 {
 	int fd;
-	char *result;
-	
-	if (argc != 2)
+
+	 if (argc != 2)
 	{
 		ft_putstr("Give me one file");
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
-	result = fillit(fd);
+	 if (fillit(fd) == 0)
+	 {
+	 	ft_putstr("error\n");
+	 	return (-1);
+	 }
 	close(fd);
-	ft_putstr(result);
 	return (0);
 }

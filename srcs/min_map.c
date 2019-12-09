@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-int min_map(int count)
+int	min_map(int count)
 {
 	int i;
 
-	i = 4;//Временно
+	i = 2;
 	while (i * i < 4 * count)
 		i++;
 	return (i - 1);
