@@ -96,7 +96,6 @@ void				matrix_add_down(t_ring *hat, t_dance *tmp);
 void				matrix_add_line(t_ring **root, t_ring *line);
 void				matrix_add_right(t_ring *root, t_dance *tmp);
 void				matrix_delete(t_ring *root);
-void				matrix_delete_element(t_ring *element);
 t_ring				*matrix_generator(int size);
 t_ring				*matrix_new();
 void				matrix_print(t_ring *root);

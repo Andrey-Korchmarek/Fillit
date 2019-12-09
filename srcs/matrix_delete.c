@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-void		matrix_delete(t_ring *root)
+void	matrix_delete(t_ring *root)
 {
 	t_dance	*tmp1;
 	t_dance	*tmp2;
@@ -38,19 +38,3 @@ void		matrix_delete(t_ring *root)
 	free(root);
 	root = NULL;
 }
-
-// Ещё не доделал
-/*void matrix_delete(matrix **list)
-{
-	t_dance* prev = NULL;
-
-	while ((*list)->current->next)
-	{
-		prev = (*list)->current;
-		(*list)->current = (*list)->current->next;
-		free(prev);
-	}
-	free((*list)->current);
-	free(*list);
-	*list = NULL;
-}*/

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
 /*
  * Функция принимает кординаты начала тетраминки и её форму
@@ -24,7 +24,7 @@ int	*get_coord(int x, int y, int form)
 	int			*c;
 	int			*result;
 
-	result =(int*)malloc(sizeof(int) * 8);
+	result = (int*)malloc(sizeof(int) * 8);
 	c = g_tetramines[form];
 	result[0] = x;
 	result[1] = y;

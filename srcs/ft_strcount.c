@@ -10,9 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "includes/fillit.h"
+#include "../includes/fillit.h"
 
-int ft_strcount(char *str, char c)
+int	ft_strcount(char *str, char c)
 {
 	int count;
 
