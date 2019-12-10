@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/10 12:24:19 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/10 13:21:51 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct	Ring {
 } 				matrix;
 
 int		backtrack(int count, int storage[26][2], char map[16][17], int a);
-int		min_a(int count);
+void	min_a(int count, int *a);
 int		fillit(int fd, int	storage[26][2], int *count);
 void	gen_map(char map[16][17]);
 void	print(int a, char map[16][17]);

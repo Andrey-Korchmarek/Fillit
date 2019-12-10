@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/10 12:57:51 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/10 13:32:21 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,9 @@ int     backtrack(int count, int storage[26][2], char map[16][17], int a)
     int y = 0;
     int *coord;
 
-    a = min_a(count);
     coord = g_tetramines[storage[0][0]];
 
-    printf("{ backtrack } count=%d\n", count);
+    //printf("{ backtrack } count=%d\n", count);
 
     if (!count)
         return (1);

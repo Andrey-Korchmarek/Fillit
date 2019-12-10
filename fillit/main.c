@@ -32,15 +32,11 @@
 							   {1, 0, 2, 0, 2, 1},/* 17*/
 							   {1, 0, 2, 0, 3, 0}};/* 18*/
 
-int min_a(int count) // "a" means a side of map square
+void	min_a(int count, int *a) // "a" means a side of map square
 {
-    int i;
-    
-    i = 0;
-    while(i * i < 4 * count)
-        ++i;
-    printf("{ min_a() min_a = %d \n", i - 1);
-    return (i - 1);
+    while(*a * *a < 4 * count)
+        ++(*a);
+	--(*a);
 } 
 
 
@@ -48,37 +44,26 @@ int main(int argc, char **argv)
 {
 	char	map[16][17]; /*gen_map*/
 	int		fd; 
-	int		i;
+	int 	a;
 	int		count;
 	int		storage[26][2];
 
 	count = 0;
+	a = 1;
 	if (argc != 2)
 	{
 		ft_putstr("usage: ./fillit  file_with_tetriminos\n");
 		return (0);
 	}
 	fd = open(argv[1], O_RDONLY);
-	printf("{main fd = %d}\n", fd);
-	printf("{main 1}\n");
 	gen_map(map);
-	printf("{main - after gen_map - 2}\n");
 	if ((fillit(fd, storage, &count) == -1))
 		ft_putstr("error\n");
-	printf("{main after fillit, count %d}\n", count);
-	printf("{main  after fillit - 3}\n");
-
-
-	backtrack(count, storage, map, min_a(count));
-
-	print(min_a(count), map);
-	printf("{main after backtrack 4}\n");
-	printf("from main. Storage =\n");
-		printf(" Number tet in storage:\n ");
-	i = -1;
-	while (++i < count)
-		printf("%d ", storage[0][i]);
-	printf("\n");
+	min_a(count, &a);
+	while (!backtrack(count, storage, map, a))
+		a++;
+	printf("---map---\n\n");
+	print(a, map);
 	close(fd);
 	return (0);
 }
