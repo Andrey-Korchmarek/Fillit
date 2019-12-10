@@ -75,6 +75,7 @@ int min_map(int count);
 void	safe(t_etris **list, char *tetr, char count);
 int	validation(char *tetr);
 
+int backtrack2(int count, int storage[26], char map[16][17], char c);
 
 #endif
 
