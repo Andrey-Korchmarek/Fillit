@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 10:45:43 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/16 12:30:26 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/25 18:03:56 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/25 19:39:27 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,27 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t				i;
-	unsigned char		*part1;
-	const unsigned char	*part2;
+	size_t		i;
+	char		*ptr_dst;
+	const char	*ptr_src;
 
+	ptr_dst = (char *)dst;
+	ptr_src = (const char *)src;
+	i = 0;
 	if (!dst && !src)
 		return (NULL);
-	part1 = (unsigned char*)dst;
-	part2 = (unsigned char*)src;
-	i = 0;
-	if (part2 < part1)
-		while (++i <= len)
-			part1[len - i] = part2[len - i];
+	if (ptr_src > ptr_dst)
+	{
+		while (i < len)
+		{
+			ptr_dst[i] = ptr_src[i];
+			i++;
+		}
+	}
 	else
-		while (len-- > 0)
-			*(part1++) = *(part2++);
-	return (dst);
+		while (len--)
+		{
+			ptr_dst[len] = ptr_src[len];
+		}
+	return ((void*)ptr_dst);
 }

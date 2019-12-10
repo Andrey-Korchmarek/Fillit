@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 12:08:05 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/19 19:52:03 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/29 13:25:53 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/29 18:35:18 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,18 @@
 
 char	*ft_strtrim(char const *s)
 {
-	char	*str;
-	size_t	start;
-	size_t	finish;
+	size_t	i;
+	size_t	len;
 
 	if (!s)
 		return (NULL);
-	start = 0;
-	while (ft_isspace(s[start]))
-		start++;
-	finish = ft_strlen(s);
-	while (finish && ft_isspace(s[finish - 1]))
-		finish--;
-	if (!finish)
-		return (ft_strnew(0));
-	str = ft_strsub(s, start, (finish - start));
-	return (str);
+	i = 0;
+	len = ft_strlen(s) - 1;
+	while (s[i] == ' ' || s[i] == '\n' || s[i] == '\t')
+		i++;
+	if (s[i] == '\0')
+		return (ft_strdup(s + i));
+	while (s[len] == ' ' || s[len] == '\n' || s[len] == '\t')
+		len--;
+	return (ft_strsub(s, i, len - i + 1));
 }

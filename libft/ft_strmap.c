@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/17 11:13:39 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/20 14:38:00 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/28 19:52:36 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/28 21:14:09 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,21 @@
 
 char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char	*tmp;
-	char	*result;
+	char	*new_s;
 	size_t	i;
 
-	if (!s || !f)
-		return (NULL);
-	if (ft_strplen((char*)s) + 1 == 0)
-		return (NULL);
-	result = (char*)malloc(sizeof(*s) * (ft_strplen((char*)s) + 1));
-	if (!result)
-		return (NULL);
-	tmp = (char*)s;
-	i = 0;
-	while (tmp[i])
+	if (s && f)
 	{
-		result[i] = f(tmp[i]);
-		i++;
+		i = 0;
+		new_s = ft_strnew(ft_strlen(s));
+		if (!new_s)
+			return (NULL);
+		while (s[i])
+		{
+			new_s[i] = f(s[i]);
+			i++;
+		}
+		return (new_s);
 	}
-	result[i] = '\0';
-	return (result);
+	return (NULL);
 }

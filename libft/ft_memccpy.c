@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <mashley@student.42.fr>            +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/13 11:07:11 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/16 12:30:26 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/25 17:35:17 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/29 20:38:35 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,26 @@
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*dst_tmp;
-	unsigned char	*src_tmp;
+	size_t				i;
+	unsigned char		*ptr_dst;
+	unsigned char		*ptr_src;
+	unsigned char		cc;
 
-	dst_tmp = (unsigned char*)dst;
-	src_tmp = (unsigned char*)src;
+	ptr_dst = (unsigned char *)dst;
+	ptr_src = (unsigned char *)src;
+	cc = (unsigned char)c;
 	i = 0;
+	if (!dst && !src)
+		return (NULL);
 	while (i < n)
 	{
-		dst_tmp[i] = src_tmp[i];
-		if (dst_tmp[i] == (unsigned char)c)
-			return ((void*)(dst + i + 1));
-		++i;
+		if (ptr_src[i] == cc)
+		{
+			ptr_dst[i] = ptr_src[i];
+			return (&ptr_dst[i + 1]);
+		}
+		ptr_dst[i] = ptr_src[i];
+		i++;
 	}
 	return (NULL);
 }

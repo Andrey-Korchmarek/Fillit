@@ -3,33 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/11 17:34:56 by mashley           #+#    #+#             */
-/*   Updated: 2019/09/16 19:19:25 by mashley          ###   ########.fr       */
+/*   Created: 2019/09/26 16:37:10 by aelphias          #+#    #+#             */
+/*   Updated: 2019/09/28 15:28:22 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *str, const char *to_find)
+char	*ft_strstr(const char *haystack, const char *needle)
 {
-	size_t	i;
-	size_t	j;
+	int		size_m;
+	int		i;
+	int		size_b;
 
-	if (to_find[0] == '\0')
-		return ((char*)str);
 	i = 0;
-	while (str[i] != '\0')
-	{
-		j = 0;
-		while (str[i + j] == to_find[j])
-		{
-			if (to_find[j + 1] == '\0')
-				return ((char*)(str + i));
-			j++;
-		}
+	if (needle[0] == '\0')
+		return ((char *)haystack);
+	size_m = ft_strlen(needle);
+	size_b = ft_strlen(haystack);
+	while (ft_strncmp(&haystack[i], needle, size_m) && (i <= (size_b - size_m)))
 		i++;
-	}
+	if ((i <= (size_b - size_m)))
+		return ((char *)&haystack[i]);
 	return (NULL);
 }
