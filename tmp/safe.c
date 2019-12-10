@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "fillit/fillit.h"
 
 void	safe(t_etris **list, char *tetr, char count)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
+#include "fillit/fillit.h"
 
 t_figure    *sf_create(int id, int number)
 {

@@ -6,7 +6,7 @@ set(CMAKE_C_STANDARD 99)
 
 add_compile_options(-Wall -Wextra -Werror)
 
-FILE(GLOB LIBRARY ./libft/*.c  )
+FILE(GLOB LIBRARY ./libft/*.c ./fillit/*.c )
 
 include_directories(.)
 
