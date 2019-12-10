@@ -32,6 +32,17 @@
 							   {1, 0, 2, 0, 2, 1},/* 17*/
 							   {1, 0, 2, 0, 3, 0}};/* 18*/
 
+int min_a(int count) // "a" means a side of map square
+{
+    int i;
+    
+    i = 0;
+    while(i * i < 4 * count)
+        ++i;
+    printf("{ min_a() min_a = %d \n", i - 1);
+    return (i - 1);
+} 
+
 
 int main(int argc, char **argv)
 {
@@ -39,7 +50,7 @@ int main(int argc, char **argv)
 	int		fd; 
 	int		i;
 	int		count;
-	int		storage[26];
+	int		storage[26][2];
 
 	count = 0;
 	if (argc != 2)
@@ -52,18 +63,21 @@ int main(int argc, char **argv)
 	printf("{main 1}\n");
 	gen_map(map);
 	printf("{main - after gen_map - 2}\n");
-	if ((fillit(fd, storage, &count)== -1))
+	if ((fillit(fd, storage, &count) == -1))
 		ft_putstr("error\n");
 	printf("{main after fillit, count %d}\n", count);
 	printf("{main  after fillit - 3}\n");
-	backtrack(&count, storage, map, 'A');
-	print(min_a(&count), map);
+
+
+	backtrack(count, storage, map, min_a(count));
+
+	print(min_a(count), map);
 	printf("{main after backtrack 4}\n");
 	printf("from main. Storage =\n");
 		printf(" Number tet in storage:\n ");
 	i = -1;
 	while (++i < count)
-		printf("%d ", storage[i]);
+		printf("%d ", storage[0][i]);
 	printf("\n");
 	close(fd);
 	return (0);

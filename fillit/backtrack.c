@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/09 17:58:24 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/10 12:25:26 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,6 @@
   sqrt(# of tetrominoes * 4 characters per tetromino)
   
   i = 2 will be , minimal square 2*2 */
- int min_a(int *count) // "a" means a side of map square
-{
-    int i;
-    
-    i = 2;
-    while(i * i < 4 * *count)
-        ++i;
-    printf("{ min_a() min_a = %d \n", i - 1);
-    return (i - 1);
-} 
 
 void clean_map(char map[16][17])
 {
@@ -80,41 +70,41 @@ int check_dots(int y, int x, int *coord, char map[16][17])
         return(0);
 }
 
-int     backtrack(int *count, int storage[26], char map[16][17], char c)
+int     backtrack(int count, int storage[26][2], char map[16][17], int a)
 {
     extern int g_tetramines[19][10];
    
     int x = 0;
     int y = 0;
-    int a;
     int *coord;
-    int i;
 
-    i = 0;
     a = min_a(count);
-    coord = g_tetramines[storage[c - 'A']]; /* c = 'A';
-     c - 'A' = 000 - null in ascii table so we count from 0, from the beginning.*/
-     printf("{ backtrack } count=%d", *count);
-    if (*count == 0)
+    coord = g_tetramines[storage[0][0]];
+
+    printf("{ backtrack } count=%d\n", count);
+
+    if (!count)
         return (1);
     while (y <= a)
     {
+		x = 0;
         while (x <= a)
         {
-            x = 0;
             if (check_borders(y, x, a, coord) && check_dots(y, x, coord, map))
             {
-                map[y][x] = c;
-                map[y + coord[0]][x + coord[1]] = c;
-                map[y + coord[2]][x + coord[3]] = c;
-                map[y + coord[4]][x + coord[5]] = c;
-                if (backtrack(count - 1, storage, map, ++c))
+                map[y][x] = storage[0][1];
+                map[y + coord[0]][x + coord[1]] = storage[0][1];
+                map[y + coord[2]][x + coord[3]] = storage[0][1];
+                map[y + coord[4]][x + coord[5]] = storage[0][1];
+				print(a, map);
+                if (backtrack(count - 1, ++storage, map, a))
                     return (1);
+				--storage;
+				map[y][x] = '.';
+           		map[y + coord[0]][x + coord[1]] = '.';
+            	map[y + coord[2]][x + coord[3]] = '.';
+            	map[y + coord[4]][x + coord[5]] = '.';
             }
-            map[y][x] = '.';
-            map[y + coord[0]][x + coord[1]] = '.';
-            map[y + coord[2]][x + coord[3]] = '.';
-            map[y + coord[4]][x + coord[5]] = '.';
             ++x;
         }
         ++y;
