@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/10 12:25:26 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/10 12:57:51 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int     backtrack(int count, int storage[26][2], char map[16][17], int a)
                 map[y + coord[0]][x + coord[1]] = storage[0][1];
                 map[y + coord[2]][x + coord[3]] = storage[0][1];
                 map[y + coord[4]][x + coord[5]] = storage[0][1];
-				print(a, map);
+				//print(a, map);
                 if (backtrack(count - 1, ++storage, map, a))
                     return (1);
 				--storage;
