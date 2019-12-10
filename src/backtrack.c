@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/10 13:32:21 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/10 16:39:07 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,15 +72,13 @@ int check_dots(int y, int x, int *coord, char map[16][17])
 
 int     backtrack(int count, int storage[26][2], char map[16][17], int a)
 {
-    extern int g_tetramines[19][10];
+    extern int g_tetr[19][10];
    
     int x = 0;
     int y = 0;
     int *coord;
 
-    coord = g_tetramines[storage[0][0]];
-
-    //printf("{ backtrack } count=%d\n", count);
+    coord = g_tetr[storage[0][0]];
 
     if (!count)
         return (1);

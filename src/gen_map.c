@@ -6,13 +6,13 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 12:42:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/06 16:22:44 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/10 16:10:21 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void   gen_map(char map[16][17])
+void    gen_map(char map[16][17])
 {
     int size;
     int i;

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_tetr.c                                       :+:      :+:    :+:   */
+/*   identify_tetr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,13 +12,13 @@
 
 #include "fillit.h"
 
-int	check_tetr(char *tetr)
+int	identify_tetr(char *tetr)
 {
 	char	**tmp;
 	int		*vt; /*valid tetrx*/
 	int 	i;
 	int 	*a;
-	extern int g_tetramines[19][10];
+	extern int g_tetr[19][10];
 
 	if (!(tmp = ft_strsplit(tetr, '\n')))
 		return (-1);
@@ -26,7 +26,7 @@ int	check_tetr(char *tetr)
 	i = 0;
 	while (i < 19)
 	{
-		a = g_tetramines[i];
+		a = g_tetr[i];
 		if (tmp[vt[0] + a[0]][vt[1] + a[1]] == '#')
 			if (tmp[vt[0] + a[2]][vt[1] + a[3]] == '#')
 				if (tmp[vt[0] + a[4]][vt[1] + a[5]] == '#')

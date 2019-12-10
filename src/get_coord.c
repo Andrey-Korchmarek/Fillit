@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_coord.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mashley <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 19:56:28 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/13 19:56:32 by mashley          ###   ########.fr       */
+/*   Updated: 2019/12/10 16:14:02 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int *get_coord(int x, int y, int form)
 {
-	extern int g_tetramines[19][10];
+	extern int g_tetr[19][10];
 	int *c;
 	int *result;
 
 	result =(int*)malloc(sizeof(int) * 8);
-	c = g_tetramines[form];
+	c = g_tetr[form];
 	result[0] = x;
 	result[1] = y;
 	result[2] = x + c[0];

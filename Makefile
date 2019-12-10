@@ -6,7 +6,7 @@
 #    By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/10 13:58:56 by aelphias          #+#    #+#              #
-#    Updated: 2019/12/10 14:37:40 by aelphias         ###   ########.fr        #
+#    Updated: 2019/12/10 16:13:07 by aelphias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ NAME	= fillit
 SRC_DIR = ./src
 
 FILES	=	main.c gen_map.c fillit.c backtrack.c validation.c check_sign.c \
-check_neig1.c check_neig2.c first.c check_tetr.c \
+check_neig1.c check_neig2.c first.c identify_tetr.c \
 ft_strcount.c
 SRC		= $(addprefix $(SRC_DIR)/,$(FILES))
 INC		= fillit.h

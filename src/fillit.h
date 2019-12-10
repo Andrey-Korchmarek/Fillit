@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/10 13:21:51 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/10 16:13:07 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	print(int a, char map[16][17]);
 int		check_neig1(char **tetr);
 int		check_neig2(char **tetr);
 int		check_sign(char *tetr);
-int		check_tetr(char *tetr);
+int		identify_tetr(char *tetr);
 int		*first(char **tetr);
 int		*eight_to_six(int *valtet);
 int		ft_strcount(char *str, char c);
