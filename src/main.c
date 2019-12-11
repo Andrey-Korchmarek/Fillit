@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 15:19:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/11 13:00:14 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 14:12:36 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,25 @@ void	min_a(int count, int *a)
 	while (*a * *a < 4 * count)
 		++(*a);
 	--(*a);
+}
+
+void	print(int a, char map[16][17])
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i <= a)
+	{
+		j = 0;
+		while (j <= a)
+		{
+			ft_putchar(map[i][j]);
+			j++;
+		}
+		ft_putchar('\n');
+		i++;
+	}
 }
 
 int		main(int argc, char **argv)

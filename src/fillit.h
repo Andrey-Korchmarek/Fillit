@@ -6,16 +6,16 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/11 13:15:09 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 14:11:34 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MASHLEY_FILLIT_H
-# define MASHLEY_FILLIT_H
+#ifndef _FILLIT_H
+# define _FILLIT_H
 
 # include "../libft/libft.h"
 
-int g_tetr[19][6];
+int		g_tetr[19][6];
 int		backtrack(int count, int storage[26][2], char map[16][17], int a);
 void	min_a(int count, int *a);
 int		fillit(int fd, int	storage[26][2], int *count);
@@ -29,5 +29,7 @@ int		*first(char **tetr);
 int		ft_strcount(char *str, char c);
 char	**ft_strsplit(char const *s, char c);
 int		validation(char *tetr);
+void	clean_map(char map[16][17], int y, int x, int *coord);
+void	print(int a, char map[16][17]);
 
 #endif
