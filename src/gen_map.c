@@ -12,22 +12,22 @@
 
 #include "fillit.h"
 
-void    gen_map(char map[16][17])
+void	gen_map(char map[16][17])
 {
-    int size;
-    int i;
-    
-    size = 16;
-    i = 0;
-    while (i < size)
-    {
-        map[i][size] = '\0';
-        i++;   
-    }
-    i = 0;
-    while (i < size )
-    {
-        ft_memset(map[i], '.', size);
-        i++;
-    }
+	int	size;
+	int	i;
+
+	size = 16;
+	i = 0;
+	while (i < size)
+	{
+		map[i][size] = '\0';
+		i++;
+	}
+	i = 0;
+	while (i < size)
+	{
+		ft_memset(map[i], '.', size);
+		i++;
+	}
 }
