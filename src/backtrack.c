@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/11 14:40:37 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 14:50:05 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	clean_map(char map[16][17], int y, int x, int *coord)
 	map[y + coord[4]][x + coord[5]] = '.';
 }
 
-int		backtrack(int count, int id[26][2], char map[16][17], int a)
+int		backtrack(int count, int s[26][2], char map[16][17], int a)
 {
 	int x;
 	int y;
@@ -54,15 +54,15 @@ int		backtrack(int count, int id[26][2], char map[16][17], int a)
 		x = 0;
 		while (x <= a && ++x)
 		{
-			if (b(y - 1, x - 1, a, g_[**id]) && d(y - 1, x - 1, g_[**id], map))
+			if (b(y - 1, x - 1, a, g_t[**s]) && d(y - 1, x - 1, g_t[**s], map))
 			{
-				map[y - 1][x - 1] = id[0][1];
-				map[y - 1 + g_[**id][0]][x - 1 + g_[**id][1]] = id[0][1];
-				map[y - 1 + g_[**id][2]][x - 1 + g_[**id][3]] = id[0][1];
-				map[y - 1 + g_[**id][4]][x - 1 + g_[**id][5]] = id[0][1];
-				if (backtrack(count - 1, id + 1, map, a))
+				map[y - 1][x - 1] = s[0][1];
+				map[y - 1 + g_t[**s][0]][x - 1 + g_t[**s][1]] = s[0][1];
+				map[y - 1 + g_t[**s][2]][x - 1 + g_t[**s][3]] = s[0][1];
+				map[y - 1 + g_t[**s][4]][x - 1 + g_t[**s][5]] = s[0][1];
+				if (backtrack(count - 1, s + 1, map, a))
 					return (1);
-				clean_map(map, y - 1, x - 1, g_[**id]);
+				clean_map(map, y - 1, x - 1, g_t[**s]);
 			}
 		}
 	}

@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/11 14:39:20 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 14:50:05 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 # include "../libft/libft.h"
 
-int		g_[19][6];
-int		backtrack(int count, int id[26][2], char map[16][17], int a);
+int		g_t[19][6];
+int		backtrack(int count, int d[26][2], char map[16][17], int a);
 void	min_a(int count, int *a);
-int		fillit(int fd, int	id[26][2], int *count);
+int		fillit(int fd, int	d[26][2], int *count);
 void	gen_map(char map[16][17]);
 void	print(int a, char map[16][17]);
 int		check_neig1(char **tetr);
