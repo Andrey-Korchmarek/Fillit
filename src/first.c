@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:59:09 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/11 11:53:25 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 13:19:13 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	*first(char **tetr)
 			{
 				first[0] = i;
 				first[1] = j;
-				return(first);
+				return (first);
 			}
 			j++;
 		}
