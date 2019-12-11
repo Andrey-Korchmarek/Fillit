@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   identify_tetr.c                                       :+:      :+:    :+:   */
+/*   identify_tetr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -15,9 +15,9 @@
 int	identify_tetr(char *tetr)
 {
 	char	**tmp;
-	int		*vt; 
-	int 	i;
-	int 	*a;
+	int		*vt;
+	int		i;
+	int		*a;
 
 	if (!(tmp = ft_strsplit(tetr, '\n')))
 		return (-1);

@@ -12,13 +12,12 @@
 
 #include "includes/fillit.h"
 
-int *get_coord(int x, int y, int form)
+int	*get_coord(int x, int y, int form)
 {
-	extern int g_tetr[19][10];
-	int *c;
-	int *result;
+	int	*c;
+	int	*result;
 
-	result =(int*)malloc(sizeof(int) * 8);
+	result = (int*)malloc(sizeof(int) * 8);
 	c = g_tetr[form];
 	result[0] = x;
 	result[1] = y;

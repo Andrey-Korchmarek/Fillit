@@ -15,6 +15,7 @@
 int	validation(char *tetr)
 {
 	char **tmp;
+
 	if (!(check_sign(tetr)))
 		return (0);
 	tmp = ft_strsplit(tetr, '\n');
