@@ -6,27 +6,13 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/11 12:51:37 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 13:23:22 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-
-
-void clean_map(char map[16][17])
-{
-     int i;
-
-     i = 0;
-     while (i < 16)
-    {
-        ft_memset(map[i], '.', 16);
-        i++;
-    }
-}
-
-void print(int a, char map[16][17])
+void    print(int a, char map[16][17])
 {
     int i;
     int j;
@@ -45,7 +31,7 @@ void print(int a, char map[16][17])
 	}
 }
 
-int check_borders(int y, int x, int a, int *coord)
+int     check_borders(int y, int x, int a, int *coord)
 {   
     if (y + coord[0] >= 0 && y + coord[0] <= a &&
     y + coord[2] >= 0 && y + coord[2] <= a &&
@@ -57,7 +43,7 @@ int check_borders(int y, int x, int a, int *coord)
     return (0);
 }
 
-int check_dots(int y, int x, int *coord, char map[16][17])
+int     check_dots(int y, int x, int *coord, char map[16][17])
 {
     if (map[y][x] == '.' &&
     map[y + coord[0]][x + coord[1]] == '.' &&
