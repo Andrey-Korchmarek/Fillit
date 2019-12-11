@@ -6,44 +6,15 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/11 12:41:51 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 13:10:17 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MASHLEY_FILLIT_H
 #define MASHLEY_FILLIT_H
-# define INTMIN ( -2147483648 )
-# include <unistd.h>
-# include <stdlib.h>
-# include <fcntl.h>
-# include <string.h>
-# include <stdio.h>
 # include "../libft/libft.h"
 
 int g_tetr[19][6];
-
-typedef struct		s_etris
-{
-	int				*content;
-	char			queue;
-	struct s_etris	*next;
-}					t_etris;
-
-typedef struct		s_dance
-{
-	char 			letter;
-	int 			x;
-	int 			y;
-	struct s_dance	*left;
-	struct s_dance	*right;
-	struct s_dance	*up;
-	struct s_dance	*down;
-}					t_dance;
-
-typedef struct	Ring {
-	size_t		size;
-	t_dance		*current;
-} 				matrix;
 
 int		backtrack(int count, int storage[26][2], char map[16][17], int a);
 void	min_a(int count, int *a);
@@ -55,7 +26,6 @@ int		check_neig2(char **tetr);
 int		check_sign(char *tetr);
 int		identify_tetr(char *tetr);
 int		*first(char **tetr);
-int		*eight_to_six(int *valtet);
 int		ft_strcount(char *str, char c);
 char	**ft_strsplit(char const *s, char c);
 int		validation(char *tetr);
