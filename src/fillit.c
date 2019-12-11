@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 17:31:03 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/10 16:19:10 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 12:52:09 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ int	fillit(int fd, int storage[26][2], int *count)
 	int			ret;
 	char		buff[22];
 	char		abc;
-	extern int	g_tetr[19][10];
 
 	abc = 'A';
 	while ((ret = read(fd, buff, 21)) && (*count < 26))

@@ -6,7 +6,7 @@
 #    By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/10 13:58:56 by aelphias          #+#    #+#              #
-#    Updated: 2019/12/10 16:13:07 by aelphias         ###   ########.fr        #
+#    Updated: 2019/12/11 10:36:06 by aelphias         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ INC		= fillit.h
 OBJ		= $(SRC:.c=.o)
 
 CC		= gcc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -g
 
 all: $(NAME)
 

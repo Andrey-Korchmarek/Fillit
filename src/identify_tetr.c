@@ -15,10 +15,9 @@
 int	identify_tetr(char *tetr)
 {
 	char	**tmp;
-	int		*vt; /*valid tetrx*/
+	int		*vt; 
 	int 	i;
 	int 	*a;
-	extern int g_tetr[19][10];
 
 	if (!(tmp = ft_strsplit(tetr, '\n')))
 		return (-1);

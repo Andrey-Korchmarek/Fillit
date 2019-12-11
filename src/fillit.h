@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:07:37 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/10 16:13:07 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 12:41:51 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 # include <string.h>
 # include <stdio.h>
 # include "../libft/libft.h"
+
+int g_tetr[19][6];
 
 typedef struct		s_etris
 {
