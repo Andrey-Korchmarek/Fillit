@@ -29,8 +29,12 @@ int	identify_tetr(char *tetr)
 		if (tmp[vt[0] + a[0]][vt[1] + a[1]] == '#')
 			if (tmp[vt[0] + a[2]][vt[1] + a[3]] == '#')
 				if (tmp[vt[0] + a[4]][vt[1] + a[5]] == '#')
+				{
+					free(vt);
 					return (i);
+				}
 		i++;
 	}
+	free(vt);
 	return (-1);
 }
