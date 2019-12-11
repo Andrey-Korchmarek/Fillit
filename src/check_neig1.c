@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/10 18:36:13 by mashley           #+#    #+#             */
-/*   Updated: 2019/11/16 18:54:33 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 19:31:36 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int	check_neig1(char **tetr)
 		}
 		i++;
 	}
+	ft_memdel((void**)tetr);
 	return (valid);
 }

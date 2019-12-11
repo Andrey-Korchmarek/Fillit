@@ -9,7 +9,7 @@
 			"type": "cppdbg",
 			"request": "launch",
 			"program": "${workspaceFolder}/fillit",
-			"args": ["h_line"],
+			"args": [""],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
 			"environment": [],

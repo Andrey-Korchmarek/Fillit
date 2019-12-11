@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 15:19:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/11 14:50:05 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 19:57:33 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int		main(int argc, char **argv)
 	int		a;
 	int		count;
 	int		d[26][2];
-
+	
 	count = 0;
 	a = 1;
 	if (argc != 2)
