@@ -6,13 +6,13 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 15:19:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/11 14:12:36 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 14:39:20 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int g_tetr[19][6] = {
+int g_[19][6] = {
 	{0, 1, 0, 2, 0, 3}, {0, 1, 0, 2, 1, 0},
 	{0, 1, 0, 2, 1, 1}, {0, 1, 0, 2, 1, 2},
 	{0, 1, 1, -1, 1, 0}, {0, 1, 1, 0, 1, 1},
@@ -56,7 +56,7 @@ int		main(int argc, char **argv)
 	int		fd;
 	int		a;
 	int		count;
-	int		storage[26][2];
+	int		id[26][2];
 
 	count = 0;
 	a = 1;
@@ -66,13 +66,13 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	gen_map(map);
-	if ((!(fd = open(argv[1], O_RDONLY)) || fillit(fd, storage, &count) == -1))
+	if ((!(fd = open(argv[1], O_RDONLY)) || fillit(fd, id, &count) == -1))
 	{
 		ft_putstr("error\n");
 		return (0);
 	}
 	min_a(count, &a);
-	while (!backtrack(count, storage, map, a))
+	while (!backtrack(count, id, map, a))
 		a++;
 	print(a, map);
 	close(fd);

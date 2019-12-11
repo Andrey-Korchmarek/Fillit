@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 19:56:28 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/10 16:14:02 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 14:39:20 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	*get_coord(int x, int y, int form)
 	int	*result;
 
 	result = (int*)malloc(sizeof(int) * 8);
-	c = g_tetr[form];
+	c = g_[form];
 	result[0] = x;
 	result[1] = y;
 	result[2] = x + c[0];
