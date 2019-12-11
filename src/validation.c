@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/08 11:53:13 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/11 19:59:29 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 20:22:07 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,7 @@ int	validation(char *tetr)
 	tmp = ft_strsplit(tetr, '\n');
 	if (check_neig1(tmp) + check_neig2(tmp) < 6)
 	{
-		ft_memdel((void**)tmp);
-		ft_memdel((void**)tetr);
 		return (0);
 	}
-	ft_memdel((void**)tmp);
-	ft_memdel((void**)tetr);
 	return (1);
 }
