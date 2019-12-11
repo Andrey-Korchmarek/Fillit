@@ -31,29 +31,29 @@ void	print(int a, char map[16][17])
 	}
 }
 
-int	check_borders(int y, int x, int a, int *coord)
+int		check_borders(int y, int x, int a, int *coord)
 {
-    if (y + coord[0] >= 0 && y + coord[0] <= a &&
-    y + coord[2] >= 0 && y + coord[2] <= a &&
-    y + coord[4] >= 0 && y + coord[4] <= a &&
-    x + coord[1] >= 0 && x + coord[1] <= a &&
-    x + coord[3] >= 0 && x + coord[3] <= a &&
-    x + coord[5] >= 0 && x + coord[5] <= a)
-        return (1);
-    return (0);
+	if (y + coord[0] >= 0 && y + coord[0] <= a &&
+	y + coord[2] >= 0 && y + coord[2] <= a &&
+	y + coord[4] >= 0 && y + coord[4] <= a &&
+	x + coord[1] >= 0 && x + coord[1] <= a &&
+	x + coord[3] >= 0 && x + coord[3] <= a &&
+	x + coord[5] >= 0 && x + coord[5] <= a)
+		return (1);
+	return (0);
 }
 
-int	check_dots(int y, int x, int *coord, char map[16][17])
+int		check_dots(int y, int x, int *coord, char map[16][17])
 {
 	if (map[y][x] == '.' &&
 	map[y + coord[0]][x + coord[1]] == '.' &&
 	map[y + coord[2]][x + coord[3]] == '.' &&
 	map[y + coord[4]][x + coord[5]] == '.')
 		return (1);
-	return(0);
+	return (0);
 }
 
-int	backtrack(int count, int storage[26][2], char map[16][17], int a)
+int		backtrack(int count, int storage[26][2], char map[16][17], int a)
 {
 	int x;
 	int y;
