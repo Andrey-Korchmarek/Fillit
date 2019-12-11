@@ -6,13 +6,13 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/25 14:09:14 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/11 14:18:57 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/11 14:40:37 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		check_borders(int y, int x, int a, int *coord)
+int		b(int y, int x, int a, int *coord)
 {
 	if (y + coord[0] >= 0 && y + coord[0] <= a &&
 	y + coord[2] >= 0 && y + coord[2] <= a &&
@@ -24,7 +24,7 @@ int		check_borders(int y, int x, int a, int *coord)
 	return (0);
 }
 
-int		check_dots(int y, int x, int *coord, char map[16][17])
+int		d(int y, int x, int *coord, char map[16][17])
 {
 	if (map[y][x] == '.' &&
 	map[y + coord[0]][x + coord[1]] == '.' &&
@@ -42,35 +42,29 @@ void	clean_map(char map[16][17], int y, int x, int *coord)
 	map[y + coord[4]][x + coord[5]] = '.';
 }
 
-int		backtrack(int count, int storage[26][2], char map[16][17], int a)
+int		backtrack(int count, int id[26][2], char map[16][17], int a)
 {
 	int x;
 	int y;
-	int *coord;
 
-	y = 0;
-	coord = g_tetr[storage[0][0]];
-	if (!count)
+	if (!(y = 0) && !count)
 		return (1);
-	while (y <= a)
+	while (y <= a && ++y)
 	{
 		x = 0;
-		while (x <= a)
+		while (x <= a && ++x)
 		{
-			if (check_borders(y, x, a, coord) && check_dots(y, x, coord, map))
+			if (b(y - 1, x - 1, a, g_[**id]) && d(y - 1, x - 1, g_[**id], map))
 			{
-				map[y][x] = storage[0][1];
-				map[y + coord[0]][x + coord[1]] = storage[0][1];
-				map[y + coord[2]][x + coord[3]] = storage[0][1];
-				map[y + coord[4]][x + coord[5]] = storage[0][1];
-				if (backtrack(count - 1, ++storage, map, a))
+				map[y - 1][x - 1] = id[0][1];
+				map[y - 1 + g_[**id][0]][x - 1 + g_[**id][1]] = id[0][1];
+				map[y - 1 + g_[**id][2]][x - 1 + g_[**id][3]] = id[0][1];
+				map[y - 1 + g_[**id][4]][x - 1 + g_[**id][5]] = id[0][1];
+				if (backtrack(count - 1, id + 1, map, a))
 					return (1);
-				--storage;
-				clean_map(map, y, x, coord);
+				clean_map(map, y - 1, x - 1, g_[**id]);
 			}
-			++x;
 		}
-		++y;
 	}
 	return (0);
 }
