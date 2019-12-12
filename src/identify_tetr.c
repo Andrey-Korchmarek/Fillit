@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/13 17:08:12 by mashley           #+#    #+#             */
-/*   Updated: 2019/12/11 20:20:51 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/12 12:58:29 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,12 @@ int	identify_tetr(char *tetr)
 				if (tmp[vt[0] + a[4]][vt[1] + a[5]] == '#')
 				{
 					free(vt);
+					ft_memdeltab(tmp);
 					return (i);
 				}
 		i++;
 	}
 	free(vt);
+	ft_memdeltab(tmp);
 	return (-1);
 }

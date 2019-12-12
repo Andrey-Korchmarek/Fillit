@@ -6,7 +6,7 @@
 /*   By: aelphias <aelphias@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/01 15:19:42 by aelphias          #+#    #+#             */
-/*   Updated: 2019/12/11 14:50:05 by aelphias         ###   ########.fr       */
+/*   Updated: 2019/12/12 11:04:04 by aelphias         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,10 @@ void	print(int a, char map[16][17])
 
 int		main(int argc, char **argv)
 {
-	char	map[16][17];
-	int		fd;
 	int		a;
+	int		fd;
 	int		count;
+	char	map[16][17];
 	int		d[26][2];
 
 	count = 0;
